@@ -1,9 +1,9 @@
 <?php
-DEFINE('DB_USER','phpmyadmin');
-DEFINE ('DB_PASSWORD','soil');
-DEFINE('DB_HOST','localhost');
-DEFINE('DB_NAME','CHENWEN');
+DEFINE('DB_USER','phpmyadmin'); //change as required 
+DEFINE ('DB_PASSWORD','soil'); //change as required
+DEFINE('DB_HOST','localhost'); //change as required
+DEFINE('DB_NAME','CHENWEN'); //change as required
 
-//a variable called dadabase connection
+
 $dbc=@mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME) OR die('Could not connect to MySQL'. mysqli_connect_error());
 ?>
