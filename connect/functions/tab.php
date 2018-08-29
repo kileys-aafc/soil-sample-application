@@ -1,4 +1,4 @@
-<?php
+<!--
 /*---------------------------------------------------------------------------------------------------
 This file creates the tabs on webpage
 If name or number of database tables are changed, this file need to be modifided to meet requirements.
@@ -8,7 +8,7 @@ files include this php file are:
 
 ---------------------------------------------------------------------------------------------------*/
 
-?>
+-->
 <div class="tab">
     <button class="tablinks" onclick="openTab(event, 'tabNum1')" id="defaultOpen">General Info</button>
     <button class="tablinks" onclick="openTab(event, 'tabNum2')">Site Info</button>
