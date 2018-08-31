@@ -1,6 +1,11 @@
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 <script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="//cdn.datatables.net/fixedcolumns/3.2.2/js/dataTables.fixedColumns.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"></script>
+
+
+<!-- <script type="text/javascript" src="//cdn.datatables.net/fixedcolumns/3.2.2/js/dataTables.fixedColumns.min.js"></script> -->
 <script type="text/javascript"> 
 $(document).ready(function(){	
     
@@ -157,16 +162,22 @@ $('#myTable tfoot th').each( function () {
 				} );
 			} );
 		} );
-    </script>
-        
-    </head>
-
+</script>
 <?php
 
 function build_query_table($response,$response2,$response3,$response4,$response5,$response6){
-    echo "<div id=\"dataTableWrap\">";
-    
-    echo '<div id="tabNum1" class="tabcontent">';
+
+    echo '<div class="row justify-content-center mb-5 row"> 
+    <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#sampleTableResults"  aria-expanded="false" aria-controls="sampleTableResults">Sample Results</button>
+    <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#siteTableResults"  aria-expanded="false" aria-controls="siteTableResults">Site Results</button> 
+    <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#physicalTableResults"  aria-expanded="false" aria-controls="physicalTableResults">Physical Results</button>
+    <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#chemicalTableResults"  aria-expanded="false" aria-controls="chemicalTableResults">Chemical Results</button>
+    <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#biomeTableResults"  aria-expanded="false" aria-controls="biomeTableResults">Biome Results</button>
+    <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#spectralTableResults"  aria-expanded="false" aria-controls="spectralTableResults">Spectral Results</button>
+    </div>';
+
+    echo '<div id="sampleTableResults" class="row collapse show">';
+
     if($response){
 //-----------------------check if RECORDS EXIST-------------------------------    
         if(mysqli_num_rows($response)>0){  
@@ -242,7 +253,7 @@ function build_query_table($response,$response2,$response3,$response4,$response5
 
 
 //----------------------tab 2  [site_info table]    
-     echo '<div id="tabNum2" class="tabcontent">';
+     echo '<div id="siteTableResults" class="collapse">';
     if($response2){
        if(mysqli_num_rows($response2)>0){  
 
@@ -306,7 +317,7 @@ function build_query_table($response,$response2,$response3,$response4,$response5
    
     
 //----------------------tab 3  [physical table]
-   echo '<div id="tabNum3" class="tabcontent">';
+   echo '<div id="physicalTableResults" class="collapse">';
     if($response3){
        if(mysqli_num_rows($response3)>0){  
             echo '
@@ -376,7 +387,7 @@ function build_query_table($response,$response2,$response3,$response4,$response5
 
 
 //----------------------------tab 4 [chemical table]
-    echo '<div id="tabNum4" class="tabcontent">';
+    echo '<div id="chemicalTableResults" class="collapse">';
     if($response4){
        if(mysqli_num_rows($response4)>0){  
     //-----------------------RECORDS EXIST-------------------------------    
@@ -434,7 +445,7 @@ function build_query_table($response,$response2,$response3,$response4,$response5
     
 //----------------------------------tab 5 [soil biome table]
     
-    echo '<div id="tabNum5" class="tabcontent">';
+    echo '<div id="biomeTableResults" class="collapse">';
     if($response5){
        if(mysqli_num_rows($response5)>0){  
     //-----------------------RECORDS EXIST-------------------------------    
@@ -485,7 +496,7 @@ function build_query_table($response,$response2,$response3,$response4,$response5
     
     
 //------------------------------------tab6 [soil spectral table]
-      echo '<div id="tabNum6" class="tabcontent">';
+      echo '<div id="spectralTableResults" class="collapse">';
     if($response6){
        if(mysqli_num_rows($response6)>0){  
     //-----------------------RECORDS EXIST-------------------------------    

@@ -1,34 +1,21 @@
-
-
 <?php include '../index.php';?>
-
 <main role="main" class="container">
-
-
     <div>
         <p class="h2 text-center font-weight-bold">Query Sample Database</p>
-        <p class="text-center text-muted py-2" >To query samples, select a field to start</p>
+        <p class="text-center text-muted py-2" >To query samples, select a table to start</p>
     </div>
-
-
-<div class="row justify-content-center"> 
-    <button class="btn btn-info mx-2" type="button" data-toggle="collapse" data-target="#sampleTable"  aria-expanded="false" aria-controls="sampleTable">Sample Table</button>
-    <button class="btn btn-info mx-2" type="button" data-toggle="collapse" data-target="#siteTable"  aria-expanded="false" aria-controls="siteTable">Site Table</button> 
-    <button class="btn btn-info mx-2" type="button" data-toggle="collapse" data-target="#physicalTable"  aria-expanded="false" aria-controls="physicalTable">Physical Table</button>
-    <button class="btn btn-info mx-2" type="button" data-toggle="collapse" data-target="#chemicalTable"  aria-expanded="false" aria-controls="chemicalTable">Chemical Table</button>
-    <button class="btn btn-info mx-2" type="button" data-toggle="collapse" data-target="#biomeTable"  aria-expanded="false" aria-controls="biomeTable">Biome Table</button>
-    <button class="btn btn-info mx-2" type="button" data-toggle="collapse" data-target="#spectralTable"  aria-expanded="false" aria-controls="spectralTable">Spectral Table</button>
-</div>
-
-
-<hr class="mb-4">
-
-
-
+    <div class="row justify-content-center"> 
+        <button class="btn btn-info mx-2" type="button" data-toggle="collapse" data-target="#sampleTable"  aria-expanded="false" aria-controls="sampleTable" onclick="hideResults()">Query Sample Table</button>
+        <button class="btn btn-info mx-2" type="button" data-toggle="collapse" data-target="#siteTable"  aria-expanded="false" aria-controls="siteTable" onclick="hideResults()">Query Site Table</button> 
+        <button class="btn btn-info mx-2" type="button" data-toggle="collapse" data-target="#physicalTable"  aria-expanded="false" aria-controls="physicalTable" onclick="hideResults()">Query Physical Table</button>
+        <button class="btn btn-info mx-2" type="button" data-toggle="collapse" data-target="#chemicalTable"  aria-expanded="false" aria-controls="chemicalTable" onclick="hideResults()">Query Chemical Table</button>
+        <button class="btn btn-info mx-2" type="button" data-toggle="collapse" data-target="#biomeTable"  aria-expanded="false" aria-controls="biomeTable" onclick="hideResults()">Query Biome Table</button>
+        <button class="btn btn-info mx-2" type="button" data-toggle="collapse" data-target="#spectralTable"  aria-expanded="false" aria-controls="spectralTable" onclick="hideResults()">Query Spectral Table</button>
+    </div>
+    <hr class="mb-4">
     <div class="row justify-content-center align-items-center">
-        
-        
-            <form id="sampleTable" action="queryinfo_sample.php" method="post" class="collapse">
+               
+            <form id="sampleTable" action="" method="post"  class="collapse">
                 <div class="form-group">
                     <label for="selectSample">Query Sample Table</label>
                     <select class="form-control" id="selectSample" name="field"><!-- here the name is used as a variable in next php page -->
@@ -46,11 +33,10 @@
                     <label for="inputSample">Where value is</label>  
                     <input required type="text" name="answer" id="inputSample"  placeholder="Exact value" class="form-control"/>
                 </div>
-                <button type="submit" class="btn btn-success mb-2">Query</button>        
+                <button name="submitSample" type="submit" class="btn btn-success mb-2" data-toggle="collapse" data-target="#querySampleResults"  aria-expanded="false" aria-controls="SampleResults">Query</button>        
             </form>
-        
-            
-       
+           
+                              
             <form id="siteTable" class="collapse" action="get_site_info.php" method="post">
                 <div class="form-group">
                     <label for="selectSiteField">Query Site Table</label>
@@ -157,6 +143,9 @@
                 <input type="submit" value="Query" class="btn btn-success mb-2"/>
             </form>   
              
+    </div>
+    <div id="querySampleResults" class="container">                
+        <?php include 'query_functions/query_sample_id.php'?>
     </div>    
     
 </main>
@@ -164,9 +153,19 @@
 
 <!-- Script to collapse any opened buttons -->
 <script>
-jQuery('button').click( function(e) {
-jQuery('.collapse').collapse('hide');
-});
+    jQuery('button').click( function(e) {
+    jQuery('.collapse').collapse('hide');
+    });
+</script>
+
+<!-- Script to collapse results buttons -->
+<script>
+function hideResults() {
+    var x = document.getElementById("querySampleResults");
+    {
+        x.style.display = "none";
+    }
+}
 </script>
 
 </html>
