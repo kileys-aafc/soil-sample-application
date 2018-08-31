@@ -43,12 +43,8 @@
       </button>
       <div class="navbar-collapse collapse" id="navbarsExampleDefault" style="">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Query Samples</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/query/querySample.php">Query Samples</a>
-              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/query/query_site.php">Query Sites</a>
-            </div>
+          <li class="nav-item">         
+            <a class="nav-link" href="http://<?php echo $host ?>/soil/connect/query/querySample.php">Query Samples</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle"  id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage Samples</a>
