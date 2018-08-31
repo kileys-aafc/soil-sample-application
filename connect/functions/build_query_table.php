@@ -1,4 +1,4 @@
-<html>
+<!-- <html>
     <head>
     <style>
     
@@ -33,7 +33,7 @@
             border: 2px solid #b9baaa;
             background: #c8c8c0;
         }
-    </style>
+    </style> -->
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <script type="text/javascript"          src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
@@ -578,4 +578,4 @@ function build_query_table($response,$response2,$response3,$response4,$response5
 }
 ?>
 
-   </html>
+<!--   </html> -->
