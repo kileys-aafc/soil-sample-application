@@ -1,67 +1,39 @@
 
-    <?php
-    include '../index.php'; 
-    ?>
-<html>
 
-    
-<head>    
-    <title>Query Sample Info</title>
-    <style>
-    
-    #query_selection{
-        padding-top: 15px;
-        padding-left: 50px;
-        line-height: 2.5;    
-    }
-    
-    select[name=field]{
-         height:28pt;
-        width:250px;
-    }
+<?php include '../index.php';?>
 
-    input[type = submit]{
-        padding:7px 18px;
-         float: right;
-        background: #a9a033;
-        border-radius: 4px;
-        border: 2pt solid #a9a633; 
-        color:#373d38;
-        margin: 10px; 
-        height: 28pt;
-    }
-    
-</style>
-    
-</head>
-    
-    
-<body>
-     <div class="page-subtitle">
-        <p class="big-2" style="width:100%;"><b>Query Sample Info</b></p>
-        <p class="big-2" style="width:100%;"><small><i>To query samples, select a field to start</i></small></p>
+<main role="main" class="container">
+
+
+    <div>
+        <p class="h2 text-center font-weight-bold">Query Sample Database</p>
+        <p class="text-center text-muted py-2" >To query samples, select a field to start</p>
     </div>
-    <div class="page-main-content">
+
+
+<div class="row justify-content-center"> 
+    <button class="btn btn-info mx-2" type="button" data-toggle="collapse" data-target="#sampleTable"  aria-expanded="false" aria-controls="sampleTable">Sample Table</button>
+    <button class="btn btn-info mx-2" type="button" data-toggle="collapse" data-target="#siteTable"  aria-expanded="false" aria-controls="siteTable">Site Table</button> 
+    <button class="btn btn-info mx-2" type="button" data-toggle="collapse" data-target="#physicalTable"  aria-expanded="false" aria-controls="physicalTable">Physical Table</button>
+    <button class="btn btn-info mx-2" type="button" data-toggle="collapse" data-target="#chemicalTable"  aria-expanded="false" aria-controls="chemicalTable">Chemical Table</button>
+    <button class="btn btn-info mx-2" type="button" data-toggle="collapse" data-target="#biomeTable"  aria-expanded="false" aria-controls="biomeTable">Biome Table</button>
+    <button class="btn btn-info mx-2" type="button" data-toggle="collapse" data-target="#spectralTable"  aria-expanded="false" aria-controls="spectralTable">Spectral Table</button>
+</div>
+
+
+<hr class="mb-4">
+
+
+
+    <div class="row justify-content-center align-items-center">
         
-        <?php
-            include '../functions/tab.php';
-        ?>
-
-
-
-        <div id="tabNum1" class="tabcontent">
-                <form action = "queryinfo_sample.php" method = "post">
-                <div id="query_selection">
-                 <table border = "0">
-
-                <tr>
-
-                    <td>Select General Info to Query:</td>
-                    <td>                    
-                    <select name = "field">
-                    <!here the name is used as a variable in next php page_>
-                        <option value = "">-Please Select-</option>
-                        <option value = "sample_id">Sample ID(assigned)</option>
+        
+            <form id="sampleTable" action="queryinfo_sample.php" method="post" class="collapse">
+                <div class="form-group">
+                    <label for="selectSample">Query Sample Table</label>
+                    <select class="form-control" id="selectSample" name="field"><!-- here the name is used as a variable in next php page -->
+                        <option hidden>Select Field</option>
+                        <option value = "sample_id">Sample ID</option>
                         <option value = "site_num">Site Number</option>
                         <option value = "field_id">Field ID</option>
                         <option value = "site_type">Site Type</option>
@@ -69,67 +41,43 @@
                         <option value = "lab_num">Lab Number</option>
                         <option value = "zone">Zone of Storage</option>    
                     </select>
-                    </td>
-                </tr> 
-
-                <tr>
-                    <td>Where field matches (exact):</td>  
-                    <td align="center"><input required type = "text" name = "answer" size = "30" /></td>
-                </tr>    
-
-                <tr>
-                    <td colspan="2" align="center"><input type = "submit" value = "Submit"/></td>
-                    <!colspan ------ width of the button__>
-                    <!value is the texting showing on the button___>
-                </tr>
-
-                </table>   
-                </div>        
-                </form>
-            </div>
-
-
-        <div id="tabNum2" class="tabcontent">
-            <form action = "queryinfoSite.php" method = "post">
-             <div id="query_selection">
-                 <table border = "0">       
-                    <tr>
-                        <td>Select Site Info to Query:</td>
-                        <td>
-                            <select name = "field">       
-                            <option value = "">-Please Select-</option>
-                            <option value = "site_num">Site NO.</option>
-                            <option value = "site_prov">Site Province</option>                 
-                            </select>
-                        </td>
-                    </tr> 
-
-                    <tr>
-                        <td>Where field matches (exact):</td>  
-                        <td align="center"><input required type = "text" name = "answer" size = "30" /></td>
-                    </tr>    
-
-                    <tr>
-                        <td colspan="2" align="center"><input type = "submit" value = "Submit"/></td>
-                    </tr>
-                 </table>   
-            </div>
-            </form>   
-        </div>
-
-
-        <div id="tabNum3" class="tabcontent">
-            <form action = "queryinfoPhysical.php" method = "post">
-             <div id="query_selection">
-                 <table border = "0">       
-                    <tr>
-                        <td>Select Physical Info to Query:</td>
-                        <td>
-                            <select name = "field">
-                            <!here the name is used as a variable in next php page_>
-                            <option value = "">-Please Select-</option>
+                </div>
+                <div class="form-group">
+                    <label for="inputSample">Where value is</label>  
+                    <input required type="text" name="answer" id="inputSample"  placeholder="Exact value" class="form-control"/>
+                </div>
+                <button type="submit" class="btn btn-success mb-2">Query</button>        
+            </form>
+        
+            
+       
+            <form id="siteTable" class="collapse" action="get_site_info.php" method="post">
+                <div class="form-group">
+                    <label for="selectSiteField">Query Site Table</label>
+                    <select name="siteInfoField" class="form-control" id="selectSiteField">       
+                        <option hidden>Select Field</option>
+                        <option value = "site_num">Site Number</option>
+                        <option value = "site_prov">Site Province</option>
+                        <option value = "site_name">Site Name</option>
+                        <option value = "all"> Show All Records</option>
+                   </select>
+                </div>          
+                <div class="form-group">
+                    <label for="inputSite">Where value is</label> 
+                    <input type="text" name="siteQueryAnswer" id="inputSite" placeholder="Exact value" class="form-control"/>
+                </div>
+                <input type="submit" value="Query" class="btn btn-success mb-2"/>
+            </form>
+                   
+        
+        
+            <form id="physicalTable" class="collapse" action="queryinfoPhysical.php" method="post">
+                <div class="form-group">
+                    <label for="selectPhysicalField">Query Physical Table</label>
+                        <select name="field" id="selectPhysicalField" class="form-control">
+                            <option hidden>Select Field</option>
                             <option value = "LAB">LAB</option>
-                            <option value = "SMPL_ID">Sample ID(assigned)</option>
+                            <option value = "SMPL_ID">Sample ID</option>
                             <option value = "LOCATION">LOCATION</option>
                             <option value = "DEPTH">DEPTH</option>                 
                             <option value = "CLAY">Clay</option>                 
@@ -139,127 +87,86 @@
                             <option value = "SAND_M">Sand M</option>                 
                             <option value = "SAND_F">Sand F</option>                 
                             <option value = "SAND_VF">Sand VF</option>                 
-                            </select>
-                        </td>
-                    </tr> 
-
-                    <tr>
-                            <td>Where field matches (exact):</td>  
-                            <td align="center"><input required type = "text" name = "answer" size = "30" /></td>
-                    </tr>       
-
-                    <tr>
-                        <td colspan="2" align="center"><input type = "submit" value = "Submit"/></td>
-                    </tr>
-                </table>   
-            </div>        
-            </form>    
-        </div>
-
-
-        <div id="tabNum4" class="tabcontent">
-            <form action = "queryinfoChemical.php" method = "post">
-             <div id="query_selection">
-                 <table border = "0">       
-                    <tr>
-                    <td>Select Physical Info to Query:</td>
-                    <td>
-                        <select name = "field">
-                        <!here the name is used as a variable in next php page_>
-                        <option value = "">-Please Select-</option>
-                        <option value = "ORG_MTR">ORG_MTR</option>
-                        <option value = "CEC">CEC</option>
-                        <option value = "BUFFER_PH">BUFFER_PH</option>
-                        <option value = "PER_K">PER_K</option>                 
-                        <option value = "PER_MG">PER_MG</option>                 
-                        <option value = "PER_CA">PER_CA</option>                 
-                        <option value = "PER_NA">PER_NA</option>                 
                         </select>
-                    </td>
-                    </tr> 
-
-                    <tr>
-                        <td>Where field matches (exact):</td>  
-                        <td align="center"><input required type = "text" name = "answer" size = "30" /></td>
-                    </tr>    
-
-                    <tr>
-                        <td colspan="2" align="center"><input type = "submit" value = "Submit"/></td>
-                    </tr>
-             </table>   
-            </div> 
+                </div>        
+                <div class="form-group">         
+                    <label for="inputPhysical">Where value is</label>  
+                        <input required type="text" name="answer" id="inputPhysical" placeholder="Exact value" class="form-control"/>
+                </div>
+                <input type="submit" value="Query" class="btn btn-success mb-2"/>
+            </form>
+                
+              
+            <form id="chemicalTable" class="collapse" action="queryinfoChemical.php" method="post">
+                <div class="form-group">
+                    <label for="selectChemicalField">Query Chemical Table</label>
+                        <select name="field" id="selectChemicalField" class="form-control">
+                            <option hidden>Select Field</option>
+                            <option value = "ORG_MTR">ORG_MTR</option>
+                            <option value = "CEC">CEC</option>
+                            <option value = "BUFFER_PH">BUFFER_PH</option>
+                            <option value = "PER_K">PER_K</option>                 
+                            <option value = "PER_MG">PER_MG</option>                 
+                            <option value = "PER_CA">PER_CA</option>                 
+                            <option value = "PER_NA">PER_NA</option>                 
+                        </select>
+                </div>    
+                <div class="form-group">
+                    <label for="inputChemical">Where value is</label>  
+                        <input required type="text" name="answer" id="inputChemical"  placeholder="Exact value" class="form-control"/>
+                </div>
+                <input type="submit" value="Query" class="btn btn-success mb-2"/>
             </form>   
-        </div>
-
-
-        <div id="tabNum5" class="tabcontent">
-            <form action = "queryinfoBiome.php" method = "post">
-             <div id="query_selection">
-                 <table border = "0">       
-                    <tr>
-                    <td>Select Soil Biome Info to Query:</td>
-                        <td>
-                            <select name = "field">
-                                <!here the name is used as a variable in next php page_>
-                                <option value = "">-Please Select-</option>
-                                <option value = "biome01">biome01</option>
-                                <option value = "biome02">biome02</option>
-                                <option value = "biome03">biome03</option>
-                                <option value = "biome04">biome04</option>
-                                <option value = "biome05">biome05</option>
-                                <option value = "biome06">biome06</option>
-                            </select>
-                        </td>
-                    </tr> 
-
-                    <tr>
-                    <td>Where field matches (exact):</td>  
-                    <td align="center"><input required type = "text" name = "answer" size = "30" /></td>
-                    </tr>    
-
-                    <tr>
-                        <td colspan="2" align="center"><input type = "submit" value = "Submit"/></td>
-                    </tr>
-                </table>   
-            </div>        
+                     
+            
+            <form id="biomeTable" class="collapse" action="queryinfoBiome.php" method="post">
+                <div class="form-group">
+                    <label for="selectBiomeField">Query Biome Table</label>
+                        <select class="form-control" name="field" id="selectBiomeField">
+                            <option hidden>Select Field</option>
+                            <option value = "biome01">biome01</option>
+                            <option value = "biome02">biome02</option>
+                            <option value = "biome03">biome03</option>
+                            <option value = "biome04">biome04</option>
+                            <option value = "biome05">biome05</option>
+                            <option value = "biome06">biome06</option>
+                        </select>
+                </div> 
+                <div class=form-group>
+                    <label for="selectBiomeField">Where value is</label>  
+                        <input required type="text" name="answer" id="selectBiomeField" placeholder="Exact value" class="form-control"/>
+                </div>
+                <input type="submit" value="Query" class="btn btn-success mb-2"/>
+            </form>
+                
+         
+            <form id="spectralTable" class="collapse" action="queryinfoSpectral.php" method="post">
+                <div class="form-group">
+                    <label for="selectSpectralField">Query Spectral Table</label>
+                        <select class="form-control" name="field" id="selectSpectralField" >
+                            <option hidden>Select Field</option>
+                            <option value = "spectral01">spectral01</option>
+                            <option value = "spectral02">spectral02</option>
+                            <option value = "spectral03">spectral03</option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="inputSpectral">Where value is</label>
+                    <input required type="text" name="answer" id="inputSpectral" placeholder="Exact value" class="form-control"/>
+                </div>
+                <input type="submit" value="Query" class="btn btn-success mb-2"/>
             </form>   
-        </div>
-
-
-        <div id="tabNum6" class="tabcontent">
-    <form action = "queryinfoSpectral.php" method = "post">
-    <div id="query_selection">
-         <table border = "0">       
-            <tr>
-            <td>Select Soil Spectral Info to Query:</td>
-                <td>
-                    <select name = "field">
-                        <!here the name is used as a variable in next php page_>
-                        <option value = "">-Please Select-</option>
-                        <option value = "spectral01">spectral01</option>
-                        <option value = "spectral02">spectral02</option>
-                        <option value = "spectral03">spectral03</option>
-                    </select>
-                </td>
-            </tr> 
-
-            <tr>
-            <td>Where field matches (exact):</td>  
-            <td align="center"><input required type = "text" name = "answer" size = "30" /></td>
-            </tr>    
-
-            <tr>
-                <td colspan="2" align="center"><input type = "submit" value = "Submit"/></td>
-            </tr>
-        </table>   
-    </div>        
-    </form>   
-</div>
-    </div>
+             
+    </div>    
+    
+</main>
 </body>
-    
-    
+
+<!-- Script to collapse any opened buttons -->
 <script>
-     document.getElementById("defaultOpen").click();
+jQuery('button').click( function(e) {
+jQuery('.collapse').collapse('hide');
+});
 </script>
+
 </html>
