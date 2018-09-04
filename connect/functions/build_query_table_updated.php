@@ -7,167 +7,86 @@
 
 <!-- <script type="text/javascript" src="//cdn.datatables.net/fixedcolumns/3.2.2/js/dataTables.fixedColumns.min.js"></script> -->
 <script type="text/javascript"> 
-$(document).ready(function(){	
-    
-$('#myTable tfoot th').each( function () {
-    var title = $(this).text();
-    $(this).html( '<input type="text" style="width:100%" placeholder="Search" />' );
-} );
-            
+//Sample Results Table
+$(document).ready(function(){           
+var table = $('#myTable').DataTable({
+    "columnDefs": [{
+        "targets": '_all',
+        "searchable": false
+        }],
+    "searching": false,
+    "lengthChange": false
+    });
+});   
         
-    var table = $('#myTable').DataTable();
+        
+// SITE INFO TABLE
+$(document).ready(function(){           
+var table = $('#myTable2').DataTable({
+    "columnDefs": [{
+        "targets": '_all',
+        "searchable": false
+        }],
+    "searching": false,
+    "lengthChange": false
+    });
+}); 	
+        
+// PHYSICAL TABLE
+$(document).ready(function(){           
+var table = $('#myTable3').DataTable({
+    "columnDefs": [{
+        "targets": '_all',
+        "searchable": false
+        }],
+    "searching": false,
+    "lengthChange": false
+    });
+});
 
-    table.columns().every( function () 
-    {   
-        var that = this;
+// CHEMICAL TABLE
+$(document).ready(function(){           
+var table = $('#myTable4').DataTable({
+    "columnDefs": [{
+        "targets": '_all',
+        "searchable": false
+        }],
+    "searching": false,
+    "lengthChange": false
+    });
+});
 
-        $( 'input', this.footer() ).on( 'keyup change', function () 
-        {
-            if ( that.search() !== this.value ) 
-            {
-                that
-                    .search( this.value )
-                    .draw();
-            }
-        } );
-    } );
-} );   
+// SOIL BIOME TABLE
         
+$(document).ready(function(){           
+var table = $('#myTable5').DataTable({
+    "columnDefs": [{
+        "targets": '_all',
+        "searchable": false
+        }],
+    "searching": false,
+    "lengthChange": false
+    });
+});
         
-        //---------------------------------2. SITE INFO TABLE
-        $(document).ready(function(){			
-			$('#myTable2 tfoot th').each( function () {
-				var title = $(this).text();
-				$(this).html( '<input type="text" style="width:100%" placeholder="Search" />' );
-			} );	
-           
-            
-			var table = $('#myTable2').DataTable();
- 
-			table.columns().every( function () 
-			{
-				var that = this;
- 
-				$( 'input', this.footer() ).on( 'keyup change', function () 
-				{
-					if ( that.search() !== this.value ) 
-					{
-						that
-							.search( this.value )
-							.draw();
-					}
-				} );
-			} );
-		} );	
+// SOIL-SPECTRAL TABLE
         
-        //---------------------------------3. PHYSICAL TABLE
-
-        $(document).ready(function(){			
-			$('#myTable3 tfoot th').each( function () {
-				var title = $(this).text();
-				$(this).html( '<input type="text" style="width:100%" placeholder="Search" />' );
-			} );	
-            
-			var table = $('#myTable3').DataTable();
- 
-			table.columns().every( function () 
-			{
-				var that = this;
- 
-				$( 'input', this.footer() ).on( 'keyup change', function () 
-				{
-					if ( that.search() !== this.value ) 
-					{
-						that
-							.search( this.value )
-							.draw();
-					}
-				} );
-			} );
-		} );
-                //---------------------------------4.CHEMICAL TABLE
-
-        $(document).ready(function(){			
-			$('#myTable4 tfoot th').each( function () {
-				var title = $(this).text();
-				$(this).html( '<input type="text" style="width:100%" placeholder="Search" />' );
-			} );	
-            
-			var table = $('#myTable4').DataTable();
- 
-			table.columns().every( function () 
-			{
-				var that = this;
- 
-				$( 'input', this.footer() ).on( 'keyup change', function () 
-				{
-					if ( that.search() !== this.value ) 
-					{
-						that
-							.search( this.value )
-							.draw();
-					}
-				} );
-			} );
-		} );
-           
-        //---------------------------------5. SOIL BIOME TABLE
-        
-        $(document).ready(function(){			
-			$('#myTable5 tfoot th').each( function () {
-				var title = $(this).text();
-				$(this).html( '<input type="text" style="width:100%" placeholder="Search" />' );
-			} );	
-            
-			var table = $('#myTable5').DataTable();
- 
-			table.columns().every( function () 
-			{
-				var that = this;
- 
-				$( 'input', this.footer() ).on( 'keyup change', function () 
-				{
-					if ( that.search() !== this.value ) 
-					{
-						that
-							.search( this.value )
-							.draw();
-					}
-				} );
-			} );
-		} );
-        
-        //---------------------------------6. SOIL-SPECTRAL TABLE
-        
-        $(document).ready(function(){			
-			$('#myTable6 tfoot th').each( function () {
-				var title = $(this).text();
-				$(this).html( '<input type="text" style="width:100%" placeholder="Search" />' );
-			} );	
-            
-			var table = $('#myTable6').DataTable();
- 
-			table.columns().every( function () 
-			{
-				var that = this;
- 
-				$( 'input', this.footer() ).on( 'keyup change', function () 
-				{
-					if ( that.search() !== this.value ) 
-					{
-						that
-							.search( this.value )
-							.draw();
-					}
-				} );
-			} );
-		} );
+$(document).ready(function(){           
+var table = $('#myTable6').DataTable({
+    "columnDefs": [{
+        "targets": '_all',
+        "searchable": false
+        }],
+    "searching": false,
+    "lengthChange": false
+    });
+});
 </script>
 <?php
 
 function build_query_table($response,$response2,$response3,$response4,$response5,$response6){
 
-    echo '<div class="row justify-content-center mb-5 row"> 
+    echo '<div class="row justify-content-center mb-3 row"> 
     <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#sampleTableResults"  aria-expanded="false" aria-controls="sampleTableResults">Sample Results</button>
     <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#siteTableResults"  aria-expanded="false" aria-controls="siteTableResults">Site Results</button> 
     <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#physicalTableResults"  aria-expanded="false" aria-controls="physicalTableResults">Physical Results</button>
@@ -183,7 +102,7 @@ function build_query_table($response,$response2,$response3,$response4,$response5
         if(mysqli_num_rows($response)>0){  
 //-----------------------print out the table head roll----------Please modify if add/delete fields---------------   
             echo '
-            <table id="myTable" >
+            <table id="myTable" class="table table-striped" >
             <thead>
             <tr>
             <th>Sample ID</th>
@@ -222,23 +141,6 @@ function build_query_table($response,$response2,$response3,$response4,$response5
             }
 //-----------------------print out table foot----------Please modify if add/delete fields---------------   
            echo"</tbody>
-               <tfoot>
-                    <tr>
-                        <th>Sample ID</th>
-                        <th>Site Number</th>        
-                        <th>Field ID</th>
-                        <th>Site Type</th>
-                        <th>Year</th>
-                        <th>Sample Number</th>
-                        <th>Lab Number</th>
-                        <th>Zone</th>
-                        <th>Shelf</th>
-                        <th>Level</th>
-                        <th>Row</th>
-                        <th>Box</th>
-                        <th>Barcode (Lab NO.)</th>
-                    </tr>
-               </tfoot>
            </table>";
         }else{
             echo "<table><tr><td>Could not issue database query. Records does not exist in sample Table!</td></tr></table>";
@@ -250,8 +152,6 @@ function build_query_table($response,$response2,$response3,$response4,$response5
     echo'</div>';
 
 
-
-
 //----------------------tab 2  [site_info table]    
      echo '<div id="siteTableResults" class="collapse">';
     if($response2){
@@ -259,7 +159,7 @@ function build_query_table($response,$response2,$response3,$response4,$response5
 
     //-----------------------RECORDS EXIST-------------------------------    
             echo '
-            <table id="myTable2" >
+            <table id="myTable2" class="table table-striped" >
             <thead>
             <tr class="header" >
                 <th>Sample ID</th>
@@ -292,18 +192,7 @@ function build_query_table($response,$response2,$response3,$response4,$response5
 
 
 
-           echo"</tbody><tfoot><tr>  
-                <th>Sample ID</th>
-                <th>site Number</th>
-                <th>Site Name</th>
-                <th>Province</th>
-                <th>Location Lat</th>
-                <th>Location Lon</th>
-                <th>Size (ha)</th>
-                <th>Year Est.</th>
-                <th>Ecologital Setting</th>
-            </tr>";
-        echo '</tfoot></table>';
+           echo"</tbody></table>";
 
     
        }else{
@@ -321,7 +210,7 @@ function build_query_table($response,$response2,$response3,$response4,$response5
     if($response3){
        if(mysqli_num_rows($response3)>0){  
             echo '
-            <table id="myTable3" >
+            <table id="myTable3" class="table table-striped">
                 <thead>
                     <tr>
 
@@ -358,21 +247,7 @@ function build_query_table($response,$response2,$response3,$response4,$response5
             }
 
 
-           echo"</tr></tbody><tfoot><tr>
-                <th>SAMP_ID</th>
-                <th>LAB</th>
-                <th>LOCATION</th>
-                <th>DEPTH</th>
-                <th>Sand</th>
-                <th>Clay</th>
-                <th>Silt</th>
-                <th>Sand_VC</th>
-                <th>Sand_C</th>
-                <th>Sand_M</th>
-                <th>Sand_F</th>
-                <th>Sand_VF</th>
-           </tr>";
-        echo '</tfoot></table>';
+           echo"</tr></tbody></table>";
 
 
        
@@ -392,7 +267,7 @@ function build_query_table($response,$response2,$response3,$response4,$response5
        if(mysqli_num_rows($response4)>0){  
     //-----------------------RECORDS EXIST-------------------------------    
             echo '
-            <table id="myTable4">
+            <table id="myTable4" class="table table-striped">
                 <thead>
                     <tr>
                     <th>Sample ID </th>
@@ -419,17 +294,7 @@ function build_query_table($response,$response2,$response3,$response4,$response5
        }
 
 
-           echo"</tr></tbody><tfoot><tr>
-                <th>Sample ID </th>
-                    <th>ORG_MTR</th>
-                    <th>CEC</th>
-                    <th>BUFFER_PH</th>
-                    <th>PER_K</th>
-                    <th>PER_MG</th>
-                    <th>PER_CA</th>
-                    <th>PER_NA</th>
-                    </tr>";
-        echo '</tfoot></table>';
+           echo"</tr></tbody></table>";
 
 
        
@@ -445,12 +310,12 @@ function build_query_table($response,$response2,$response3,$response4,$response5
     
 //----------------------------------tab 5 [soil biome table]
     
-    echo '<div id="biomeTableResults" class="collapse">';
+    echo '<div id="biomeTableResults" class="collapse" >';
     if($response5){
        if(mysqli_num_rows($response5)>0){  
     //-----------------------RECORDS EXIST-------------------------------    
             echo '
-            <table id="myTable5">
+            <table id="myTable5" class="table table-striped">
                 <thead>
                     <tr>
                     <th>Sample ID </th>
@@ -475,16 +340,7 @@ function build_query_table($response,$response2,$response3,$response4,$response5
             }
 
 
-           echo"</tr></tbody><tfoot><tr>
-                <th>Sample ID </th>
-                    <th>Biome01</th>
-                    <th>Biome02</th>
-                    <th>Biome03</th>
-                    <th>Biome04</th>
-                    <th>Biome05</th>
-                    <th>Biome06</th>             
-            </tr>";
-        echo '</tfoot></table>';
+           echo"</tr></tbody>></table>";
        } else{
            echo "<table><tr><td>Could not issue database query. Records does not exist in soil biome table!</td></tr></table>";
        }
@@ -501,7 +357,7 @@ function build_query_table($response,$response2,$response3,$response4,$response5
        if(mysqli_num_rows($response6)>0){  
     //-----------------------RECORDS EXIST-------------------------------    
             echo '
-            <table id="myTable6">
+            <table id="myTable6" class="table table-striped">
                 <thead>
                     <tr>
                     <th>Sample ID </th>
@@ -521,14 +377,7 @@ function build_query_table($response,$response2,$response3,$response4,$response5
             }
 
 
-           echo"</tr></tbody><tfoot><tr>
-
-            <th>Sample ID </th>
-                    <th>Spectral01</th>
-                    <th>Spectral02</th>
-                    <th>Spectral03</th>            
-           </tr>";
-        echo '</tfoot></table>';
+           echo"</tr></tbody></table>";
        } else{
            echo "<table><tr><td>Could not issue database query. Records does not exist in soil spectral table!</td></tr></table>";
        }
