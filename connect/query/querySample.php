@@ -1,3 +1,4 @@
+<head><title>Query Samples</title></head>
 <?php include '../index.php';?>
 <main role="main" class="container">
     <div>
