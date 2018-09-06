@@ -1,5 +1,7 @@
-<?php include 'index.php';?>    
 
+
+<?php include 'index.php';?>    
+<head><link href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/soil/connect/css/main-template.css" rel="stylesheet"></head>
 <main role="main" class="container">
 
 <section class="jumbotron text-center">
