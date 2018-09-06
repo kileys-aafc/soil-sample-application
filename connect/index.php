@@ -20,13 +20,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="http://<?php echo $host ?>/soil/connect/images/soil-filled.png">
 
-    <title>Soil Sample Mangement</title>
+    <!--<title>Soil Sample Mangement</title>-->
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="http://<?php echo $host ?>/soil/connect/css/main-template.css" rel="stylesheet">
+    <link href="http://<?php echo $host ?>/soil/connect/css/site-template.css" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
@@ -60,7 +60,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdown03">
               <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/about/about.php">Storage System</a>
               <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/about/data_structure.php">Database Structure</a>
-              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/about/contact.php">Contact</a>
+              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/about/contact.php">Contact Admin</a>
             </div>
           </li>
           <li class="nav-item">
