@@ -3,12 +3,12 @@
 <div class="container">
     <div class="row mb-4">
         <div class="col">
-            <h1 class="display-4">Database Structure</h1>
+            <h1 class="display-4 text-center">Database Structure</h1>
         </div>
     </div>
-    <div class="row">
-        <div class="col-10 ml-1">
-            <p>In this system soil sample data is stored in multiple tables in a MySQL database</p>
+    <div class="row justify-content-center my-4">
+        <div class="col-8">
+            <p>In this system soil sample data is stored in multiple tables in a MySQL database.</p>
             <p>The data model is shown below:</p>
         </div>
     </div>
