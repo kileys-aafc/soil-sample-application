@@ -1,48 +1,28 @@
-<html>
-<?php
-    include '../index.php';  
-?>
-<head><title>Create Label</title></head>
-<body>
-<style>
-  
-    #create-label-query{
-        padding-left: 50px;
-        line-height: 2.5; 
-        width: 60%;
-        float: left;
-        margin-left: 50px;
-    }
-    
-    p{
-        padding-left: 10px;
-        width: 600px;
-    }
-    
-   
-    
-
-</style>
-           
-<form action = "individualLabel.php" method = "post"> 
-    <div id="create-label-query">
-        <p class="big-2"><strong>Find The Sample to Delete</strong></p>  
-        
- 
-     
-       
-    <p>Sample ID.(exact):
-    <input required type = "text" name = "idanswer" size = "30" />
-    </p>
-    
-     <p>
-        <input type = "submit" value = "Find This Sample"/>
-     </p>
-     
-     
+<head><title>Create Labels</title></head>
+<?php include '../index.php';?>
+<div class="container">
+    <div class="row mb-5">
+        <div class="col">
+            <h1 class="display-4 text-center">Print Sample Labels</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <p class="text-muted pb-2">To print labels, first search a sample to print</p>
+            <form action="" method="post"> 
+                <div id="create-label-query" class="form-group">
+                    <label for="sampleID">Sample ID</label>  
+                    <input required class="form-control" type="text" name="sampleID" placeholder="Enter Sample ID">
+                </div>
+                <input type="submit" class="btn btn-primary" data-toggle="collapse" data-target="#labelResults"  aria-expanded="false" aria-controls="labelResults">
+            </form>
+        </div>
+    </div>
 </div>        
-</form> 
+
+<div id="labelResults" class="container ">                
+    <?php include 'individualLabel.php'?>
+</div>
+
 </body>
-
-
 </html>

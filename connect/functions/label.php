@@ -7,28 +7,26 @@ files include this php file are:
 ../add/sample_added.php
 ../update/update3.php
 --------------------------------------------------------------------------------->
-<div class="with-label-clms Label" id="labelPrint">
-    <p align="center"><strong>Soil Sample System</strong></p>
-   
-    <?php
+<?php
+    
+    
     if(isset($row['lab_num'])){
     //---------if the label is created from (../label/individualLabel.php)
-        echo'<p>Lab NO.: '.$row['lab_num'].'</p>';
-        echo'
-        <p>Storage: '.$row['zone'].'-'.$row['shelf'].'-'.$row['level'].'-'.$row['row'].'-'.$row['box']. '</p>';
-        echo'
-        <p>Zone: '.$row['zone'].'     Shelf: '.$row['shelf'].'     Level: '.$row['level'].'     Row: '.$row['row'].'     Box: '.$row['box'].'</p>';          
-        echo $img;
+        echo '<p>Sample ID: <strong>'.$row['sample_id'].'</strong></p>';
+        echo $img;    
+        echo'<p>Zone: <strong>'.$row['zone'].' </strong></p>
+             <p>Shelf: <strong>'.$row['shelf'].' </strong> Level: <strong>'.$row['level'].'</strong></p>
+             <p>Row: <strong>'.$row['row'].' </strong> Box: <strong>'.$row['box'].'</strong></p>';          
         mysqli_close($dbc);        
-    }else{
+    }
+
+    else{
     //---------if the label is created from (../add/sample_added.php) or (../update/update3.php)
+        
+        echo '<p>'.$img.'</p>';
         echo'<p>Lab NO.: '.$lab_num.'</p>';
         echo'<p>Storage: '.$zone.'-'.$shelf.'-'.$level.'-'.$rowrow.'-'.$box. '</p>';
         echo'<p>Zone: '.$zone.'     Shelf: '.$shelf.'     Level: '.$level.'     Row: '.$rowrow.'     Box: '.$box.'</p>';
-         $img = "<img src=\"https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=".$lab_num."&choe=UTF-8\" title=\""."Lab Number"."\" />";  
-        echo $img;
-}
+        $img = "<img src=\"https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=".$lab_num."&choe=UTF-8\" title=\""."Lab Number"."\" />";
+    }
 ?>
-    <p >Contact: Xiaoyuan Geng | xiaoyuan.geng@agr.gc.ca</p>
-        
-</div>
