@@ -1,35 +1,22 @@
-<html>
-<?php
- include '../index.php';  
-?>
 <head><title>About The System</title></head>
- 
-<body>
-    
-    
-    <div class="page-subtitle">
-        <p class="big-2" style="width:100%;"><strong>About this System</strong></p>
-    </div>
-        
-    <div class="page-main-content">  
-        <div class = "about_page aboutleft">   
-            <img id = "danceImg" src = "../images/storageImage.jpg" height="100%"><br>
-            
-            <p style='font-size:11pt'>
-                <?php      
-                echo "Last Update: " . date ("F d Y.",filemtime("about.php"));           
-            ?>
-            </p>
+<?php include '../index.php'; ?>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="display-4">About this System</p>
         </div>
-        
-        <div class = "about_page aboutright">   
+    </div>
+    <div class="row">  
+        <div class="col">
             <p>The Soil Sample Management System is designed to organize the soil samples in storage room and manage sample data in designed database. Users can add new data, update existing sample data and query sample data.</p>
-            <br>
-            
-            <p>The image on the left is a diagram of the designed  storage room and corresponding storage hierarchy.</p>
-        </div>
-        
+            <p>The image on the left is a diagram of the designed storage room and corresponding storage hierarchy.</p>
+        </div>    
     </div>
-</body>
-    
+    <div class="row">
+        <div class="col">
+            <img class="img-fluid" src="../images/storageImage.jpg">
+        </div>
+    </div>
+</div>
+</body>    
 </html>
