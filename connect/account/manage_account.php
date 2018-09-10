@@ -8,8 +8,8 @@
             document.getElementById('message').className="text-success";
             document.getElementById('message').innerHTML="Passwords Match";
             document.getElementById('updatePassword').disabled=false;   
-
-        }else{
+        }
+        else{
             document.getElementById('message').className="text-danger";
             document.getElementById('message').innerHTML="Passwords don't match!";
             document.getElementById('updatePassword').disabled=true;   
