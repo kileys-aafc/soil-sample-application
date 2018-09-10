@@ -1,91 +1,44 @@
-<html>
-<?php
-    include '../index.php';  
-?>
-<head><title>Change Password</title>
-    <style>
-    
-    
-    
-    input[type = text], input[type = submit]{
-        height:28pt;
-        width: 200px;
-        float: right;
-    }
-       
-    input[type = submit]{
-
-        background: #a9a033;
-        border-radius: 4px;
-        border: 2pt solid #a9a633; 
-        color:#373d38;
-    }
- 
-   #apply_to_admin,#change_password{
-        font-size: 13pt;
-        padding-left: 50px;
-        line-height: 2.5; 
-        width: 60%;
-        float: left;
-        /*
-        border-bottom: 2pt solid #a9a633; 
-        */
-        margin-left: 50px;
-
-    }
-        p{
-            padding-left: 10px;
-            width: 700px;
-        }
-    
-</style>   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        var check=function(){
-            if(document.getElementById('password').value == document.getElementById('confirm_password').value){
-                document.getElementById('message').style.color='green';
-                document.getElementById('message').innerHTML="Password Match.";
-                document.getElementById('updatePassword').disabled=false;   
-
-            }else{
-                document.getElementById('message').style.color='red';
-                document.getElementById('message').innerHTML="Passwords Not Match.";
-                document.getElementById('updatePassword').disabled=true;   
-            }
-        }
-    </script>
-</head>
-
+<head><title>Change Account Password</title></head>
+<?php include '../index.php'; ?>
   
-<body>
-        
-    <div id="change_password" style="width:60%;">
-        <p class="big-2"><strong>Change Password</strong></p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    var check=function(){
+        if(document.getElementById('password').value == document.getElementById('confirm_password').value){
+            document.getElementById('message').className="text-success";
+            document.getElementById('message').innerHTML="Passwords Match";
+            document.getElementById('updatePassword').disabled=false;   
 
-        <form action = "password_changed.php" method = "post"> 
-    
-                <p>Your Username:
-                <input required type ="text" value = "<?php echo  $_SESSION['username'] ?>" readonly="readonly" />
-                </p>
+        }else{
+            document.getElementById('message').className="text-danger";
+            document.getElementById('message').innerHTML="Passwords don't match!";
+            document.getElementById('updatePassword').disabled=true;   
+        }
+    }
+</script>
 
-                <p>New Password:
-                <input required type ="text" name="password"  id="password" value = "" />
-                </p>
-
-                <p>Re-type New Password:
-                <input required type ="text" name="confirm_password"  value = ""   id="confirm_password" onkeyup="check();"/>
-            </p>
+<main role="main" class="container">
+<h2 class="text-center">Change Password</h2>   
+<div class="container">
+    <div class="row justify-content-center my-4">
+        <div class="col-4">
+            <form action="password_changed.php" method="post">
+                <div class="form-group"> 
+                    <p>Username: <strong><?php echo  $_SESSION['username'] ?></strong></p>
+                    <label for="password">New Password:</label>
+                    <input class="form-control" required type="text" name="password"  id="password" value="">
+                </div>    
+                <div class="form-group">
+                    <label for="confirm_password">Re-type Password:</label>
+                    <input class="form-control" required type="text" name="confirm_password"  value=""   id="confirm_password" onkeyup="check();">
+                </div>             
+            <p><span class="" id="message"></span></p>
+            <input class="btn btn-primary mt-2" type="submit" name="updatePassword" id="updatePassword" value="Update Now">
             
-               
-        
-        <p>
-            <input type = "submit" name = "updatePassword" id="updatePassword" value = "Update Now"/>           
-        </p>
-            <p>
-                <span id="message"></span>
-            </p>
-        </form>
+            </form>
+        </div>
     </div>
+</div>
     
    
     <?php
@@ -101,6 +54,6 @@
            </div>';
           }
     ?>
-      
+</main>      
 </body>   
 </html>
