@@ -1,4 +1,4 @@
-<html>
+<head><title>Delete Sample Data</title></head>
 <?php
      include '../index.php';  
     include("../functions/redirect_homepage.php");
@@ -6,61 +6,22 @@
     include("../functions/check_admin.php");
     require '../dbConnect.php';
     check_admin();
-    
 ?>
-<head><title>Delete Sample Data</title></head>
-<body>
-<style>
-  
-    #delete-record{
-         font-size: 13pt;
-        padding-left: 50px;
-        line-height: 2.5; 
-        width: 60%;
-        float: left;
-        margin-left: 50px;    
-    }
-    
-    p{
-        width: 600px;
-        padding-left: 10px;
-    }
-    
-   input[type = text]{
-        height:28pt;
-        width: 200px;
-        float: right;
-    }
-       
-    input[type = submit]{
-        padding:7px 18px;
-         float: right;
-        background: #a9a033;
-        border-radius: 4px;
-        border: 2pt solid #a9a633; 
-        color:#373d38;
-        margin: 10px; 
-    }
 
-</style>
-           
-<form action = "delete2.php" method = "post">  
- <div id="delete-record">
-     <p class="big-2"><strong>Find The Sample to Delete</strong></p>  
-     <p class="big-2" style="width:800px;"><small><i>Sample ID is the primary identification of a sample that does not change.</i></small></p> 
-       
-    <p>Sample ID.(exact):
-    <input required type = "text" name = "idanswer" size = "30" />
-    </p>
-    
-     <p>
-        <input type = "submit" value = "Find This Sample"/>
-     </p>
-     
-     
-</div>        
-</form> 
+<main role="main" class="container">
+<h1 class="display-4 text-center">Delete Samples</h1>
+<div class="container">
+    <div class="row justify-content-center my-4">
+        <div class="col-4">          
+            <form action="delete2.php" method="post">  
+                <div class="form-group" id="delete-record">      
+                    
+                    <input required class="form-control mt-4" type="text" name="idanswer" placeholder="Enter Sample ID">
+                </div>
+                <input class="btn btn-primary" type="submit" value="Find This Sample">
+            </form>
+        </div>
+    </div>
+</div> 
 </body>
-
-
 </html>
