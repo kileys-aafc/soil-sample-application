@@ -26,11 +26,11 @@
                 <div class="form-group"> 
                     <p>Username: <strong><?php echo  $_SESSION['username'] ?></strong></p>
                     <label for="password">New Password:</label>
-                    <input class="form-control" required type="text" name="password"  id="password" value="">
+                    <input class="form-control" required type="password" name="password"  id="password" value="">
                 </div>    
                 <div class="form-group">
                     <label for="confirm_password">Re-type Password:</label>
-                    <input class="form-control" required type="text" name="confirm_password"  value=""   id="confirm_password" onkeyup="check();">
+                    <input class="form-control" required type="password" name="confirm_password"  value=""   id="confirm_password" onkeyup="check();">
                 </div>             
             <p><span class="" id="message"></span></p>
             <input class="btn btn-primary mt-2" type="submit" name="updatePassword" id="updatePassword" value="Update Now">
