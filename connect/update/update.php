@@ -1,6 +1,6 @@
 <html>
 <?php
-    include '/var/www/html/soil/connect/index.php';
+    include '../index.php';
 ?>
 
 <head><title>Update Sample</title></head>
