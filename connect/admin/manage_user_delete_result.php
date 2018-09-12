@@ -6,31 +6,7 @@
         check_admin($_SESSION['username']);
     ?>
  <head><title>Soil Sample Added</title></head> 
-     <style>
-#delete_user_result{
-         font-size: 13pt;
-        padding-left: 50px;
-        line-height: 2.5; 
-        width: 60%;
-        float: left;
-        border-bottom: 2pt solid #a9a633; 
-        margin-left: 50px;
-    }
 
-
-     button{            
-        background: #a9a033;
-        padding:10px 24px;
-        font-weight:600;
-        width:300px;
-        border-radius: 12px;
-        border: 2pt solid #a9a633; 
-        color:#373d38;
-        margin: 10px;
-        }
-        
-    
-     </style>
   
     
     <body>
@@ -48,7 +24,10 @@
            $responseDelete = @mysqli_query($dbc,$queryDelete);
 
             if($responseDelete){ 
-                echo "Deleted</br>";
+                echo '<p class="h5 mt-4 text-center">User '.$delete_username2.' Deleted</p>
+                <div class="row justify-content-center py-2"><a href="/soil/connect/admin/manage_user.php"><button class="btn btn-primary" id="myButton" >Return</button></a>
+                </div>';
+
               }else{
                 echo "RESPONSE SHOW DELETE FAIL</br>
                 ERROR: Could not issue database query</br>";

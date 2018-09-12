@@ -1,31 +1,19 @@
-<html>
+<head><title>User Created</title></head>
 <?php
     include '../index.php';  
-    include("../functions/redirect_homepage.php");
+    //include("../functions/redirect_homepage.php");
     include("../functions/check_admin.php");
     require '../dbConnect.php';
     check_admin();
 ?>
-    <head><title>Manage User Result</title></head>
+<div class="container">
+    <p class="display-4 text-center mb-5">Manage Users</p>
+    <div class="row justify-content-center">
+        <div class="col-sm-4 my-2">
 
- 
-    
-   
- 
-
-<body>
-    <div class="page-subtitle">
-        <p class="big-1" style="width:100%;">Manage User Result</p>
-    </div>
-    <div class="page-main-content">   
-        
-        
-     
-
-    
 <?php
     if(isset($_POST['add_user'])){
-        echo'<div  id = "add_user_result">';
+        echo'<div id="add_user_result">';
         $add_username=$_POST['add_username'];
         $add_password=$_POST['add_password'];
         $add_admin=$_POST['add_admin'];
@@ -35,7 +23,7 @@
         
         if($responseKey){
             if(mysqli_num_rows($responseKey)>0){  
-                echo "Error! Record with Sample ID.<b>".$add_username."</b> already exist!";
+                echo '<p class="text-center py-2"><strong class="text-danger">Error!</strong> Username <strong>'.$add_username.'</strong> already exist!</p>';
             }else{
                 $queryInsertBasic="INSERT INTO `users` (`username`,`password`, `admin`) VALUES (?,?,?)";
                 $stmtInsertBasic = mysqli_prepare($dbc, $queryInsertBasic);                
@@ -43,22 +31,28 @@
                 mysqli_stmt_execute($stmtInsertBasic);
                 $affected_rows_Base=mysqli_stmt_affected_rows($stmtInsertBasic);                                
                 if($affected_rows_Base==1){
-                    echo"
-                    <div class='sub-col left01'>
-                    <b>New User Information</b></br>
-                    <p class='align-left'>Username: </p>  
-                    <p class='align-right'>".$add_username."</p>
-                    </br>
-                    <p class='align-left'>Temporary Password: </p>  
-                    <p class='align-right'>".$add_password."</p>
-                    </br>
-                    <p class='align-left'>Admin? (1 as yes and 0 as no): 
-                    </p><p class='align-right'>".$add_admin."</p>
-                    </br>
-                    </div>";            
+                                       
+                    echo'   <p class="lead">New User Information</p>
+                            <table class="table table-secondary table-striped table-bordered table-sm">
+                                <tbody>
+                                    <tr>
+                                        <th>Username</th>
+                                        <td>'.$add_username.'</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Temporary Password</th>
+                                        <td>'.$add_password.'</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Admin?</th>
+                                        <td>'.$add_admin.'</td>
+                                    </tr>                                    
+                                </tbody>
+                            </table>';
+
                     mysqli_stmt_close($stmtInsertBasic);                   
                 }else{
-                    echo "error Occors. No users has been added.Please check the MySQL database.</br>";
+                    echo "ERROR! No users have been added. Please check the MySQL database.</br>";
                     echo mysqli_error();
                     }    
             }            
@@ -67,18 +61,19 @@
         } 
         //mysqli_close($dbc);   
     echo'
-        <button onclick="history.go(-1);" class="float-left submit-button" id="myButton" >Manage Users</button>
         </div>
+        <div class="row justify-content-center py-2"><button onclick="history.go(-1);" class="btn btn-primary" id="myButton" >Return</button>
+        </div></div></div>
     ';
     }
 ?>
-    </div> 
+     
 
    
         <form action="manage_user_delete_result.php" method="post">
     <?php
             if(isset($_POST['delete_user_submit'])){
-                echo ' <div  id="delete_user_query">';
+                
                 $delete_username=$_POST['delete_username'];
 
                 $queryDeleteUser = "SELECT * FROM users WHERE username ='$delete_username'";
@@ -87,18 +82,21 @@
                     if(mysqli_num_rows($response)>0){
                         if ($row = mysqli_fetch_array($response)){  
                             echo '<input type ="hidden" name="delete_username"  value = "'.$delete_username.'" />';
-                            echo"
-                            <p class='align-left'>Username : </p>  
-                            <p class='align-right'>".$row['username']."</p></br>
-                            <p class='align-left'>Password :    </p>  
-                            <p class='align-right'>".$row['password']."</p></br>
-                            <p class='align-left'>Admin (1 as yes, 0 as no): </p>
-                            <p class='align-right'>".$row['admin']."</p></br>
-                            <p class='align-left'>User ID: </p> 
-                            <p class='align-right'>".$row['user_id']."</p></br>
-                            "; 
-
-                            echo'<input type = "submit" name = "delete_now" value = "Yes, Delete this user"/>';
+                            echo'
+                            <table class="table table-secondary table-striped table-bordered table-sm">
+                                <tbody>
+                                    <tr>
+                                        <th>Username</th>
+                                        <td>'.$row['username'].'</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Admin</th>
+                                        <td>'.$row['admin'].'</td>
+                                    </tr>
+                                </tbody>
+                            </table>';
+                            
+                            echo'<input class="btn btn-danger mt-3" type="submit" name="delete_now" value="Yes, Delete this user"/></div>';
                         }
                     }else{
                         echo'
@@ -110,52 +108,13 @@
                 echo '</div>';
             }
             else{
-            redirect_homepage();
+            //redirect_homepage();
         }
     ?>
 
         </form>
         
        
-       
+</div>       
 </body>
- <style>
-  #add_user_result,#delete_user_query,#delete_user_result,#user_to_admin_result{
-         font-size: 13pt;
-        padding-left: 50px;
-        line-height: 2.5; 
-        width: 60%;
-        float: left;
-        border-bottom: 2pt solid #a9a633; 
-        margin-left: 50px;
-    }
-
-    
-   input[type = text], input[type = submit],select{
-        height:28pt;
-        width: 200px;
-        float: right;
-    }
-       
-    input[type = submit]{
-
-        background: #a9a033;
-        border-radius: 4px;
-        border: 2pt solid #a9a633; 
-        color:#373d38;
-    }
-
-     button{            
-        background: #a9a033;
-        padding:10px 24px;
-        font-weight:600;
-        width:300px;
-        border-radius: 12px;
-        border: 2pt solid #a9a633; 
-        color:#373d38;
-        margin: 10px;
-        }
-        
-    
-     </style>
 </html>

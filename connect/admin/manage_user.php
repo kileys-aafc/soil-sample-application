@@ -1,4 +1,4 @@
-<html>
+<head><title>Manage User Accounts</title>
 <?php
     include '../index.php';  
     include("../functions/redirect_homepage.php");
@@ -7,90 +7,47 @@
     require '../dbConnect.php';
     check_admin();
 ?>
-<head><title>Manage Users</title>
-    
-    <style>
-  
-    #add_user,#delete_user,#user_to_admin{
-         font-size: 13pt;
-        padding-left: 50px;
-        line-height: 2.5; 
-        width: 60%;
-        float: left;
-        border-bottom: 2pt solid #a9a633; 
-        margin-left: 50px;
 
-    }
-
-    
-   input[type = text], input[type = submit],select{
-        height:28pt;
-        width: 200px;
-        float: right;
-    }
-       
-    input[type = submit]{
-
-        background: #a9a033;
-        border-radius: 4px;
-        border: 2pt solid #a9a633; 
-        color:#373d38;
-    }
-
-</style>
-    </head>
-<body>
-
-
-    
-<form action = "manage_user_result.php" method = "post">  
-     <div id="add_user">
-         <p ><strong>Add a New User:</strong></p>  
-         <p><small><i>User's information includes the username, password and ...</i></small></p> 
-
-        <p>User Name:
-        <input required type = "text" name = "add_username" size = "30" />
-        </p>
-        <p>Temprary Password:
-        <input required type = "text" name = "add_password" size = "30" />
-        </p>
-         
-         
-          <p>User Type:
-           <select  required name="add_admin" style='width:200px;'>
-                <option value="">-Please Select-</option>
-                 <option value = "1">Admin User</option>
-                 <option value = "0">Non-Admin User</option>
-            </select>
-        </p>
-         
-         
+<div class="container">
+    <div class="row justify-content-center">
+        <h1 class="display-4">Manage Users</h1>
+    </div>
+    <hr class="mb-4"> 
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <h5 class="mb-4"><strong>Create New User</strong></h5>
+            <form action="manage_user_result.php" method="post">  
+                <div class="form-group">  
+                    <label for="add_username">Username</label>
+                    <input class="form-control" required type="text" name="add_username" />
+                </div>
+                <div class="form-group">
+                    <label for="add_password">Temporary Password</label>
+                    <input class="form-control" required type="text" name="add_password" />
+                </div>
+                <div class="form-group">
+                    <label for="add_admin">User Privileges</label>
+                    <select class="form-control" required name="add_admin">
+                        <option value="" hidden placeholder="Please Select"></option>
+                        <option value = "1">Admin</option>
+                        <option value = "0">Non-Admin</option>
+                    </select>
+                </div>
+                <input class="btn btn-primary" type="submit" name="add_user" value="Add New User"/>   
+            </form>
+        </div>
+        <div class="col-4" id="delete_user">
+            <h5 class="mb-4"><strong>Delete User</strong></h5>  
+            <form action = "manage_user_result.php" method = "post">  
+                <div class="form-group">  
+                    <label for="delete_username">Username</label>
+                    <input class="form-control" required type="text" name="delete_username" />
+                </div>
+                <input class="btn btn-danger" type="submit" name="delete_user_submit" value="Delete User" />
+            </form>
+        </div>        
         
-        <p>
-        <input type = "submit" name="add_user" value = "Add New User"/>
-        </p>   
-    </div>        
-</form> 
-    
-<form action = "manage_user_result.php" method = "post">  
-     <div id="delete_user">
-         <p><strong>Delete an Existing User:</strong></p>  
-         <p><small><i>User's information includes the username, password and ...</i></small></p> 
-
-         <p>User Name:
-         <input required type = "text" name = "delete_username" size = "30" />
-         </p>
-         
-         <p>
-         <input type = "submit" name="delete_user_submit" value = "Delete This User"/>
-         </p>   
-    </div>        
-</form> 
-    
-    
-
-    
+    </div> 
+</div>    
 </body>
-
-
 </html>
