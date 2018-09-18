@@ -26,7 +26,7 @@ files include this php file are:
     echo "
         <div class='sub-col left02'>
         <b>Physical Info</b></br>
-        <p class='align-left'>LAB: </p>  <p class='align-right'>".$LAB_Phy."</p></br>
+        <p class='align-left'>LAB: </p>  <p class='align-right'>".$LAB."</p></br>
         <p class='align-left'>SMPL ID:  </p>  <p class='align-right'>".$SMPL_ID."</p></br>
         <p class='align-left'>Location: </p>  <p class='align-right'>".$LOCATION."</p></br>
         <p class='align-left'>Depth:    </p>  <p class='align-right'>".$DEPTH."</p></br>

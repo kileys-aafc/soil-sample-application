@@ -7,30 +7,7 @@ include '../index.php';
  <head>
      <title>Soil Sample Added</title>
     
-    <style>
-  
-     button{            
-        background: #a9a033;
-        padding:10px 24px;
-        font-weight:600;
-        width:300px;
-        border-radius: 12px;
-        border: 2pt solid #a9a633; 
-        color:#373d38;
-        margin: 10px;
-        }
-        
-    .sub-col{float:left;
-        padding:20px 15px;
-        height: 400px;
-        }
-    
-    .left01,.left02,.left03,.left04{
-        width:18%;
-        margin-right: 2%;
-        }
-        
-     </style>
+
 </head>   
 
 <body>
@@ -56,7 +33,7 @@ include '../index.php';
         $box = $_POST['box'];
 //------physical info from $_POST[] --------
         $SMPL_ID=$_POST['sample_id'];
-        $LAB_Phy=$_POST['LAB_Phy'];      
+        $LAB=$_POST['LAB'];      
         $LOCATION=$_POST['LOCATION'];
         $DEPTH=$_POST['DEPTH'];
         $SAND=$_POST['SAND'];
@@ -110,7 +87,7 @@ include '../index.php';
                     $stmtInsertPhy = mysqli_prepare($dbc, $queryInsertPhy);                     
                     
                     mysqli_stmt_bind_param($stmtInsertPhy,"ssssssssssss",
-                                           $LAB_Phy,$SMPL_ID,$LOCATION,$DEPTH,$SAND,$CLAY, $SILT,$SAND_VC,$SAND_C,$SAND_M,$SAND_F,$SAND_VF);
+                                           $LAB,$SMPL_ID,$LOCATION,$DEPTH,$SAND,$CLAY, $SILT,$SAND_VC,$SAND_C,$SAND_M,$SAND_F,$SAND_VF);
                     mysqli_stmt_execute($stmtInsertPhy);
                     $affected_rows_Phy=mysqli_stmt_affected_rows($stmtInsertPhy);  
                     if($affected_rows_Phy==1){

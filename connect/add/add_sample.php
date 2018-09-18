@@ -10,7 +10,7 @@
             <!----------General Info---------->
             <div class="col-sm-4 px-5">
                 <h4 class="text-center mb-4">Sample Info</h4>
-                <div class="form-group row ">
+                <div class="form-group row">
                     <label class="col-sm-5 col-form-label" for="sample_id">Sample ID</label>
                     <div class="col-sm-7">
                         <input class="form-control" required type="text" name="sample_id" value= "" />
@@ -131,9 +131,10 @@
             <div class="col-sm-4 px-5">
             <h4 class="text-center mb-4">Physical Info</h4>
                 <div class="form-group row">
-                    <label class="col-sm-4 col-form-label" for="LAB_Phy">LAB</label>
+                    
+                    <label class="col-sm-4 col-form-label" for="LAB">LAB</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="LAB_Phy"/>
+                        <input class="form-control" required type="text" name="LAB"/>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -279,9 +280,9 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-5 col-form-label" for="Soil-Bio 06">Soil-Bio 06</label>
+                    <label class="col-sm-5 col-form-label" for="biome06">Soil-Bio 06</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="Soil-Bio 06"/>
+                        <input class="form-control" required type="text" name="biome06"/>
                     </div>
                 </div>
             </div>
