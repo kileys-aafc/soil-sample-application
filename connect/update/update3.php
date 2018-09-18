@@ -28,7 +28,7 @@
             
         //------physical variables
         $SMPL_ID=$_POST['sample_id'];
-        $LAB_Phy=$_POST['LAB'];
+        $LAB=$_POST['LAB'];
         $LOCATION=$_POST['LOCATION'];
         $DEPTH=$_POST['DEPTH'];
         $SAND=$_POST['SAND'];
@@ -67,8 +67,8 @@
 //-----------------Physical Update Query------------
         $queryUpdate .="
         INSERT INTO physical 
-        ( SMPL_ID, LAB, LOCATION, DEPTH, SAND, CLAY, SILT, SAND_VC, SAND_C, SAND_M, SAND_F, SAND_VF)VALUES        ('$SMPL_ID','$LAB_Phy','$LOCATION','$DEPTH','$SAND','$CLAY','$SILT','$SAND_VC','$SAND_C','$SAND_M','$SAND_F','$SAND_VF')
-        ON DUPLICATE KEY UPDATE LAB='$LAB_Phy',LOCATION='$LOCATION',DEPTH='$DEPTH',SAND='$SAND',CLAY='$CLAY',SILT='$SILT',SAND_VC='$SAND_VC',SAND_C='$SAND_C',SAND_M='$SAND_M',SAND_F='$SAND_F',SAND_VF='$SAND_VF';";
+        ( SMPL_ID, LAB, LOCATION, DEPTH, SAND, CLAY, SILT, SAND_VC, SAND_C, SAND_M, SAND_F, SAND_VF)VALUES        ('$SMPL_ID','$LAB','$LOCATION','$DEPTH','$SAND','$CLAY','$SILT','$SAND_VC','$SAND_C','$SAND_M','$SAND_F','$SAND_VF')
+        ON DUPLICATE KEY UPDATE LAB='$LAB',LOCATION='$LOCATION',DEPTH='$DEPTH',SAND='$SAND',CLAY='$CLAY',SILT='$SILT',SAND_VC='$SAND_VC',SAND_C='$SAND_C',SAND_M='$SAND_M',SAND_F='$SAND_F',SAND_VF='$SAND_VF';";
      
 //-----------------Chemical Update Query------------             
         $queryUpdate .="
@@ -130,43 +130,11 @@
         <button onclick="history.go(-2);" class="float-left submit-button">Start a New Updating</button>
    
     </div> 
-     
-<?php
-    include("../functions/label.php");
-        
-        
-?>
+
     </div>
 
 </body> 
 
     
-    
-    
-<style>
    
-    
-    button{            
-        background: #a9a033;
-        padding:10px 24px;
-        font-weight:600;
-        width:300px;
-        border-radius: 12px;
-        border: 2pt solid #a9a633; 
-        color:#373d38;
-        margin: 10px;
-        }
-        
-    .sub-col{float:left;
-        padding:20px 15px;
-        height: 400px;
-        }
-    
-    .left01,.left02,.left03,.left04{
-        width:18%;
-        margin-right: 2%;
-        }
-        
-    
-</style>   
 </html>

@@ -1,65 +1,27 @@
-<html>
-<?php
-    include '../index.php';
-?>
-
 <head><title>Update Sample</title></head>
-<body>
-<style>
+<?php include '../index.php'; ?>
 
-    #update1-sample{
-        padding-left: 50px;
-        line-height: 2.5; 
-        width: 60%;
-        float: left;
-        margin-left: 50px;
-    }
-    
-    p{
-        padding-left: 10px;
-    }
-    
-   input[type = text]{
-        height:28pt;
-        width: 200px;
-        float: right;
-    }
-       
-    input[type = submit]{
-        padding:7px 18px;
-         float: right;
-        background: #a9a033;
-        border-radius: 4px;
-        border: 2pt solid #a9a633; 
-        color:#373d38;
-        margin: 10px; 
-    }
 
-</style>
-           
-<form action = "update2.php" method = "post">  
-    <div id="update1-sample">
-        <p class="big-2">
-            <strong>Find The Sample to Update</strong>
-        </p> 
-    
-        <p style="width:700px;">
-            <small><i>Sample ID is the primary identification of a sample that does not change.</i></small>
-        </p>
-  
-       
-        <p style="width:600px;">Sample ID.(exact):
-            <input required type = "text" name = "idanswer" size = "30" />
-        </p>
-
-        <p style="width:600px;">
-            <input type = "submit" value = "Update This Sample"/>
-        </p>
-     
+<div class="container">
+    <div class="row mb-5">
+        <div class="col">
+            <h1 class="display-4 text-center">Update Sample</h1>
+        </div>
     </div>
-       
-</form> 
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <p class="text-muted pb-2">To update a sample, search by Sample ID below</p>
+            <form action="update2.php" method="post"> 
+                <div id="create-label-query" class="form-group">
+                    <label for="sampleID">Sample ID</label>  
+                    <input required class="form-control" type="text" name="idanswer" placeholder="Enter Sample ID">
+                </div>
+                <input type="submit" class="btn btn-primary" value="Find Sample"/>
+            </form>
+        </div>
+    </div>
+</div>    
+
+ 
 </body>
-
-
 </html>
