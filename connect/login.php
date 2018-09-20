@@ -98,7 +98,7 @@
       
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       <p class="mt-0 mb-3 text-muted"><?php echo $username_err."</br>".$password_err;?></p>
-      <p class="mt-5 mb-3 text-muted">For assistance <a href="mailto:simon.kiley@agr.gc.ca?Subject=Soil%20Sample%20Application%20Assistance%20Required" target="_top">Contact Us</a></p>
+      <p class="mt-5 mb-3 text-muted">For assistance <a href="mailto:simon.kiley@canada.ca?Subject=Soil%20Sample%20Application%20Assistance%20Required" target="_top">Contact Us</a></p>
     </form>
     
  
