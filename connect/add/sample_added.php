@@ -1,68 +1,68 @@
-<html>
-<?php
-include '../index.php'; 
+<head><title>Soil Sample Added</title></head>
+<?php   include '../index.php'; 
         include("../functions/redirect_homepage.php");
-
 ?>
- <head>
-     <title>Soil Sample Added</title>
-    
 
-</head>   
 
-<body>
-    <div class="page-subtitle">
-        <p class="big-2" style="width:100%;"><strong>Added Sample Result</strong></p>
+<main role="main">
+<div class="container">
+    <div class="row justify-content-center" id="instruction" >
+        <div class="col-6 text-center">
+            <h1 class="display-4">New Sample</h1>
+            <p class="lead my-4">Here is the sample data that was added.</p>  
+        </div> 
     </div>
-    <div class="page-main-content">    
-    <div class="with-label-clms Info" id = "phpQuery">
-<?php
-    if(isset($_POST['submitAdd'])){
-//------basic info from $_POST[] --------
-        $sample_id=$_POST['sample_id'];
-        $site_num = trim($_POST['site_num']);        
-        $field_id = trim($_POST['field_id']);    
-        $site_type = trim($_POST['site_type']);
-        $year = $_POST['year'];
-        $sample_num = trim($_POST['sample_num']);
-        $lab_num=$_POST['lab_num'];
-        $zone = $_POST['zone'];
-        $shelf = $_POST['shelf'];
-        $level = trim($_POST['level']);
-        $rowrow = $_POST['row'];
-        $box = $_POST['box'];
-//------physical info from $_POST[] --------
-        $SMPL_ID=$_POST['sample_id'];
-        $LAB=$_POST['LAB'];      
-        $LOCATION=$_POST['LOCATION'];
-        $DEPTH=$_POST['DEPTH'];
-        $SAND=$_POST['SAND'];
-        $CLAY=$_POST['CLAY'];
-        $SILT=$_POST['SILT'];
-        $SAND_VC=$_POST['SAND_VC'];
-        $SAND_C=$_POST['SAND_C'];
-        $SAND_M=$_POST['SAND_M'];
-        $SAND_F=$_POST['SAND_F'];
-        $SAND_VF=$_POST['SAND_VF'];
-//------chemical info from $_POST[]--------
-        $ORG_MTR=$_POST['ORG_MTR'];
-        $CEC=$_POST['CEC'];
-        $BUFFER_PH=$_POST['BUFFER_PH'];
-        $PER_K=$_POST['PER_K'];
-        $PER_MG=$_POST['PER_MG'];
-        $PER_CA=$_POST['PER_CA'];
-        $PER_NA=$_POST['PER_NA'];  
-//------biome info from $_POST[]--------
-        $biome01=$_POST['biome01'];
-        $biome02=$_POST['biome02'];
-        $biome03=$_POST['biome03'];
-        $biome04=$_POST['biome04'];
-        $biome05=$_POST['biome05'];
-        $biome06=$_POST['biome06'];
-//------spectral info from $_POST[]--------
-        $spectral01=$_POST['spectral01'];
-        $spectral02=$_POST['spectral02'];
-        $spectral03=$_POST['spectral03'];
+    <div class="row">
+    <hr class="mb-4">    
+        
+    
+        <?php
+            if(isset($_POST['submitAdd'])){
+            //------basic info from $_POST[] --------
+                $sample_id=$_POST['sample_id'];
+                $site_num = trim($_POST['site_num']);        
+                $field_id = trim($_POST['field_id']);    
+                $site_type = trim($_POST['site_type']);
+                $year = $_POST['year'];
+                $sample_num = trim($_POST['sample_num']);
+                $lab_num=$_POST['lab_num'];
+                $zone = $_POST['zone'];
+                $shelf = $_POST['shelf'];
+                $level = trim($_POST['level']);
+                $rowrow = $_POST['row'];
+                $box = $_POST['box'];
+            //------physical info from $_POST[] --------
+                $SMPL_ID=$_POST['sample_id'];
+                $LAB=$_POST['LAB'];      
+                $LOCATION=$_POST['LOCATION'];
+                $DEPTH=$_POST['DEPTH'];
+                $SAND=$_POST['SAND'];
+                $CLAY=$_POST['CLAY'];
+                $SILT=$_POST['SILT'];
+                $SAND_VC=$_POST['SAND_VC'];
+                $SAND_C=$_POST['SAND_C'];
+                $SAND_M=$_POST['SAND_M'];
+                $SAND_F=$_POST['SAND_F'];
+                $SAND_VF=$_POST['SAND_VF'];
+            //------chemical info from $_POST[]--------
+                $ORG_MTR=$_POST['ORG_MTR'];
+                $CEC=$_POST['CEC'];
+                $BUFFER_PH=$_POST['BUFFER_PH'];
+                $PER_K=$_POST['PER_K'];
+                $PER_MG=$_POST['PER_MG'];
+                $PER_CA=$_POST['PER_CA'];
+                $PER_NA=$_POST['PER_NA'];  
+            //------biome info from $_POST[]--------
+                $biome01=$_POST['biome01'];
+                $biome02=$_POST['biome02'];
+                $biome03=$_POST['biome03'];
+                $biome04=$_POST['biome04'];
+                $biome05=$_POST['biome05'];
+                $biome06=$_POST['biome06'];
+            //------spectral info from $_POST[]--------
+                $spectral01=$_POST['spectral01'];
+                $spectral02=$_POST['spectral02'];
+                $spectral03=$_POST['spectral03'];
             
         require_once('../dbConnect.php'); 
         $queryKey = "SELECT * FROM sample WHERE sample_id = '$sample_id'";
@@ -72,7 +72,7 @@ include '../index.php';
                 echo "Error! Record with Sample ID.<b>".$sample_id."</b> already exist!";
                 mysqli_close($dbc);   
            }else{
-//-------the input SAMPLE ID is not an existing record, good to enter BASIC INFO
+            //-------the input SAMPLE ID is not an existing record, good to enter BASIC INFO
                 $queryInsertBasic="INSERT INTO `sample` (`sample_id`,`site_num`, `field_id`, `site_type`, `year`, `sample_num`, `lab_num`, `zone`, `shelf`, `level`, `row`, `box` ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
                 $stmtInsertBasic = mysqli_prepare($dbc, $queryInsertBasic);                   
                 
@@ -82,7 +82,7 @@ include '../index.php';
                 mysqli_stmt_execute($stmtInsertBasic);
                 $affected_rows_Base=mysqli_stmt_affected_rows($stmtInsertBasic);                
                if($affected_rows_Base==1){                  
- //add PHYSICAL info-------------------------------------------------------------------------------             
+            //add PHYSICAL info-------------------------------------------------------------------------------             
                     $queryInsertPhy="INSERT INTO physical (`LAB`,`SMPL_ID`, `LOCATION`, `DEPTH`, `SAND`, `CLAY`, `SILT`, `SAND_VC`, `SAND_C`, `SAND_M`, `SAND_F`, `SAND_VF` ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
                     $stmtInsertPhy = mysqli_prepare($dbc, $queryInsertPhy);                     
                     
@@ -92,7 +92,7 @@ include '../index.php';
                     $affected_rows_Phy=mysqli_stmt_affected_rows($stmtInsertPhy);  
                     if($affected_rows_Phy==1){
                         
- //add CHEMICAL info-----------------------------------------------------------                      
+            //add CHEMICAL info-----------------------------------------------------------                      
                         $queryInsertChe="INSERT INTO chemical (`SMPL_ID`, `ORG_MTR`, `CEC`, `BUFFER_PH`, `PER_K`, `PER_MG`, `PER_CA`, `PER_NA`) VALUES (?,?,?,?,?,?,?,?)";
                     
                         $stmtInsertChe = mysqli_prepare($dbc, $queryInsertChe); 
@@ -181,21 +181,11 @@ include '../index.php';
             redirect_homepage();
         }
 ?>
-    <button onclick="history.go(-1);" class="float-left submit-button">Add another Sample</button>
-    </div> 
-        
-    
-   
-        
-
-    
-    
-         <?php
-        
-include("../functions/label.php");
-?>
+    <div class="row justify-content-center">
+        <div class="col-6 text-center">    
+            <button onclick="history.go(-1);" class="btn btn-primary">Back</button>
+        </div>
     </div>
-    
+</div>
 </body>
-
 </html>
