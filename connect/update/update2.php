@@ -52,13 +52,13 @@
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label pr-0" for="field_id">Field ID</label>
                         <div class="col-sm-7">    
-                            <input class= "form-control" required type="text" name="field_id" value="'.$row['field_id'].'" />
+                            <input class= "form-control" type="text" name="field_id" value="'.$row['field_id'].'" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label pr-0" for="site_type">Site Type</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="site_type" value="'.$row['site_type'].'" />
+                            <input class="form-control" type="text" name="site_type" value="'.$row['site_type'].'" />
                         </div>
                     </div>
                     <div class="form-group row">
@@ -77,13 +77,13 @@
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label pr-0" for="sample_num">Sample Number</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="sample_num" value="'.$row['sample_num'].'" />
+                            <input class="form-control" type="text" name="sample_num" value="'.$row['sample_num'].'" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label pr-0" for="lab_num">Lab Number</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="lab_num" value="'.$row['lab_num'].'" />
+                            <input class="form-control" type="text" name="lab_num" value="'.$row['lab_num'].'" />
                         </div>
                     </div>
                     <div class="form-group row">
@@ -153,67 +153,67 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="LAB">Lab</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" value="'.$row_QueryPhy['LAB'].'" name="LAB"/>
+                            <input class="form-control" type="text" value="'.$row_QueryPhy['LAB'].'" name="LAB"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="LOCATION">Location</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" value="'.$row_QueryPhy['LOCATION'].'" name="LOCATION"/>
+                            <input class="form-control" type="text" value="'.$row_QueryPhy['LOCATION'].'" name="LOCATION"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="LOCATION">Depth</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" value="'.$row_QueryPhy['DEPTH'].'" name="DEPTH"/>
+                            <input class="form-control" type="text" value="'.$row_QueryPhy['DEPTH'].'" name="DEPTH"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="SAND">Depth</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" value="'.$row_QueryPhy['SAND'].'" name="SAND"/>
+                            <input class="form-control" type="text" value="'.$row_QueryPhy['SAND'].'" name="SAND"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="CLAY">Clay</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" value="'.$row_QueryPhy['CLAY'].'" name="CLAY"/>
+                            <input class="form-control" type="text" value="'.$row_QueryPhy['CLAY'].'" name="CLAY"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="SILT">Silt</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" value="'.$row_QueryPhy['SILT'].'" name="SILT"/>
+                            <input class="form-control" type="text" value="'.$row_QueryPhy['SILT'].'" name="SILT"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="SAND_VC">SAND_VC</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" value="'.$row_QueryPhy['SAND_VC'].'" name="SAND_VC"/>
+                            <input class="form-control" type="text" value="'.$row_QueryPhy['SAND_VC'].'" name="SAND_VC"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="SAND_C">SAND_C</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" value="'.$row_QueryPhy['SAND_C'].'" name="SAND_C"/>
+                            <input class="form-control" type="text" value="'.$row_QueryPhy['SAND_C'].'" name="SAND_C"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="SAND_M">SAND_M</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" value="'.$row_QueryPhy['SAND_M'].'" name="SAND_M"/>
+                            <input class="form-control" type="text" value="'.$row_QueryPhy['SAND_M'].'" name="SAND_M"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="SAND_F">SAND_F</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" value="'.$row_QueryPhy['SAND_F'].'" name="SAND_F"/>
+                            <input class="form-control" type="text" value="'.$row_QueryPhy['SAND_F'].'" name="SAND_F"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="SAND_VF">SAND_VF</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" value="'.$row_QueryPhy['SAND_VF'].'" name="SAND_VF"/>
+                            <input class="form-control" type="text" value="'.$row_QueryPhy['SAND_VF'].'" name="SAND_VF"/>
                         </div>
                     </div>
                 </div>';
@@ -250,43 +250,43 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="ORG_MTR">ORG_MTR</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="ORG_MTR" value="'.$row_QueryChe['ORG_MTR'].'" />
+                            <input class="form-control" type="text" name="ORG_MTR" value="'.$row_QueryChe['ORG_MTR'].'" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="CEC">CEC</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="CEC" value="'.$row_QueryChe['CEC'].'" />
+                            <input class="form-control" type="text" name="CEC" value="'.$row_QueryChe['CEC'].'" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="BUFFER_PH">BUFFER_PH</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="BUFFER_PH" value="'.$row_QueryChe['BUFFER_PH'].'" />
+                            <input class="form-control" type="text" name="BUFFER_PH" value="'.$row_QueryChe['BUFFER_PH'].'" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="PER_K">PER_K</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="PER_K" value="'.$row_QueryChe['PER_K'].'" />
+                            <input class="form-control" type="text" name="PER_K" value="'.$row_QueryChe['PER_K'].'" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="PER_MG">PER_MG</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="PER_MG" value="'.$row_QueryChe['PER_MG'].'" />
+                            <input class="form-control" type="text" name="PER_MG" value="'.$row_QueryChe['PER_MG'].'" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="PER_CA">PER_CA</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="PER_CA" value="'.$row_QueryChe['PER_CA'].'" />
+                            <input class="form-control" type="text" name="PER_CA" value="'.$row_QueryChe['PER_CA'].'" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="PER_NA">PER_NA</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="PER_NA" value="'.$row_QueryChe['PER_NA'].'" />
+                            <input class="form-control" type="text" name="PER_NA" value="'.$row_QueryChe['PER_NA'].'" />
                         </div>
                     </div>
                 </div>
@@ -323,37 +323,37 @@
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="biome01">Soil-Bio 01</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="biome01" value="'.$row_QueryBio['biome01'].'" />
+                            <input class="form-control" type="text" name="biome01" value="'.$row_QueryBio['biome01'].'" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="biome02">Soil-Bio 02</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="biome02" value="'.$row_QueryBio['biome02'].'" />
+                            <input class="form-control" type="text" name="biome02" value="'.$row_QueryBio['biome02'].'" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="biome03">Soil-Bio 03</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="biome03" value="'.$row_QueryBio['biome03'].'" />
+                            <input class="form-control" type="text" name="biome03" value="'.$row_QueryBio['biome03'].'" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="biome03">Soil-Bio 04</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="biome04" value="'.$row_QueryBio['biome04'].'" />
+                            <input class="form-control" type="text" name="biome04" value="'.$row_QueryBio['biome04'].'" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="biome03">Soil-Bio 05</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="biome05" value="'.$row_QueryBio['biome05'].'" />
+                            <input class="form-control" type="text" name="biome05" value="'.$row_QueryBio['biome05'].'" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="biome04">Soil-Bio 06</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="biome06" value="'.$row_QueryBio['biome06'].'" />
+                            <input class="form-control" type="text" name="biome06" value="'.$row_QueryBio['biome06'].'" />
                         </div>
                     </div>
                 </div>';
@@ -388,19 +388,19 @@
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="spectral01">Spectral 01</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="spectral01" value="'.$row_QuerySpectral['spectral01'].'"/>
+                            <input class="form-control" type="text" name="spectral01" value="'.$row_QuerySpectral['spectral01'].'"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="spectral02">Spectral 02</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="spectral02" value="'.$row_QuerySpectral['spectral02'].'"/>
+                            <input class="form-control" type="text" name="spectral02" value="'.$row_QuerySpectral['spectral02'].'"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="spectral03">Spectral 03</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="spectral03" value="'.$row_QuerySpectral['spectral03'].'"/>
+                            <input class="form-control" type="text" name="spectral03" value="'.$row_QuerySpectral['spectral03'].'"/>
                         </div>
                     </div>
                 </div>

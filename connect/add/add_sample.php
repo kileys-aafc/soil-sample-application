@@ -45,7 +45,7 @@
                 <div class="form-group row">
                     <label class="col-sm-5 col-form-label pr-0" for="site_type">Site Type</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="site_type" value="" />
+                        <input class="form-control"  type="text" name="site_type" value="" />
                     </div>
                 </div>
                 <div class="form-group row">
@@ -62,13 +62,13 @@
                 <div class="form-group row">
                     <label class="col-sm-5 col-form-label pr-0" for="sample_num">Sample Number</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="sample_num" value="" />
+                        <input class="form-control" type="text" name="sample_num" value="" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-5 col-form-label pr-0" for="sample_num">Lab Number</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="lab_num" value="" />
+                        <input class="form-control" type="text" name="lab_num" value="" />
                     </div>
                 </div>
                 <div class="form-group row">
@@ -134,67 +134,67 @@
                     
                     <label class="col-sm-4 col-form-label" for="LAB">LAB</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="LAB"/>
+                        <input class="form-control" type="text" name="LAB"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="LOCATION">Location</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="LOCATION"/>
+                        <input class="form-control"  type="text" name="LOCATION"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="DEPTH">Depth</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="DEPTH"/>
+                        <input class="form-control" type="text" name="DEPTH"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="SAND">Sand</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="SAND"/>
+                        <input class="form-control" type="text" name="SAND"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="CLAY">Clay</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="CLAY"/>
+                        <input class="form-control" type="text" name="CLAY"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="SILT">Silt</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="SILT"/>
+                        <input class="form-control" type="text" name="SILT"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="SAND_VC">Sand_VC</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="SAND_VC"/>
+                        <input class="form-control" type="text" name="SAND_VC"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="SAND_C">Sand_C</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="SAND_C"/>
+                        <input class="form-control" type="text" name="SAND_C"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="SAND_M">Sand_M</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="SAND_M"/>
+                        <input class="form-control" type="text" name="SAND_M"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="SAND_F">Sand_F</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="SAND_F"/>
+                        <input class="form-control" type="text" name="SAND_F"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="SAND_VF">Sand_VF</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="SAND_VF"/>
+                        <input class="form-control" type="text" name="SAND_VF"/>
                     </div>
                 </div>
             </div>
@@ -204,43 +204,43 @@
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="ORG_MTR">ORG_MTR</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="ORG_MTR"/>
+                        <input class="form-control" type="text" name="ORG_MTR"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="CEC">CEC</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="CEC"/>
+                        <input class="form-control" type="text" name="CEC"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="BUFFER_PH">BUFFER_PH</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="BUFFER_PH"/>
+                        <input class="form-control" type="text" name="BUFFER_PH"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="PER_K">PER_K</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="PER_K"/>
+                        <input class="form-control" type="text" name="PER_K"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="PER_MG">PER_MG</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="PER_MG"/>
+                        <input class="form-control" type="text" name="PER_MG"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="PER_CA">PER_CA</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="PER_CA"/>
+                        <input class="form-control" type="text" name="PER_CA"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="PER_NA">PER_NA</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="PER_NA"/>
+                        <input class="form-control" type="text" name="PER_NA"/>
                     </div>
                 </div>
             </div>
@@ -252,37 +252,37 @@
                 <div class="form-group row">
                     <label class="col-sm-5 col-form-label" for="biome01">Soil-Bio 01</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="biome01"/>
+                        <input class="form-control" type="text" name="biome01"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-5 col-form-label" for="biome02">Soil-Bio 02</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="biome02"/>
+                        <input class="form-control" type="text" name="biome02"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-5 col-form-label" for="biome03">Soil-Bio 02</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="biome03"/>
+                        <input class="form-control" type="text" name="biome03"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-5 col-form-label" for="biome04">Soil-Bio 04</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="biome04"/>
+                        <input class="form-control" type="text" name="biome04"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-5 col-form-label" for="biome05">Soil-Bio 05</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="biome05"/>
+                        <input class="form-control" type="text" name="biome05"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-5 col-form-label" for="biome06">Soil-Bio 06</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="biome06"/>
+                        <input class="form-control" type="text" name="biome06"/>
                     </div>
                 </div>
             </div>
@@ -292,19 +292,19 @@
                 <div class="form-group row">
                     <label class="col-sm-5 col-form-label" for="spectral01">Spectral 01</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="spectral01"/>
+                        <input class="form-control" type="text" name="spectral01"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-5 col-form-label" for="spectral02">Spectral 02</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="spectral02"/>
+                        <input class="form-control" type="text" name="spectral02"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-5 col-form-label" for="spectral03">Spectral 03</label>
                     <div class="col-sm-7">
-                        <input class="form-control" required type="text" name="spectral03"/>
+                        <input class="form-control" type="text" name="spectral03"/>
                     </div>
                 </div>
             </div>

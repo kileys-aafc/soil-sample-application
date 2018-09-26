@@ -27,31 +27,31 @@
                 <div class="form-group row no-gutters">
                     <label class="col-sm-4 col-form-label mr-2" for="lat">Site Latitude</label>
                     <div class="col-sm">
-                        <input  class=" form-control form-control-sm" id="lat" type="text"  name="lat_d" maxlength="2"  value="" placeholder="Degrees" />
+                        <input  class=" form-control form-control-sm" required id="lat" type="text"  name="lat_d" maxlength="2"  value="" placeholder="Degrees" />
                     </div>
                     <div class="col-sm">
-                        <input  class="form-control form-control-sm" type="text"  name="lat_m" maxlength="2"  value="" placeholder="Minutes" />
+                        <input  class="form-control form-control-sm" required type="text"  name="lat_m" maxlength="2"  value="" placeholder="Minutes" />
                     </div>
                     <div class="col-sm">
-                        <input  class="form-control form-control-sm" type="text"  name="lat_s" maxlength="2"  value="" placeholder="Seconds" />
+                        <input  class="form-control form-control-sm" required type="text"  name="lat_s" maxlength="2"  value="" placeholder="Seconds" />
                     </div>
                 </div>
                 <div class="form-group row row no-gutters">
                     <label class="col-sm-4 col-form-label mr-2" for="long">Site Longitude</label>
                     <div class="col-sm">
-                        <input  class="form-control form-control-sm" id="long" type="text"  name="lon_d" maxlength="2"  value="" placeholder="Degrees" />
+                        <input  class="form-control form-control-sm" required id="long" type="text"  name="lon_d" maxlength="2"  value="" placeholder="Degrees" />
                     </div>
                     <div class="col-sm">
-                        <input  class="form-control form-control-sm" type ="text"  name="lon_m" maxlength="2"  value = "" placeholder="Minutes" />
+                        <input  class="form-control form-control-sm" required type ="text"  name="lon_m" maxlength="2"  value = "" placeholder="Minutes" />
                     </div>
                     <div class="col-sm">
-                        <input  class="form-control form-control-sm" type ="text"  name="lon_s" maxlength="3"  value = "" placeholder="Seconds" />
+                        <input  class="form-control form-control-sm" required type ="text"  name="lon_s" maxlength="3"  value = "" placeholder="Seconds" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="size_ha">Site Size (ha)</label>
                     <div class="col-sm">
-                        <input class="form-control" required type="text" name="size_ha" maxlength="50" value = "" />
+                        <input class="form-control" type="text" name="size_ha" maxlength="50" value = "" />
                     </div>
                 </div>
                 <div class="form-group row">
@@ -73,7 +73,7 @@
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="ecol_setting">Ecological Setting</label>
                     <div class="col-sm">
-                        <input class="form-control" required type="text" name="ecol_setting" maxlength="50" value = "" />
+                        <input class="form-control" type="text" name="ecol_setting" maxlength="50" value = "" />
                     </div>
                 </div>
                 <div class="text-center"> 
