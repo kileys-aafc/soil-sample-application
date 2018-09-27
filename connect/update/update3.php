@@ -1,15 +1,21 @@
-<html>
+<head><title>Update Sample</title></head>
    
 <?php
     include '../index.php';  
     include("../functions/redirect_homepage.php");
-
 ?>
-<head><title>Update Sample</title></head>
 
-<body>
-    <div class="page-main-content">   
-    <div class="with-label-clms Info" id = "phpQuery">
+
+       
+<div class="container">
+    <div class="row justify-content-center" id="instruction" >
+		<div class="col-6 text-center">
+            <h1 class="display-4">Sample Updated</h1>
+            <p class="lead my-4">Here is the updated sample data.</p>  
+        </div> 
+    </div>
+    <div class="row">
+    <hr class="mb-4">   
 <?php   
         
         if (isset($_POST['updateNow'])){        
@@ -126,15 +132,11 @@
      }
 ?>  
         
-     
-        <button onclick="history.go(-2);" class="float-left submit-button">Start a New Updating</button>
-   
-    </div> 
-
+	<div class="row justify-content-center">
+		<div class="col-6 text-center">    
+			<a href="update.php"><button class="btn btn-primary">Back</button></a>
+		</div>
     </div>
-
-</body> 
-
-    
-   
+</div>
+</body>
 </html>
