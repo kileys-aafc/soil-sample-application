@@ -426,9 +426,8 @@
     }
 ?>
     <div class="row justify-content-center"> 
-        <div class="text-center mt-3 mb-5" name="submit">    
+        <div class="text-center mt-3 mb-5" name="">    
             <input class="btn btn-danger" type="submit" id="updateButton" name="updateNow" value="Update Sample" <?php echo $status ?> />
-            <button class="btn btn-primary ml-3" onclick="history.go(-1);">Search Again</button>
         </div>
     </div>
 </form> 
