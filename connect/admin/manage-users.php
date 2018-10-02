@@ -16,7 +16,7 @@
     <div class="row justify-content-center">
         <div class="col-4">
             <h5 class="mb-4"><strong>Create New User</strong></h5>
-            <form action="manage_user_result.php" method="post">  
+            <form action="manage-user-data.php" method="post">  
                 <div class="form-group">  
                     <label for="add_username">Username</label>
                     <input class="form-control" required type="text" name="add_username" />
@@ -38,7 +38,7 @@
         </div>
         <div class="col-4" id="delete_user">
             <h5 class="mb-4"><strong>Delete User</strong></h5>  
-            <form action = "manage_user_result.php" method = "post">  
+            <form action="manage-user-data.php" method="post">  
                 <div class="form-group">  
                     <label for="delete_username">Username</label>
                     <input class="form-control" required type="text" name="delete_username" />

@@ -25,7 +25,7 @@
 
             if($responseDelete){ 
                 echo '<p class="h5 mt-4 text-center">User <strong>'.$delete_username2.'</strong> Deleted</p>
-                <div class="row justify-content-center mt-4"><a href="/soil/connect/admin/manage_user.php"><button class="btn btn-primary" id="myButton" >Return</button></a>
+                <div class="row justify-content-center mt-4"><a href="/soil/connect/admin/manage-users.php"><button class="btn btn-primary" id="myButton" >Return</button></a>
                 </div>';
 
               }else{

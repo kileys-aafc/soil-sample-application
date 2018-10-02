@@ -70,7 +70,7 @@
      
 
    
-        <form action="manage_user_delete_result.php" method="post">
+        <form action="user-deleted.php" method="post">
     <?php
             if(isset($_POST['delete_user_submit'])){
                 
