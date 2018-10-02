@@ -3,7 +3,7 @@
      include '../nav-template.php';  
     include("../functions/redirect_homepage.php");
    
-    include("../functions/check_admin.php");
+    include("../functions/check-admin.php");
     require '../dbConnect.php';
     check_admin();
 ?>
