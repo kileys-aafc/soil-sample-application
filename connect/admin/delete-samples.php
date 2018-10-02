@@ -13,9 +13,8 @@
 <div class="container">
     <div class="row justify-content-center my-4">
         <div class="col-4">          
-            <form action="delete2.php" method="post">  
+            <form action="delete-sample-data.php" method="post">  
                 <div class="form-group" id="delete-record">      
-                    
                     <input required class="form-control mt-4" type="text" name="idanswer" placeholder="Enter Sample ID">
                 </div>
                 <input class="btn btn-primary" type="submit" value="Find This Sample">

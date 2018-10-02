@@ -18,7 +18,7 @@
     <hr class="mb-4">    
     <div class="row">
         <div class="col-md">
-            <form action="delete3.php" method="post"> 
+            <form action="sample-deleted.php" method="post"> 
             <?php
             if (isset($_POST['idanswer'])){
                 $answer=$_POST['idanswer'];
