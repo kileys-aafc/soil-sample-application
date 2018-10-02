@@ -77,7 +77,7 @@
                     </div>
                 </div>
                 <div class="text-center"> 
-                    <input class="btn btn-primary" type="submit" value="Add New Site"/>
+                    <input class="btn btn-primary" type="submit" name="submitAdd" value="Add New Site"/>
                 </div>
             </form>
         
