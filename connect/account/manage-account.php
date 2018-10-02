@@ -22,7 +22,7 @@
 <div class="container">
     <div class="row justify-content-center my-4">
         <div class="col-4">
-            <form action="password_changed.php" method="post">
+            <form action="password-changed.php" method="post">
                 <div class="form-group"> 
                     <p>Username: <strong><?php echo  $_SESSION['username'] ?></strong></p>
                     <label for="password">New Password:</label>
