@@ -96,7 +96,11 @@
                                 </tbody>
                             </table>';
                             
-                            echo'<input class="btn btn-danger mt-3" type="submit" name="delete_now" value="Yes, Delete this user"/></div>';
+                            echo'
+                                <div class="row justify-content-center">
+                                    <input class="btn btn-danger mt-3" type="submit" name="delete_now" value="Delete User"/></div>
+                                </div>    
+                                    ';
                         }
                     }else{
                         echo'

@@ -24,8 +24,8 @@
            $responseDelete = @mysqli_query($dbc,$queryDelete);
 
             if($responseDelete){ 
-                echo '<p class="h5 mt-4 text-center">User '.$delete_username2.' Deleted</p>
-                <div class="row justify-content-center py-2"><a href="/soil/connect/admin/manage_user.php"><button class="btn btn-primary" id="myButton" >Return</button></a>
+                echo '<p class="h5 mt-4 text-center">User <strong>'.$delete_username2.'</strong> Deleted</p>
+                <div class="row justify-content-center mt-4"><a href="/soil/connect/admin/manage_user.php"><button class="btn btn-primary" id="myButton" >Return</button></a>
                 </div>';
 
               }else{
