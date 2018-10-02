@@ -1,5 +1,5 @@
 <head><title>About The System</title></head>
-<?php include '../index.php'; ?>
+<?php include '../nav-template.php'; ?>
 <div class="container">
     <div class="row">
         <div class="col">

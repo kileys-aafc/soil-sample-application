@@ -56,7 +56,7 @@
     
 <body>
 <?php
-  include '../index.php';  
+  include '../nav-template.php';  
 ?>
     <div  class="page-subtitle">
         <p class="big-1">Query Result<button id = "myButton" style="float:right;">Start a New Query</button><br></p>

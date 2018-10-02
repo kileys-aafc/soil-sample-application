@@ -1,6 +1,6 @@
 <html>
     <?php
-        include '../index.php';  
+        include '../nav-template.php';  
         include("../functions/check_admin.php");
         require '../dbConnect.php';
         check_admin($_SESSION['username']);

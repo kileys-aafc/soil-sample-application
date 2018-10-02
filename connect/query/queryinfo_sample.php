@@ -35,7 +35,7 @@
 </head> 
 <body>
 <?php
-  include '../index.php';  
+  include '../nav-template.php';  
 ?>
     <div  class="page-subtitle">
        

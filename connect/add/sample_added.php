@@ -1,5 +1,5 @@
 <head><title>Soil Sample Added</title></head>
-<?php   include '../index.php'; 
+<?php   include '../nav-template.php'; 
         include("../functions/redirect_homepage.php");
 ?>
 

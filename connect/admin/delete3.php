@@ -1,7 +1,7 @@
 <head><title>Sample Deleted</title></head>
    
 <?php
-    include '../index.php';  
+    include '../nav-template.php';  
     include("../functions/redirect_homepage.php");
     include("../functions/check_admin.php");
     require '../dbConnect.php';

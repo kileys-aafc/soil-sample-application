@@ -1,7 +1,7 @@
 <head><title>Update Sample</title></head>
    
 <?php
-    include '../index.php';  
+    include '../nav-template.php';  
     include("../functions/redirect_homepage.php");
 ?>
 

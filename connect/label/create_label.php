@@ -1,5 +1,5 @@
 <head><title>Create Labels</title></head>
-<?php include '../index.php';?>
+<?php include '../nav-template.php';?>
 <div class="container">
     <div class="row mb-5">
         <div class="col">

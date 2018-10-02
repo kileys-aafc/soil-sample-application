@@ -1,5 +1,5 @@
 <head><title>Add Sample</title></head>
-<?php include '../index.php'; ?>
+<?php include '../nav-template.php'; ?>
 
 <div class="container">
     <h1 class="display-4 text-center mb-5">Add a New Sample</h1>

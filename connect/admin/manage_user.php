@@ -1,6 +1,6 @@
 <head><title>Manage User Accounts</title>
 <?php
-    include '../index.php';  
+    include '../nav-template.php';  
     include("../functions/redirect_homepage.php");
    
     include("../functions/check_admin.php");

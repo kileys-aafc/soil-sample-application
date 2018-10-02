@@ -1,5 +1,5 @@
 <head><title>Update Sample</title></head>
-<?php include '../index.php'; ?>
+<?php include '../nav-template.php'; ?>
 
 
 <div class="container">

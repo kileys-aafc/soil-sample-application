@@ -6,7 +6,7 @@
 
 <html>
     <?php
-      include '../index.php';  
+      include '../nav-template.php';  
     ?>
 <head><title>Query Sample Result</title>
     <style> 

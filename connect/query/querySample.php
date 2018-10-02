@@ -1,5 +1,5 @@
 <head><title>Query Samples</title></head>
-<?php include '../index.php';?>
+<?php include '../nav-template.php';?>
 <main role="main" class="container">
     <div>
         <p class="h2 text-center font-weight-bold">Query Sample Database</p>

@@ -1,6 +1,6 @@
 <html>
     <?php
-    include '../index.php';
+    include '../nav-template.php';
     ?>
 
     

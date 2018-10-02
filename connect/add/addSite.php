@@ -1,5 +1,5 @@
 <head><title>Add a New Site</title></head> 
-<?php include '../index.php'; ?>
+<?php include '../nav-template.php'; ?>
 
 <div class="container" id="add-site">
     <h1 class="display-4 text-center mb-4">Add a New Site</h1>

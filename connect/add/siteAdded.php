@@ -1,6 +1,6 @@
 <html>
     <?php
-     include '../index.php'; 
+     include '../nav-template.php'; 
     include("../functions/redirect_homepage.php");
     ?>
  <head><title>Soil Site Added</title></head>   

@@ -1,5 +1,5 @@
 <head><title>Contact Admin</title></head>
-<?php include '../index.php';?>    
+<?php include '../nav-template.php';?>    
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-8">
