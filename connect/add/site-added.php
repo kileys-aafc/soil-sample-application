@@ -1,12 +1,9 @@
 <head><title>Site Added</title></head>
-<html>
-    <?php
-     include '../nav-template.php'; 
+<?php
+    include '../nav-template.php'; 
     include("../functions/redirect_homepage.php");
-    ?>
-   
+?>
 
-<body>
 <?php
     if(isset($_POST['submitAdd'])){
         $data_missing=array();
@@ -20,7 +17,7 @@
         $lon_m = trim($_POST['lon_m']);
         $lon_s = trim($_POST['lon_s']);   
         $size_ha = $_POST['size_ha'];
-        $year_establish = $_POST['year_establish'];         
+        $year_establish = $_POST['year_established'];         
         $ecol_setting = $_POST['ecol_setting'];
        
         require_once('../dbConnect.php');
@@ -34,37 +31,154 @@
         $affected_rows=mysqli_stmt_affected_rows($stmt);        
         
         if($affected_rows==1){
-            echo "New Site Entered: </br>";
-            echo"Site Number: ".$site_num."</br>
-            Site in Province: ".$site_prov."</br>
-            Site Name: ".$site_name."</br>
-            Site Coordinate</br>
-            Latitude[N]: ".$lat_d."D".$lat_m."M".$lat_s."S</br>
-            Longitude[W]: ".$lon_d."D".$lon_m."M".$lon_s."S</br>
-            Site Site (in ha): ".$size_ha."</br>
-            Year: ".$year_establish."</br>
-            
-            Ecological Setting: ".$ecol_setting."</br>";
-            
+
+            echo 
+            '<div class="container">
+                <div class="row justify-content-center">
+                    <p class="lead mb-4">Here is the new site data.</p>
+                </div>
+            </div>
+            ';
+
+            echo'
+            <div class="row justify-content-center">
+            <div class="col-md-2">
+                <p><strong>Site Info</strong></p>
+                <table class="table table-secondary table-striped table-bordered table-sm">
+                    <tbody>
+                        <tr>
+                            <th>Site Number</th>
+                            <td>'.$site_num.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Province</th>
+                            <td>'.$site_prov.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Site Name</th>
+                            <td>'.$site_name.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Latitude Degrees</th>
+                            <td>'.$lat_d.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Latitude Minutes</th>
+                            <td>'.$lat_m.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Latitude Seconds</th>
+                            <td>'.$lat_s.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Longitude Degrees</th>
+                            <td>'.$lon_d.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Longitude Minutes</th>
+                            <td>'.$lon_m.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Longitude Seconds</th>
+                            <td>'.$lon_s.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Site area (ha)</th>
+                            <td>'.$size_ha.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Year</th>
+                            <td>'.$year_establish.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Ecological Setting</th>
+                            <td>'.$ecol_setting.'</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            <div class="row justify-content-center mt-4">
+                <a href="../main_page.php"><button class="btn btn-primary">Back</button></a>
+            </div>
+            </div>
+            ';
+          
             mysqli_stmt_close($stmt);
             mysqli_close($dbc);
         
         
-        }else{
-            echo "New Site Entered: </br>";
-            echo"Site Number: ".$site_num."</br>
-            Site in Province: ".$site_prov."</br>
-            Site Name: ".$site_name."</br>
-            Site Coordinate</br>
-            Latitude[N]: ".$lat_d."D".$lat_m."M".$lat_s."S</br>
-            Longitude[W]: ".$lon_d."D".$lon_m."M".$lon_s."S</br>
-            Site Site (in ha): ".$size_ha."</br>
-            Year: ".$year_establish."</br>
+        }
+        else{
             
-            Ecological Setting: ".$ecol_setting."</br>";
-            echo "<p><strong>Error Occors!</br>
-            Site Number ".$site_num." already exist. Please check number.</br></strong><p>";
-            //echo mysqli_error();
+            echo'
+            <div class="row justify-content-center">
+                <p><strong>Error Occurred! Site Number '.$site_num.' already exists. Please check Site Number.</strong><p>
+            </div>
+            <div class="row justify-content-center">
+            <div class="col-md-2 mt-4">
+                <p><strong>Site Info</strong></p>
+                <table class="table table-secondary table-striped table-bordered table-sm">
+                    <tbody>
+                        <tr>
+                            <th>Site Number</th>
+                            <td>'.$site_num.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Province</th>
+                            <td>'.$site_prov.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Site Name</th>
+                            <td>'.$site_name.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Latitude Degrees</th>
+                            <td>'.$lat_d.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Latitude Minutes</th>
+                            <td>'.$lat_m.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Latitude Seconds</th>
+                            <td>'.$lat_s.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Longitude Degrees</th>
+                            <td>'.$lon_d.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Longitude Minutes</th>
+                            <td>'.$lon_m.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Longitude Seconds</th>
+                            <td>'.$lon_s.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Site area (ha)</th>
+                            <td>'.$size_ha.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Year</th>
+                            <td>'.$year_establish.'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Ecological Setting</th>
+                            <td>'.$ecol_setting.'</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            <div class="row justify-content-center mt-4">
+                <a href="../main_page.php"><button class="btn btn-primary">Back</button></a>
+            </div>
+            </div>
+            ';
+            
+            
             mysqli_stmt_close($stmt);
             mysqli_close($dbc);
         }
@@ -72,8 +186,7 @@
     else{
         redirect_homepage();
      }
-    
-    
+   
 ?>
 </body>
 </html>
