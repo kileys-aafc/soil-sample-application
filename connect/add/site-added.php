@@ -1,9 +1,10 @@
+<head><title>Site Added</title></head>
 <html>
     <?php
      include '../nav-template.php'; 
     include("../functions/redirect_homepage.php");
     ?>
- <head><title>Soil Site Added</title></head>   
+   
 
 <body>
 <?php
@@ -74,111 +75,5 @@
     
     
 ?>
-<!---------------------------------active this section if need to enter site record faster.
-<div id = "addstu">
-<form action="http://localhost/soil/connect/add/siteAdded.php"    method="post">
-<b>Add a New Site</b>
-    
-    <p>Site Number:
-    <input required type ="text" name="site_num" maxlength="2" width=150px value = "" />
-    </p>
-    
-    <p>Site Province:
-    <input required type ="text" name="site_prov" maxlength="2" width=150px value = "" />
-    </p>
-    
-   
-    <p>Site Name:
-    <input required type ="text" name="site_name" maxlength="50" width=150px value = "" />
-    </p>
-    
-    <div id="siteCoor">
-    <p>Site Latitude [N]
-    <input  type ="text" name="lat_d" maxlength="2" width=80px value = "" placeholder="degree" />   
-        <input  type ="text" name="lat_m" maxlength="2" width=80px value = "" placeholder="minute"/>
-        <input  type ="text" name="lat_s" maxlength="2" width=80px value = "" placeholder="second" />
-
-    </p>
-    
-     <p>Site Longitude [W]
-     <input  type ="text" name="lon_d" maxlength="3" width=80px value = "" placeholder="degree" />   
-    <input  type ="text" name="lon_m" maxlength="2" width=80px value = "" placeholder="minute"/>
-    <input  type ="text" name="lon_s" maxlength="2" width=80px value = "" placeholder="second" />
-    </p>
-    </div>
-    <p>Site Size (in ha):
-    <input required type ="text" name="size_ha" maxlength="50" width=150px value = "" />
-    </p>
-    
-    <p>Year Established(YYYY):
-   <select required name="year_establish" width=150px>
-            <option value="">-Please Select-</option>
-        <?php
-            
-        for ($i=2000;$i>=1980;$i--){
-            ?>
-        <option value="<?php echo $i;?>"><?php echo $i;?></option>
-        <?php
-        }
-        ?>
-            </select>
-    </p>
-
-    <p>Ecological Setting:
-   <input required type ="text" name="ecol_setting" maxlength="50" width=150px value = "" />
-    </p>
-
-    
-
-    <p>
-        <input id = "submint" type = "submit" name = "submitAdd" value = "Send"/>
-    </p>
-    
-</form>
-        
-        
-</div>
---->
 </body>
-<style>
-    body{
-        font-family: Arial;
-    }
-    
-    #addstu{
-        font-size: 13pt;
-        padding-top: 15px;
-        padding-left: 50px;
-        line-height: 2.5;
-    }
-    b{
-        font-size: 13pt;
-        padding-bottom: 5px;
-    }
-    
-    p{
-        width: 400px;
-        text-align: right;
-       
-    }
-    
-    input[type = text]{
-        height:28pt;
-        width: 250px;
-    }
-    
-    input[type = submit]{
-        padding:7px 18px;
-         float: right;
-    }
-    select{
-        height:28pt;
-        float: right;
-    }
-    #siteCoor input[type = text]{
-        height:28pt;
-        
-        width: 80px;
-    }
-</style>
 </html>

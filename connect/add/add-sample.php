@@ -5,7 +5,7 @@
     <h1 class="display-4 text-center mb-5">Add a New Sample</h1>
     <hr class="mb-4">
     <div class="justify-content-center">
-    <form class="justify content center" action="sample_added.php" method="post">
+    <form class="justify content center" action="sample-added.php" method="post">
         <div class="row"> 
             <!----------General Info---------->
             <div class="col-sm-4 px-5">

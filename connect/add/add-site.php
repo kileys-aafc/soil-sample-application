@@ -5,7 +5,7 @@
     <h1 class="display-4 text-center mb-4">Add a New Site</h1>
     <div class="row justify-content-center">
         <div class="col-sm-5 mt-4">
-            <form action="siteAdded.php" method="post">
+            <form action="site-added.php" method="post">
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="site_num">Site Number</label>
                     <div class="col-sm-8">
