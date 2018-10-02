@@ -9,11 +9,11 @@
     <div class="row justify-content-center my-4">  
         <div class="col-8">
             <p>The Soil Sample Management System is designed to organize the soil samples in storage room and manage sample data in designed database. Users can add new data, update existing sample data and query sample data.</p>
-            <p>The image on the left is a diagram of the designed storage room and corresponding storage hierarchy.</p>
+            <p>The image below is a diagram of the designed storage room and corresponding storage hierarchy.</p>
         </div>    
     </div>
-    <div class="row">
-        <div class="col">
+    <div class="row justify-content-center">
+        <div class="col-8">
             <img class="img-fluid" src="../images/storageImage.jpg">
         </div>
     </div>
