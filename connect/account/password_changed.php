@@ -19,13 +19,13 @@
     if($responseChangePWD){ 
         echo '
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-8">
-                    <h1>Password Updated Successfully!</h1>
-                </div>
+            <div class="row justify-content-center">                
+                <p class="h2">Password Updated!</p>
+            </div>    
+            <div class="row justify-content-center mt-4">
+            	<a href="../main_page.php"><button class="btn btn-primary">Back</button></a>
             </div>
-        </div>    
-        ';
+        </div>';
     }}
 
     else{
