@@ -35,7 +35,7 @@ $response6 = @mysqli_query($dbc,$query6);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //---------------------------call function to build table---------------------------------
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-include("../functions/build_query_table_updated.php");
+include("build-query-table.php");
 build_query_table($response,$response2,$response3,$response4,$response5,$response6);
 mysqli_close($dbc);
 }?>

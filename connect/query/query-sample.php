@@ -146,7 +146,7 @@
              
     </div>
     <div id="querySampleResults" class="container">                
-        <?php include 'query_functions/query_sample_id.php'?>
+        <?php include '../functions/query-sample-id.php'?>
     </div>    
     
 </main>
