@@ -110,7 +110,7 @@
                 if ($result=mysqli_store_result($dbc)){
                         while($row = mysqli_fetch_row($result)){    
 ////////--------------------print out the informations about the new updated sample ------------///////     
-                            include("../functions/individual_sample_info_columns.php");
+                            include("../functions/output-sample-data.php");
                         }  
                    
                         mysqli_free_result($result);

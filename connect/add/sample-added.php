@@ -124,7 +124,7 @@
                                 $affected_rows_Spectral=mysqli_stmt_affected_rows($stmtInsertSpectral);  
                                 if($affected_rows_Spectral==1){
 
-                                    include("../functions/individual_sample_info_columns.php");             
+                                    include("../functions/output-sample-data.php");             
                                     mysqli_stmt_close($stmtInsertBasic);
                                     mysqli_stmt_close($stmtInsertPhy);
                                     mysqli_stmt_close($stmtInsertChe);
