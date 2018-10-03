@@ -1,6 +1,6 @@
 <head><title>Update Sample</title></head>
 <?php include '../nav-template.php';  
-      include("../functions/redirect_homepage.php");            
+      include("../functions/redirect-homepage.php");            
 ?>
 
 <div class="container">

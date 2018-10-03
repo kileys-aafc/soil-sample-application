@@ -1,7 +1,7 @@
 <head><title>Manage User Accounts</title>
 <?php
     include '../nav-template.php';  
-    include("../functions/redirect_homepage.php");
+    include("../functions/redirect-homepage.php");
    
     include("../functions/check-admin.php");
     require '../dbConnect.php';

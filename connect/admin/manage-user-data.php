@@ -1,7 +1,6 @@
 <head><title>User Created</title></head>
 <?php
     include '../nav-template.php';  
-    //include("../functions/redirect_homepage.php");
     include("../functions/check-admin.php");
     require '../dbConnect.php';
     check_admin();

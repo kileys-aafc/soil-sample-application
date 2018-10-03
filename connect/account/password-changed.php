@@ -1,5 +1,5 @@
 <head><title>Password Updated</title></head>
-<?php include '../nav-template.php'; include("../functions/redirect_homepage.php"); 
+<?php include '../nav-template.php'; include("../functions/redirect-homepage.php"); 
      
     if (isset($_POST['updatePassword'])){        
     

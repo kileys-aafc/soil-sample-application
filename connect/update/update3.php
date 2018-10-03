@@ -2,7 +2,7 @@
    
 <?php
     include '../nav-template.php';  
-    include("../functions/redirect_homepage.php");
+    include("../functions/redirect-homepage.php");
 ?>
 
 
