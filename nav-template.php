@@ -9,7 +9,7 @@
       session_start();
     
       if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-          header("location:http://".$host."/soil/connect/login.php");
+          header("location:http://".$host."/login.php");
           exit;
       }
   ?>
@@ -18,13 +18,13 @@
   <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="http://<?php echo $host ?>/soil/connect/images/soil-filled.png">
+    <link rel="icon" href="/images/soil-filled.png">
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="http://<?php echo $host ?>/soil/connect/css/site-template.css" rel="stylesheet">
+    <link href="/css/site-template.css" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
@@ -32,34 +32,34 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="http://<?php echo $host ?>/soil/connect/index.php">Home</a>
+      <a class="navbar-brand" href="/index.php">Home</a>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse" id="navbarsExampleDefault" style="">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">         
-            <a class="nav-link" href="http://<?php echo $host ?>/soil/connect/query/query-sample.php">Query Samples</a>
+            <a class="nav-link" href="/query/query-sample.php">Query Samples</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle"  id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage Samples</a>
             <div class="dropdown-menu" aria-labelledby="dropdown02">
-              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/add/add-sample.php">Add Sample</a>
-              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/add/add-site.php">Add Site</a>
-              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/update/update-sample.php">Update Sample</a>
-              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/label/create_label.php">Print Labels</a>
+              <a class="dropdown-item" href="/add/add-sample.php">Add Sample</a>
+              <a class="dropdown-item" href="/add/add-site.php">Add Site</a>
+              <a class="dropdown-item" href="/update/update-sample.php">Update Sample</a>
+              <a class="dropdown-item" href="/label/create-label.php">Print Labels</a>
             </div>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle"  id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
             <div class="dropdown-menu" aria-labelledby="dropdown03">
-              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/about/info.php">Storage System</a>
-              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/about/data-structure.php">Database Structure</a>
-              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/about/contact.php">Contact Admin</a>
+              <a class="dropdown-item" href="/about/info.php">Storage System</a>
+              <a class="dropdown-item" href="/about/data-structure.php">Database Structure</a>
+              <a class="dropdown-item" href="/about/contact.php">Contact Admin</a>
             </div>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="http://<?php echo $host ?>/soil/connect/account/manage-account.php">Manage Account</a>
+              <a class="nav-link" href="/account/manage-account.php">Manage Account</a>
           </li>
           
           <!-- ADMIN FUNCTION -->
@@ -69,8 +69,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle"  id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown04">    
-                        <a class="dropdown-item" href="http://'.$host.'/soil/connect/admin/manage-users.php">Manage Users</a>
-                        <a class="dropdown-item" href="http://'.$host.'/soil/connect/admin/delete-samples.php">Delete Records</a>
+                        <a class="dropdown-item" href="/admin/manage-users.php">Manage Users</a>
+                        <a class="dropdown-item" href="/admin/delete-samples.php">Delete Records</a>
                     </div>
                 </li>';
             }
@@ -78,7 +78,7 @@
           <!--ADMIN FUNCTION END -->
 
           <li class="nav-item">
-              <a class="nav-link" href="http://<?php echo $host ?>/soil/connect/logout.php">Logout</a>
+              <a class="nav-link" href="/logout.php">Logout</a>
           </li>
         </ul>
       </div>
