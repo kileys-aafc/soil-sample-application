@@ -134,7 +134,7 @@
         
 	<div class="row justify-content-center">
 		<div class="col-6 text-center">    
-			<a href="update.php"><button class="btn btn-primary">Back</button></a>
+			<a href="update-sample.php"><button class="btn btn-primary">Back</button></a>
 		</div>
     </div>
 </div>

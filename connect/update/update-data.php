@@ -7,7 +7,7 @@
     <h1 class="display-4 text-center mb-5">Update Sample</h1>
     <hr class="mb-4">
     <div class="justify-content-center">
-    <form action="update3.php" method="post"> 
+    <form action="sample-updated.php" method="post"> 
     <?php
     require '../dbConnect.php';
     if (isset($_POST['idanswer'])){

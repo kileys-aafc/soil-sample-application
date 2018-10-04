@@ -11,7 +11,7 @@
     <div class="row justify-content-center">
         <div class="col-4">
             <p class="text-muted pb-2">To update a sample, search by Sample ID below</p>
-            <form action="update2.php" method="post"> 
+            <form action="update-data.php" method="post"> 
                 <div id="create-label-query" class="form-group">
                     <label for="sampleID">Sample ID</label>  
                     <input required class="form-control" type="text" name="idanswer" placeholder="Enter Sample ID">
