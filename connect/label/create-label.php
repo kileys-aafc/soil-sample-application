@@ -21,7 +21,7 @@
 </div>        
 
 <div id="labelResults" class="container ">                
-    <?php include 'individualLabel.php'?>
+    <?php include 'label-data.php'?>
 </div>
 
 </body>
