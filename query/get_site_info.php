@@ -5,46 +5,7 @@ include '../nav-template.php';
     <head><title>Query Site Info</title>
     
     
-    <style>
- 
-   table{
-            table-layout: fixed;
-            width:90%;
-            margin:30px auto;
-            border: 2px solid grey;
-            color: #373d38;
-            background: #c8c8c0;
-        }  
-            
-        td,th{
-            border-bottom:1px solid #b9baaa;
-            border-right:1px solid #b9baaa;
-            text-align: center;
-            white-space: nowrap;
-        }
-
-       tfoot tr{
-            height: 30px;
-        }    
-        thead tr{
-            height:60px;
-        }
-        
-
-     button{            
-        background: #a9a033;
-        padding:10px 24px;
-        font-weight:600;
-        font-size: 13pt;
-        border-radius: 12px;
-        border: 2pt solid #a9a633; 
-        color:#373d38;
-        margin: 10px;               
-        }
-        
-     
     
-</style>
     </head>
 <body> 
      <div class="page-subtitle">
