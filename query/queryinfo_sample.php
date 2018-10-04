@@ -6,31 +6,7 @@
 
 <html>
 <head><title>Query Sample Result</title>
-    <style> 
-        
-        html{
-            overflow-x: scroll;
-        }   
-        
-        
-        #myButton{            
-        background: #a9a033;
-        padding:8px 13px;
-        font-weight:600;
-        font-family: Arial;
-        font-size: 13pt;    
-        border-radius: 12px;
-        border: 2pt solid #a9a633; 
-        color:#373d38;
-        margin: 10px;                  
-        } 
-  
-        input[type = text]{
-        width: 100%;     
-        }
-
-    
-</style> 
+     
  
 </head> 
 <body>
