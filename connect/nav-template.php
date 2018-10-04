@@ -32,34 +32,34 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="http://<?php echo $host ?>/soil/connect/main_page.php">Home</a>
+      <a class="navbar-brand" href="http://<?php echo $host ?>/soil/connect/index.php">Home</a>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse" id="navbarsExampleDefault" style="">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">         
-            <a class="nav-link" href="http://<?php echo $host ?>/soil/connect/query/querySample.php">Query Samples</a>
+            <a class="nav-link" href="http://<?php echo $host ?>/soil/connect/query/query-sample.php">Query Samples</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle"  id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage Samples</a>
             <div class="dropdown-menu" aria-labelledby="dropdown02">
-              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/add/add_sample.php">Add Sample</a>
-              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/add/addSite.php">Add Site</a>
-              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/update/update.php">Update Sample</a>
+              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/add/add-sample.php">Add Sample</a>
+              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/add/add-site.php">Add Site</a>
+              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/update/update-sample.php">Update Sample</a>
               <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/label/create_label.php">Print Labels</a>
             </div>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle"  id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
             <div class="dropdown-menu" aria-labelledby="dropdown03">
-              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/about/about.php">Storage System</a>
-              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/about/data_structure.php">Database Structure</a>
+              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/about/info.php">Storage System</a>
+              <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/about/data-structure.php">Database Structure</a>
               <a class="dropdown-item" href="http://<?php echo $host ?>/soil/connect/about/contact.php">Contact Admin</a>
             </div>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="http://<?php echo $host ?>/soil/connect/account/manage_account.php">Manage Account</a>
+              <a class="nav-link" href="http://<?php echo $host ?>/soil/connect/account/manage-account.php">Manage Account</a>
           </li>
           
           <!-- ADMIN FUNCTION -->
@@ -69,8 +69,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle"  id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown04">    
-                        <a class="dropdown-item" href="http://'.$host.'/soil/connect/admin/manage_user.php">Manage Users</a>
-                        <a class="dropdown-item" href="http://'.$host.'/soil/connect/admin/delete.php">Delete Records</a>
+                        <a class="dropdown-item" href="http://'.$host.'/soil/connect/admin/manage-users.php">Manage Users</a>
+                        <a class="dropdown-item" href="http://'.$host.'/soil/connect/admin/delete-samples.php">Delete Records</a>
                     </div>
                 </li>';
             }

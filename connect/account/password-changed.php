@@ -23,7 +23,7 @@
                 <p class="h2">Password Updated!</p>
             </div>    
             <div class="row justify-content-center mt-4">
-            	<a href="../main_page.php"><button class="btn btn-primary">Back</button></a>
+            	<a href="../index.php"><button class="btn btn-primary">Back</button></a>
             </div>
         </div>';
     }}

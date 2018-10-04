@@ -7,7 +7,7 @@ This function check if the current user is an admin user
 ---------------------------------------------------------------------------------------------------*/
 function check_admin (){
     if($_SESSION['admin'] ==0){
-         header("location:http://".$_SERVER['SERVER_NAME']."/soil/connect/main_page.php");
+         header("location:http://".$_SERVER['SERVER_NAME']."/soil/connect/index.php");
     } 
 }
     

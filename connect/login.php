@@ -41,7 +41,7 @@
                                 session_start();
                                 $_SESSION['username']=$username;
                                 $_SESSION['admin']=$admin;
-                                header("location:main_page.php");
+                                header("location:index.php");
                             }else{
                                 $password_err="The password you entered is not valid.";
                             }
