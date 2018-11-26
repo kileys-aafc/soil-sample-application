@@ -14,7 +14,7 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-8">
-            <img class="img-fluid" src="../images/storageImage.jpg">
+            <img class="img-fluid" src="../images/storage-structure.png">
         </div>
     </div>
 </div>
