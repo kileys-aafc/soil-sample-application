@@ -45,7 +45,7 @@
             <a class="nav-link dropdown-toggle"  id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage Samples</a>
             <div class="dropdown-menu" aria-labelledby="dropdown02">
               <a class="dropdown-item" href="/add/add-sample.php">Add Sample</a>
-              <a class="dropdown-item" href="/add/add-site.php">Add Site</a>
+              <a class="dropdown-item" href="/add/add-project.php">Add Project</a>
               <a class="dropdown-item" href="/update/update-sample.php">Update Sample</a>
               <a class="dropdown-item" href="/label/create-label.php">Print Labels</a>
             </div>
