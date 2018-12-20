@@ -1,4 +1,4 @@
-<?php require '../dbConnect.php';   
+<?php require '../db-connect.php';   
 
     if (isset($_POST['sampleID'])){
         echo '<div class="with-label-clms Info" id = "phpQuery">';

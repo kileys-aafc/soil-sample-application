@@ -2,7 +2,7 @@
 
 if(isset($_POST['submitSample'])){
 
-require '../dbConnect.php';   
+require '../db-connect.php';   
 $field = $_POST['field'];
 $answer = $_POST['answer'];
 

@@ -1,5 +1,5 @@
 <?php
-    include("dbConnect.php");
+    include("db-connect.php");
     session_start();
 
     $username=$password="";

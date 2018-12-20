@@ -9,7 +9,7 @@
     <div class="justify-content-center">
     <form action="sample-updated.php" method="post"> 
     <?php
-    require '../dbConnect.php';
+    require '../db-connect.php';
     if (isset($_POST['idanswer'])){
         $answer=$_POST['idanswer'];
         $query = "SELECT * FROM sample WHERE sample_id ='$answer'";

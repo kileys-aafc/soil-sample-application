@@ -64,7 +64,7 @@
                 $spectral02=$_POST['spectral02'];
                 $spectral03=$_POST['spectral03'];
             
-        require_once('../dbConnect.php'); 
+        require_once('../db-connect.php'); 
         $queryKey = "SELECT * FROM sample WHERE sample_id = '$sample_id'";
         $responseKey = @mysqli_query($dbc,$queryKey);
         if($responseKey){

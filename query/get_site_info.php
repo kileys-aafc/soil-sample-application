@@ -17,7 +17,7 @@ include '../nav-template.php';
    
         <?php
 
-require '../dbConnect.php';   
+require '../db-connect.php';   
 
 $siteInfoField = $_POST['siteInfoField'];
 

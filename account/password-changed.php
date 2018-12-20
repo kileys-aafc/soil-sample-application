@@ -5,7 +5,7 @@
     
     $password=$_POST['password'];
     $username=$_SESSION['username'];
-    require '../dbConnect.php';
+    require '../db-connect.php';
 
     $queryChangePWD="         
     UPDATE users SET 

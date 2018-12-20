@@ -64,7 +64,7 @@
         $spectral01=$_POST['spectral01'];
         $spectral02=$_POST['spectral02'];
         $spectral03=$_POST['spectral03'];
-       require '../dbConnect.php';
+       require '../db-connect.php';
 
 
         $queryUpdate="         

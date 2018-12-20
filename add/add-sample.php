@@ -20,7 +20,7 @@
                     <label class="col-sm-5 col-form-label pr-0" for="site_num">Site Number</label>
                     <div class="col-sm-7">
                         <?php
-                        require '../dbConnect.php';   
+                        require '../db-connect.php';   
                         $queryAdd_SiteNum= "SELECT site_num FROM site_info";
                         $get_addSiteNum=@mysqli_query($dbc,$queryAdd_SiteNum);
 

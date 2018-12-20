@@ -20,7 +20,7 @@
         $year_establish = $_POST['year_established'];         
         $ecol_setting = $_POST['ecol_setting'];
        
-        require_once('../dbConnect.php');
+        require_once('../db-connect.php');
     
        
         $querySiteInsert="INSERT INTO `site_info` (`site_num`,`site_prov`, `site_name`, `lat_d`,`lat_m`,`lat_s`,      `lon_d`,`lon_m`,`lon_s`,`size_ha`, `year_establish`,  `ecol_setting`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";

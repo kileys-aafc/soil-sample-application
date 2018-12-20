@@ -42,7 +42,7 @@
   
 <?php
 include '../functions/tab.php';
-require '../dbConnect.php'; 
+require '../db-connect.php'; 
 $field = $_POST['field'];
 $answer = $_POST['answer'];
     

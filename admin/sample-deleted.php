@@ -4,7 +4,7 @@
     include '../nav-template.php';  
     include("../functions/redirect-homepage.php");
     include("../functions/check-admin.php");
-    require '../dbConnect.php';
+    require '../db-connect.php';
     check_admin();
 ?>
      

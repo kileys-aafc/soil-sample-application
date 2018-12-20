@@ -72,7 +72,7 @@
     
 <?php
 include '../functions/tab.php';
-require '../dbConnect.php'; 
+require '../db-connect.php'; 
 $field = $_POST['field'];
 $answer = $_POST['answer'];
     $query="SELECT sample.*,site_info.$field FROM sample left JOIN site_info ON sample.site_num =site_info.site_num where site_info.$field = '$answer'";
