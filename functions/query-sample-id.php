@@ -8,7 +8,7 @@ $answer = $_POST['answer'];
 
 
 
-$query = "SELECT * FROM sample WHERE $field = '$answer' order by sample_id";
+$query = "SELECT * FROM sample_info WHERE $field = '$answer' order by sample_id";
 $response = @mysqli_query($dbc,$query);
 
 

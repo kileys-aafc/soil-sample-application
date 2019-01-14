@@ -106,18 +106,16 @@ function build_query_table($response,$response2,$response3,$response4,$response5
             <thead>
             <tr>
             <th>Sample ID</th>
-            <th>Site Number</th>        
-            <th>Field ID</th>
-            <th>Site Type</th>
+            <th>Location ID</th>        
+            <th>Project ID</th>
             <th>Year</th>
-            <th>Sample Number</th>
-            <th>Lab Number</th>
-            <th>Zone</th>
-            <th>Shelf</th>
-            <th>Level</th>
-            <th>Row</th>
-            <th>Box</th>
-            <th>Barcode (Lab NO.)</th>
+            <th>Date</th>
+            <th>Province</th>
+            <th>Upper Depth</th>
+            <th>Lower Depth</th>
+            <th>Horizon</th>
+            <th>Original ID</th>
+            <th>Notes</th>
             </tr>
             </thead>
             <tbody>';
@@ -125,19 +123,17 @@ function build_query_table($response,$response2,$response3,$response4,$response5
 //-----------------------print out each record as a roll-------Please modify if add/delete fields---------------       
                 echo '<tr><td>' . 
                 $row['0'] . '</td><td>' . 
-                $row['site_num'] . '</td><td>' . 
-                $row['field_id'] . '</td><td>' .
-                $row['site_type'] . '</td><td>' . 
-                $row['year'] . '</td><td>' .
-                $row['sample_num'] . '</td><td>' . 
-                $row['lab_num'] . '</td><td>' .
-                $row['zone'] . '</td><td>' . 
-                $row['shelf'] . '</td><td>' .
-                $row['level'] . '</td><td>'.
-                $row['row'] . '</td><td>'.
-                $row['box'] . '</td><td>'  ;
-                $img = "<img src=\"https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=".$row['lab_num']."&choe=UTF-8\" title=\""."test"."\" />";  
-                echo $img.'</tr>';
+                $row['loc_id'] . '</td><td>' . 
+                $row['proj_id'] . '</td><td>' .
+                $row['year'] . '</td><td>' . 
+                $row['date'] . '</td><td>' .
+                $row['province'] . '</td><td>' . 
+                $row['u_depth'] . '</td><td>' .
+                $row['l_depth'] . '</td><td>' . 
+                $row['horizon'] . '</td><td>' .
+                $row['orig_id'] . '</td><td>'.
+                $row['notes'] . '</td>' ;
+                 
             }
 //-----------------------print out table foot----------Please modify if add/delete fields---------------   
            echo"</tbody>
