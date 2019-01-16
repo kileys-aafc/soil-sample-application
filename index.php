@@ -21,9 +21,9 @@
 	<div class="card">
 	<i class="fas fa-qrcode bg-secondary text-center text-light py-4" style="font-size: 1000%"></i>
 		<div class="card-body">
-			<h5 class="card-title">Print Labels</h5>
-			<p class="card-text">Print labels for storing soil samples in the warehouse.</p>
-			<p><a class="btn btn-secondary" href="/label/create-label.php" role="button">View details</a></p>
+			<h5 class="card-title">Scan Samples</h5>
+			<p class="card-text">Scan and retrive sample data from warehouse.</p>
+			<p><a class="btn btn-secondary" href="/scan/scan-sample.php" role="button">View details</a></p>
 		</div>
 	</div>
 	<div class="card">
