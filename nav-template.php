@@ -47,7 +47,6 @@
               <a class="dropdown-item" href="/add/add-sample.php">Add Sample</a>
               <a class="dropdown-item" href="/add/add-project.php">Add Project</a>
               <a class="dropdown-item" href="/update/update-sample.php">Update Sample</a>
-              <a class="dropdown-item" href="/label/create-label.php">Print Labels</a>
             </div>
           </li>
           <li class="nav-item dropdown">
