@@ -88,7 +88,7 @@
   
     <form class="form-signin" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
       <img class="mb-4" src="images/soil.png" alt="" width="80" height="80">       
-      <h1 class="h3 mb-3 font-weight-normal">CanSIS Sample Archive</h1>
+      <h1 class="h3 mb-3 font-weight-normal">Soil Sample Archive</h1>
 
       <label for="inputUser" class="sr-only" >Username</label>
       <input id="inputUser" name="username" class="form-control" placeholder="Username" required=""  value="<?php echo $username;?>" autofocus="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;" autocomplete="off" type="text">
@@ -98,7 +98,7 @@
       
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       <p class="mt-0 mb-3 text-muted"><?php echo $username_err."</br>".$password_err;?></p>
-      <p class="mt-5 mb-3 text-muted">For assistance <a href="mailto:simon.kiley@canada.ca?Subject=Soil%20Sample%20Application%20Assistance%20Required" target="_top">Contact Us</a></p>
+      <p class="mt-3 mb-3 text-muted">For assistance <a href="mailto:simon.kiley@canada.ca?Subject=Soil%20Sample%20Application%20Assistance%20Required" target="_top">Contact Us</a></p>
     </form>
     
  
