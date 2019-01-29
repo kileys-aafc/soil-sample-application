@@ -26,7 +26,7 @@
                         if ($sample_info = mysqli_fetch_array($sample_info_response)){                      
                                               
                             echo'
-                            <p><strong>Sample Info</strong></p>
+                            <h4><strong>Sample Info</strong></h4>
                             <table class="table table-secondary table-striped table-bordered table-sm">
                                 <tbody>
                                     <tr>
@@ -95,7 +95,7 @@
                     if ($physical = mysqli_fetch_array($physical_response)){
                         echo'
                 <div class="col-md">
-                <p><strong>Physical</strong></p>
+                <h4><strong>Physical</strong></h4>
                 <table class="table table-secondary table-striped table-bordered table-sm">
                     <tbody>
                         <tr>
@@ -178,7 +178,7 @@
             if ($chemical = mysqli_fetch_array($chemical_response)){
                 echo'
                 <div class="col-md">
-                <p><strong>Chemical</strong></p>
+                <h4><strong>Chemical</strong></h4>
                 <table class="table table-secondary table-striped table-bordered table-sm">
                     <tbody>
                         <tr>
@@ -272,7 +272,7 @@
                 </div>
                 <div class="row">
                 <div class="col-sm-4">
-                <p><strong>Archive</strong></p>
+                <h4><strong>Archive</strong></h4>
                 <table class="table table-secondary table-striped table-bordered table-sm">
                     <tbody>
                         <tr>
@@ -329,7 +329,7 @@
  
                 echo'
                 <div class="col-sm-4">
-                <p><strong>Location Info</strong></p>
+                <h4><strong>Location Info</strong></h4>
                 <table class="table table-secondary table-striped table-bordered table-sm">
                     <tbody>
                         <tr>
@@ -343,6 +343,10 @@
                         <tr>
                             <th scope="row">Longitude</th>
                             <td>'.$location_info['long_dd'].'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Location Accuracy</th>
+                            <td>'.$location_info['loc_acc'].'</td>
                         </tr>
                         <tr>
                             <th scope="row">Soil Map Unit</th>
