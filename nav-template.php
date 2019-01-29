@@ -39,7 +39,7 @@
       <div class="navbar-collapse collapse" id="navbarsExampleDefault" style="">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">         
-            <a class="nav-link" href="/query/query-sample.php">Query Samples</a>
+            <a class="nav-link" href="/scan/scan-sample.php">Scan Sample</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle"  id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage Samples</a>
