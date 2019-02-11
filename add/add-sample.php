@@ -52,7 +52,7 @@ require '../db-connect.php'; ?>
                             $get_proj_id = @mysqli_query($dbc, $query_proj_id);
 
                             echo
-                                '<select class="form-control" name=proj_id" required >
+                                '<select class="form-control" name="proj_id" required >
                                 <option value="" hidden>Please Select</option>';
                             
                             while($row_proj_id = mysqli_fetch_assoc($get_proj_id))
@@ -252,7 +252,7 @@ require '../db-connect.php'; ?>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="jar_2">Jar #</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="arch_year_jar_2" value="2" readonly/>
+                            <input class="form-control" type="text" name="jar_2" value="2" readonly/>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -295,7 +295,7 @@ require '../db-connect.php'; ?>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="ph_cacl2">pH (CaCl<sub>2</sub>)</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="ORG_MTR"/>
+                    <input class="form-control" type="text" name="ph_cacl2"/>
                 </div>
             </div>
             <div class="form-group row">
@@ -347,27 +347,27 @@ require '../db-connect.php'; ?>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label" for="exch_ca">Exchangable Ca</label>
+                <label class="col-sm-4 col-form-label" for="ca_exch">Exchangable Ca</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="exch_ca" placeholder="meq/100g"/>
+                    <input class="form-control" type="text" name="ca_exch" placeholder="meq/100g"/>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label" for="exch_mg">Exchangable Mg</label>
+                <label class="col-sm-4 col-form-label" for="mg_exch">Exchangable Mg</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="exch_mg" placeholder="meq/100g"/>
+                    <input class="form-control" type="text" name="mg_exch" placeholder="meq/100g"/>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label" for="exch_k">Exchangable K</label>
+                <label class="col-sm-4 col-form-label" for="k_exch">Exchangable K</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="exch_k" placeholder="meq/100g"/>
+                    <input class="form-control" type="text" name="k_exch" placeholder="meq/100g"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="exch_na">Exchangable Na</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="exch_na" placeholder="meq/100g"/>
+                    <input class="form-control" type="text" name="na_exch" placeholder="meq/100g"/>
                 </div>
             </div>
             <div class="form-group row">
