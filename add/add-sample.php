@@ -250,9 +250,12 @@ require '../db-connect.php'; ?>
                     </div>
                     <p class="small text-center mb-4">(If required)</p>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="jar_2">Jar #</label>
+                        <label class="col-sm-5 col-form-label" for="jar_2_required">Second Jar?</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="jar_2" value="2" readonly/>
+                            <select class="form-control" name="jar_2_required">
+                                    <option value="no" >No</option>
+                                    <option value="yes" >Yes</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -373,13 +376,13 @@ require '../db-connect.php'; ?>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="avail_pbi">Available P (NaHCO<sub>3</sub>)</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="avail_pbi" placeholder="μg/g"/>
+                    <input class="form-control" type="text" name="avail_pbi" placeholder="&#xb5;g/g"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="avail_pbr">Available P (Bray)</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="avail_pbr" placeholder="μg/g"/>
+                    <input class="form-control" type="text" name="avail_pbr" placeholder="&#xb5;g/g"/>
                 </div>
             </div>
         </div>

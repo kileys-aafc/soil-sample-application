@@ -172,11 +172,11 @@
                         <td>'.$na_exch.'</td>
                     </tr>
                     <tr>
-                        <th scope="row">Available P (Î¼g/g); NaHCO<sub>3</sub> extractable</th>
+                        <th scope="row">Available P (&#xb5;g/g); NaHCO<sub>3</sub> extractable</th>
                         <td>'.$avail_pbi.'</td>
                     </tr>
                     <tr>
-                        <th scope="row">Available P (Î¼g/g); Bray Method</th>
+                        <th scope="row">Available P (&#xb5;/g); Bray Method</th>
                         <td>'.$avail_pbr.'</td>
                     </tr>
                 </tbody>
@@ -219,6 +219,9 @@
                 </tbody>
             </table>
         </div>
+';
+if($jar_2_required == "yes"){
+    echo '
         <div class="col-md-4">
             <h4><strong>Archive Jar #2</strong></h4>
             <table class="table table-secondary table-striped table-bordered table-sm">
@@ -253,8 +256,12 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </div>
-</div>
+        </div>';
+}
 
-'?>
+echo'
+    </div>
+</div>';
+
+
+?>

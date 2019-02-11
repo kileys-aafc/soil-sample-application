@@ -59,15 +59,16 @@
                 //------Archive Jar #1 info from $_POST[]--------
                 $jar_1 = $_POST['jar_1'];
                 $arch_year_jar_1 = $_POST['arch_year_jar_1'];
-                $section_jar_1 = $_POST['section_jar_1'];
-                $column_jar_1 = $_POST['column_jar_1'];
+                $section_jar_1 = strtoupper($_POST['section_jar_1']);
+                $column_jar_1 = strtoupper($_POST['column_jar_1']);
                 $row_jar_1 = $_POST['row_jar_1'];
                 $box_id_jar_1 = $_POST['box_id_jar_1'];
                 //------Archive Jar #2 info from $_POST[]--------
-                $jar_2 = $_POST['jar_2'];
+                $jar_2 = 2;
+                $jar_2_required = $_POST['jar_2_required'];
                 $arch_year_jar_2 = $_POST['arch_year_jar_2'];
-                $section_jar_2 = $_POST['section_jar_2'];
-                $column_jar_2 = $_POST['column_jar_2'];
+                $section_jar_2 = strtoupper($_POST['section_jar_2']);
+                $column_jar_2 = strtoupper($_POST['column_jar_2']);
                 $row_jar_2 = $_POST['row_jar_2'];
                 $box_id_jar_2 = $_POST['box_id_jar_2'];
                         
@@ -146,48 +147,55 @@
                                 if($affected_rows_archive_1 == 1){
                                 
                                     //Add Archive Jar #2 info -----------------------------------------------------------                      
+                                    
+                                    if($jar_2_required == "yes") {
+                                        $query_insert_archive_2 = "INSERT INTO archive (`sample_id`, `jar`, `arch_year`, `section`, `column`, `row`, `box_id`) VALUES (?,?,?,?,?,?,?)";
                             
-                                    $query_insert_archive_2 = "INSERT INTO archive (`sample_id`, `jar`, `arch_year`, `section`, `column`, `row`, `box_id`) VALUES (?,?,?,?,?,?,?)";
-                        
-                                    $stmt_insert_archive_2 = mysqli_prepare($dbc, $query_insert_archive_2); 
+                                        $stmt_insert_archive_2 = mysqli_prepare($dbc, $query_insert_archive_2); 
 
-                                    //--Check if stmt is false
-                                    if($stmt_insert_archive_2 == false) {
-                                    die("<pre>".mysqli_error($dbc).PHP_EOL.$query_insert_archive_2."</pre>");
+                                        //--Check if stmt is false
+                                        if($stmt_insert_archive_2 == false) {
+                                        die("<pre>".mysqli_error($dbc).PHP_EOL.$query_insert_archive_2."</pre>");
+                                        }
+                                
+                                        mysqli_stmt_bind_param($stmt_insert_archive_2, "iiissss", $sample_id, $jar_2, $arch_year_jar_2, $section_jar_2, $column_jar_2, $row_jar_2, $box_id_jar_2);
+                                        mysqli_stmt_execute($stmt_insert_archive_2);
+                                        $affected_rows_archive_2 = mysqli_stmt_affected_rows($stmt_insert_archive_2);
+
+                                        mysqli_stmt_close($stmt_insert_archive_2);
                                     }
-                            
-                                    mysqli_stmt_bind_param($stmt_insert_archive_2, "iiissss", $sample_id, $jar_2, $arch_year_jar_2, $section_jar_2, $column_jar_2, $row_jar_2, $box_id_jar_2);
-                                    mysqli_stmt_execute($stmt_insert_archive_2);
-                                    $affected_rows_archive_2 = mysqli_stmt_affected_rows($stmt_insert_archive_2);
 
-                                    if($affected_rows_archive_2 == 1){
+                                    if($affected_rows_archive_1 == 1){
 
                                         include("../functions/output-sample-data.php");             
                                         mysqli_stmt_close($stmt_insert_sample);
                                         mysqli_stmt_close($stmt_insert_physical);
                                         mysqli_stmt_close($stmt_insert_chemical);
                                         mysqli_stmt_close($stmt_insert_archive_1);        
-                                        mysqli_stmt_close($stmt_insert_archive_2);
+                                        
                                         mysqli_close($dbc);
                                         }
                                         else{
                                             echo "Error!";
                                             echo mysqli_error();
                                         }
+                                    }
 
                                 }
                             }   
                         }
                     }
                 }
-            }}    
+            }    
             else{
             redirect_homepage();
             }
     ?>
-    <div class="row justify-content-center">
-        <div class="col-6 text-center">    
-            <button class="btn btn-primary">Back</button>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6 my-4 text-center">    
+                <a href="add-sample" class="btn btn-primary">Back</a>
+            </div>
         </div>
     </div>
 
