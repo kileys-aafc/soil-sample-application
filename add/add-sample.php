@@ -66,7 +66,7 @@ require '../db-connect.php'; ?>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label pr-0" for="year">Year</label>
                         <div class="col-sm-7">
-                            <input class="form-control"  type="text" name="year" value="" placeholder="YYYY" />
+                            <input class="form-control"  type="text" name="year" value="" placeholder="YYYY" required />
                         </div>
                     </div>
                     <div class="form-group row">
@@ -90,13 +90,13 @@ require '../db-connect.php'; ?>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label pr-0" for="u_depth">Upper Depth</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="u_depth" placeholder="Centimetres"/>
+                            <input class="form-control" type="text" name="u_depth" placeholder="Centimetres" required />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label pr-0" for="l_depth">Lower Depth</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="l_depth" placeholder="Centimetres"/>
+                            <input class="form-control" type="text" name="l_depth" placeholder="Centimetres" required />
                         </div>
                     </div>
                     <div class="form-group row">
@@ -188,6 +188,12 @@ require '../db-connect.php'; ?>
                             <input class="form-control" type="text" name="texture"/>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label" for="field_txt">Field Texture</label>
+                        <div class="col-sm-7">
+                            <input class="form-control" type="text" name="field_txt"/>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -207,7 +213,7 @@ require '../db-connect.php'; ?>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="arch_year_jar_1">Archive Year</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="arch_year_jar_1" required/>
+                            <input class="form-control" type="text" name="arch_year_jar_1" placeholder="YYYY" required/>
                         </div>
                     </div>
                     <div class="form-group row">
