@@ -1,191 +1,195 @@
 <head><title>Soil Sample Added</title></head>
-<?php   include '../nav-template.php'; 
-        include("../functions/redirect-homepage.php");
-?>
-
+<?php include '../nav-template.php'; ?>
 
 <main role="main">
 <div class="container">
-    <div class="row justify-content-center" id="instruction" >
+    <div class="row justify-content-center">
         <div class="col-6 text-center">
             <h1 class="display-4">New Sample</h1>
             <p class="lead my-4">Here is the sample data that was added.</p>  
         </div> 
     </div>
     <div class="row">
-    <hr class="mb-4">    
-        
-    
+        <hr class="mb-4">
+    </div>
+</div>    
         <?php
-            if(isset($_POST['submitAdd'])){
-            //------basic info from $_POST[] --------
-                $sample_id=$_POST['sample_id'];
-                $site_num = trim($_POST['site_num']);        
-                $field_id = trim($_POST['field_id']);    
-                $site_type = trim($_POST['site_type']);
+            if(isset($_POST['add-sample'])){
+                //------Sample info from $_POST[] --------
+                $sample_id = $_POST['sample_id'];
+                $loc_id = $_POST['loc_id'];        
+                $proj_id = $_POST['proj_id'];    
                 $year = $_POST['year'];
-                $sample_num = trim($_POST['sample_num']);
-                $lab_num=$_POST['lab_num'];
-                $zone = $_POST['zone'];
-                $shelf = $_POST['shelf'];
-                $level = trim($_POST['level']);
-                $rowrow = $_POST['row'];
-                $box = $_POST['box'];
-            //------physical info from $_POST[] --------
-                $SMPL_ID=$_POST['sample_id'];
-                $LAB=$_POST['LAB'];      
-                $LOCATION=$_POST['LOCATION'];
-                $DEPTH=$_POST['DEPTH'];
-                $SAND=$_POST['SAND'];
-                $CLAY=$_POST['CLAY'];
-                $SILT=$_POST['SILT'];
-                $SAND_VC=$_POST['SAND_VC'];
-                $SAND_C=$_POST['SAND_C'];
-                $SAND_M=$_POST['SAND_M'];
-                $SAND_F=$_POST['SAND_F'];
-                $SAND_VF=$_POST['SAND_VF'];
-            //------chemical info from $_POST[]--------
-                $ORG_MTR=$_POST['ORG_MTR'];
-                $CEC=$_POST['CEC'];
-                $BUFFER_PH=$_POST['BUFFER_PH'];
-                $PER_K=$_POST['PER_K'];
-                $PER_MG=$_POST['PER_MG'];
-                $PER_CA=$_POST['PER_CA'];
-                $PER_NA=$_POST['PER_NA'];  
-            //------biome info from $_POST[]--------
-                $biome01=$_POST['biome01'];
-                $biome02=$_POST['biome02'];
-                $biome03=$_POST['biome03'];
-                $biome04=$_POST['biome04'];
-                $biome05=$_POST['biome05'];
-                $biome06=$_POST['biome06'];
-            //------spectral info from $_POST[]--------
-                $spectral01=$_POST['spectral01'];
-                $spectral02=$_POST['spectral02'];
-                $spectral03=$_POST['spectral03'];
-            
-        require_once('../db-connect.php'); 
-        $queryKey = "SELECT * FROM sample WHERE sample_id = '$sample_id'";
-        $responseKey = @mysqli_query($dbc,$queryKey);
-        if($responseKey){
-            if(mysqli_num_rows($responseKey)>0){  
-                echo "Error! Record with Sample ID.<b>".$sample_id."</b> already exist!";
-                mysqli_close($dbc);   
-           }else{
-            //-------the input SAMPLE ID is not an existing record, good to enter BASIC INFO
-                $queryInsertBasic="INSERT INTO `sample` (`sample_id`,`site_num`, `field_id`, `site_type`, `year`, `sample_num`, `lab_num`, `zone`, `shelf`, `level`, `row`, `box` ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-                $stmtInsertBasic = mysqli_prepare($dbc, $queryInsertBasic);                   
-                
-                mysqli_stmt_bind_param($stmtInsertBasic,"ssssissiiiii",
-                                       $sample_id,$site_num,$field_id,$site_type,$year,$sample_num, $lab_num,$zone,$shelf,$level,$rowrow,$box);
-                
-                mysqli_stmt_execute($stmtInsertBasic);
-                $affected_rows_Base=mysqli_stmt_affected_rows($stmtInsertBasic);                
-               if($affected_rows_Base==1){                  
-            //add PHYSICAL info-------------------------------------------------------------------------------             
-                    $queryInsertPhy="INSERT INTO physical (`LAB`,`SMPL_ID`, `LOCATION`, `DEPTH`, `SAND`, `CLAY`, `SILT`, `SAND_VC`, `SAND_C`, `SAND_M`, `SAND_F`, `SAND_VF` ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-                    $stmtInsertPhy = mysqli_prepare($dbc, $queryInsertPhy);                     
-                    
-                    mysqli_stmt_bind_param($stmtInsertPhy,"ssssssssssss",
-                                           $LAB,$SMPL_ID,$LOCATION,$DEPTH,$SAND,$CLAY, $SILT,$SAND_VC,$SAND_C,$SAND_M,$SAND_F,$SAND_VF);
-                    mysqli_stmt_execute($stmtInsertPhy);
-                    $affected_rows_Phy=mysqli_stmt_affected_rows($stmtInsertPhy);  
-                    if($affected_rows_Phy==1){
+                $date = $_POST['date'];
+                $prov = $_POST['prov'];
+                $u_depth = $_POST['u_depth'];
+                $l_depth = $_POST['l_depth'];
+                $horizon = trim($_POST['horizon']);
+                $orig_id = $_POST['orig_id'];
+                $notes = $_POST['notes'];
+                //------Physical info from $_POST[] --------
+                $bulkd = $_POST['bulkd'];      
+                $t_gravel = $_POST['t_gravel'];
+                $t_clay = $_POST['t_clay'];
+                $t_silt = $_POST['t_silt'];
+                $t_sand = $_POST['t_sand'];
+                $vc_sand = $_POST['vc_sand'];
+                $c_sand = $_POST['c_sand'];
+                $m_sand = $_POST['m_sand'];
+                $f_sand = $_POST['f_sand'];
+                $vf_sand = $_POST['vf_sand'];
+                $texture = $_POST['texture'];
+                $field_txt = $_POST['field_txt'];
+                //------Chemical info from $_POST[]--------
+                $ph_cacl2 = $_POST['ph_cacl2'];
+                $ph_h2o = $_POST['ph_h2o'];
+                $ttl_c = $_POST['ttl_c'];
+                $ttl_n = $_POST['ttl_n'];
+                $caco3 = $_POST['caco3'];
+                $org_c = $_POST['org_c'];
+                $org_c_n = $_POST['org_c_n'];
+                $tec = $_POST['tec'];
+                $cec = $_POST['cec']; 
+                $ca_exch = $_POST['ca_exch']; 
+                $mg_exch = $_POST['mg_exch']; 
+                $k_exch = $_POST['k_exch'];
+                $na_exch = $_POST['na_exch'];
+                $avail_pbi = $_POST['avail_pbi'];   
+                $avail_pbr = $_POST['avail_pbr']; 
+                //------Archive Jar #1 info from $_POST[]--------
+                $jar_1 = $_POST['jar_1'];
+                $arch_year_jar_1 = $_POST['arch_year_jar_1'];
+                $section_jar_1 = $_POST['section_jar_1'];
+                $column_jar_1 = $_POST['column_jar_1'];
+                $row_jar_1 = $_POST['row_jar_1'];
+                $box_id_jar_1 = $_POST['box_id_jar_1'];
+                //------Archive Jar #2 info from $_POST[]--------
+                $jar_2 = $_POST['jar_2'];
+                $arch_year_jar_2 = $_POST['arch_year_jar_2'];
+                $section_jar_2 = $_POST['section_jar_2'];
+                $column_jar_2 = $_POST['column_jar_2'];
+                $row_jar_2 = $_POST['row_jar_2'];
+                $box_id_jar_2 = $_POST['box_id_jar_2'];
                         
-            //add CHEMICAL info-----------------------------------------------------------                      
-                        $queryInsertChe="INSERT INTO chemical (`SMPL_ID`, `ORG_MTR`, `CEC`, `BUFFER_PH`, `PER_K`, `PER_MG`, `PER_CA`, `PER_NA`) VALUES (?,?,?,?,?,?,?,?)";
-                    
-                        $stmtInsertChe = mysqli_prepare($dbc, $queryInsertChe); 
-                    
-                        mysqli_stmt_bind_param($stmtInsertChe,"ssssssss",
-                                               $SMPL_ID,$ORG_MTR,$CEC,$BUFFER_PH,$PER_K,$PER_MG,$PER_CA,$PER_NA);   
-                        mysqli_stmt_execute($stmtInsertChe);
-                        $affected_rows_Che=mysqli_stmt_affected_rows($stmtInsertChe);  
-                        if($affected_rows_Che==1){
-                            
-//add BIOME info-----------------------------------------------------------                                         
-                            $queryInsertBio="INSERT INTO biome (`SMPL_ID`, `biome01`, `biome02`, `biome03`, `biome04`, `biome05`, `biome06`) VALUES (?,?,?,?,?,?,?)";
-                    
-                            $stmtInsertBio = mysqli_prepare($dbc, $queryInsertBio); 
-                    
-                            mysqli_stmt_bind_param($stmtInsertBio,"sssssss",
-                                                   $SMPL_ID,$biome01,$biome02,$biome03,$biome04,$biome05,$biome06);
-                            mysqli_stmt_execute($stmtInsertBio);
-                            $affected_rows_Bio=mysqli_stmt_affected_rows($stmtInsertBio);  
-                            if($affected_rows_Bio==1){
-//add SPECTRAL info-----------------------------------------------------------                      
-                        
-                                $queryInsertSpectral="INSERT INTO spectral (`SMPL_ID`, `spectral01`, `spectral02`, `spectral03`) VALUES (?,?,?,?)";
-                                $stmtInsertSpectral = mysqli_prepare($dbc, $queryInsertSpectral);  
-                                
-                                mysqli_stmt_bind_param($stmtInsertSpectral,"ssss",
-                                                       $SMPL_ID,$spectral01,$spectral02,$spectral03);
-                                mysqli_stmt_execute($stmtInsertSpectral);
-                                $affected_rows_Spectral=mysqli_stmt_affected_rows($stmtInsertSpectral);  
-                                if($affected_rows_Spectral==1){
-
-                                    include("../functions/output-sample-data.php");             
-                                    mysqli_stmt_close($stmtInsertBasic);
-                                    mysqli_stmt_close($stmtInsertPhy);
-                                    mysqli_stmt_close($stmtInsertChe);
-                                    mysqli_stmt_close($stmtInsertBio);        
-                                    mysqli_stmt_close($stmtInsertSpectral);
-                                    mysqli_close($dbc);
-                              }else{
-                                    echo "error Occors. No records has been entered in SPECTRAL table.</br>
-                                        However, you can manage this record in Add & update > Update a sample.</br>";
-                                    echo mysqli_error();
-                                    mysqli_stmt_close($stmtInsertSpectral);
-                                    mysqli_close($dbc);
-                                }
-//Spectral info end-------------------------------------------------------------------------------/                
-                            }else{
-                                echo "error Occors. No records has been entered in BIOME table.
-                                However, you can manage this record in Add & update > Update a sample.</br></br>";
-                                echo mysqli_error();
-                                mysqli_stmt_close($stmtInsertBio);
-                                mysqli_close($dbc);
-                            }
-//Biome info end-------------------------------------------------------------------------------/                       
-                        
-
-                        }else{
-                            echo "error Occors. No records has been entered in CHEMICAL table.</br>
-                            However, you can manage this record in Add & update > Update a sample.</br>";
-                            echo mysqli_error();
-                            mysqli_stmt_close($stmtInsertChe);
-                            mysqli_close($dbc);
-                        }
-//Chemical info end-------------------------------------------------------------------------------/                        
-                    
-                    }else{
-                        echo "error Occors. No records has been entered in PHYSICAL table.</br>
-                        However, you can manage this record in Add & update > Update a sample.</br>";
-                        echo mysqli_error();
-                        mysqli_stmt_close($stmtInsertPhy);
-                        mysqli_close($dbc);
+                require_once('../db-connect.php'); 
+                $query_sample_id = "SELECT * FROM sample_info WHERE sample_id = '$sample_id'";
+                $response_sample_id = @mysqli_query($dbc, $query_sample_id);
+                if($response_sample_id){
+                    if(mysqli_num_rows($response_sample_id) > 0){  
+                        echo '  <div class="row justify-content-center">
+                                    <div class="col-6 text-center">
+                                        <p>Error! Sample ID <strong>'.$sample_id.'</strong> already exists!</p>    
+                                    </div>
+                                </div>';
+                        mysqli_close($dbc);   
                     }
-                  
- //Physical info end-------------------------------------------------------------------------------//     
-               }else{
-                echo "error Occors. No records has been entered in Basic Info table.</br>
-                However, you can manage this record in Add & update > Update a sample.</br>";
-                echo mysqli_error();
-                mysqli_stmt_close($stmtInsertBasic);
-                mysqli_close($dbc);
-            }
-        }   
-    }
-    }
-        else{
+                    else{
+                    //-------INSERT Sample Info
+                    $query_insert_sample_info = "INSERT INTO sample_info (`sample_id`, `loc_id`, `proj_id`, `year`, `date`, `province`, `u_depth`, `l_depth`, `horizon`, `orig_id`, `notes` ) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+                    $stmt_insert_sample = mysqli_prepare($dbc, $query_insert_sample_info);
+                    
+                    //--Check if stmt is false
+                    if($stmt_insert_sample == false) {
+                        die("<pre>".mysqli_error($dbc).PHP_EOL.$query_insert_sample_info."</pre>");
+                    }
+                    
+                    mysqli_stmt_bind_param($stmt_insert_sample, "iiiissddsss", $sample_id, $loc_id, $proj_id, $year, $date, $prov, $u_depth, $l_depth, $horizon, $orig_id, $notes);
+                    
+                    mysqli_stmt_execute($stmt_insert_sample);
+                    $affected_rows_sample_info = mysqli_stmt_affected_rows($stmt_insert_sample);
+
+                    if($affected_rows_sample_info == 1){                  
+                        //INSERT PHYSICAL info-------------------------------------------------------------------------------             
+                        $query_insert_physical = "INSERT INTO physical (`sample_id`, `bulkd`, `t_gravel`, `t_clay`, `t_silt`, `t_sand`, `vc_sand`, `c_sand`, `m_sand`, `f_sand`, `vf_sand`, `texture`, `field_txt`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        $stmt_insert_physical = mysqli_prepare($dbc, $query_insert_physical);
+                        
+                        //--Check if stmt is false
+                        if($stmt_insert_physical == false) {
+                            die("<pre>".mysqli_error($dbc).PHP_EOL.$query_insert_physical."</pre>");
+                        }
+                        
+                        mysqli_stmt_bind_param($stmt_insert_physical, "iddddddddddss", $sample_id, $bulkd, $t_gravel, $t_clay, $t_silt, $t_sand, $vc_sand, $c_sand, $m_sand, $f_sand, $vf_sand, $texture, $field_txt);
+                        mysqli_stmt_execute($stmt_insert_physical);
+                        $affected_rows_physical = mysqli_stmt_affected_rows($stmt_insert_physical);  
+                        if($affected_rows_physical == 1){
+                        
+                            //INSERT CHEMICAL info-----------------------------------------------------------                      
+                            $query_insert_chemical = "INSERT INTO chemical (`sample_id`, `ph_cacl2`, `ph_h2o`, `ttl_c`, `ttl_n`, `caco3`, `org_c`, `org_c_n`, `tec`, `cec`, `ca_exch`, `mg_exch`, `k_exch`, `na_exch`, `avail_pbi`, `avail_pbr`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        
+                            $stmt_insert_chemical = mysqli_prepare($dbc, $query_insert_chemical);
+
+                            //--Check if stmt is false
+                            if($stmt_insert_chemical == false) {
+                            die("<pre>".mysqli_error($dbc).PHP_EOL.$query_insert_chemical."</pre>");
+                            }
+
+                            mysqli_stmt_bind_param($stmt_insert_chemical, "sddddddddddddddd", $sample_id, $ph_cacl2, $ph_h2o, $ttl_c, $ttl_n, $caco3, $org_c, $org_c_n, $tec, $cec, $ca_exch, $mg_exch, $k_exch, $na_exch, $avail_pbi, $avail_pbr);   
+                            mysqli_stmt_execute($stmt_insert_chemical);
+                            $affected_rows_chemical = mysqli_stmt_affected_rows($stmt_insert_chemical);  
+                            if($affected_rows_chemical == 1){
+                            
+                                //Add Archive Jar #1 info -----------------------------------------------------------
+                                                    
+                                $query_insert_archive_1 = "INSERT INTO archive (`sample_id`, `jar`, `arch_year`, `section`, `column`, `row`, `box_id`) VALUES (?,?,?,?,?,?,?)";
+                        
+                                $stmt_insert_archive_1 = mysqli_prepare($dbc, $query_insert_archive_1);
+                                
+                                //--Check if stmt is false
+                                if($stmt_insert_archive_1 == false) {
+                                die("<pre>".mysqli_error($dbc).PHP_EOL.$query_insert_archive_1."</pre>");
+                                }
+                        
+                                mysqli_stmt_bind_param($stmt_insert_archive_1, "iiissss", $sample_id, $jar_1, $arch_year_jar_1, $section_jar_1, $column_jar_1, $row_jar_1, $box_id_jar_1);
+                                mysqli_stmt_execute($stmt_insert_archive_1);
+                                $affected_rows_archive_1 = mysqli_stmt_affected_rows($stmt_insert_archive_1);  
+                            
+                                if($affected_rows_archive_1 == 1){
+                                
+                                    //Add Archive Jar #2 info -----------------------------------------------------------                      
+                            
+                                    $query_insert_archive_2 = "INSERT INTO archive (`sample_id`, `jar`, `arch_year`, `section`, `column`, `row`, `box_id`) VALUES (?,?,?,?,?,?,?)";
+                        
+                                    $stmt_insert_archive_2 = mysqli_prepare($dbc, $query_insert_archive_2); 
+
+                                    //--Check if stmt is false
+                                    if($stmt_insert_archive_2 == false) {
+                                    die("<pre>".mysqli_error($dbc).PHP_EOL.$query_insert_archive_2."</pre>");
+                                    }
+                            
+                                    mysqli_stmt_bind_param($stmt_insert_archive_2, "iiissss", $sample_id, $jar_2, $arch_year_jar_2, $section_jar_2, $column_jar_2, $row_jar_2, $box_id_jar_2);
+                                    mysqli_stmt_execute($stmt_insert_archive_2);
+                                    $affected_rows_archive_2 = mysqli_stmt_affected_rows($stmt_insert_archive_2);
+
+                                    if($affected_rows_archive_2 == 1){
+
+                                        include("../functions/output-sample-data.php");             
+                                        mysqli_stmt_close($stmt_insert_sample);
+                                        mysqli_stmt_close($stmt_insert_physical);
+                                        mysqli_stmt_close($stmt_insert_chemical);
+                                        mysqli_stmt_close($stmt_insert_archive_1);        
+                                        mysqli_stmt_close($stmt_insert_archive_2);
+                                        mysqli_close($dbc);
+                                        }
+                                        else{
+                                            echo "Error!";
+                                            echo mysqli_error();
+                                        }
+
+                                }
+                            }   
+                        }
+                    }
+                }
+            }}    
+            else{
             redirect_homepage();
-        }
-?>
+            }
+    ?>
     <div class="row justify-content-center">
         <div class="col-6 text-center">    
-            <button onclick="history.go(-1);" class="btn btn-primary">Back</button>
+            <button class="btn btn-primary">Back</button>
         </div>
     </div>
-</div>
+
 </body>
 </html>
