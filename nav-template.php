@@ -46,7 +46,10 @@
             <div class="dropdown-menu" aria-labelledby="dropdown02">
               <a class="dropdown-item" href="/add/add-sample.php">Add Sample</a>
               <a class="dropdown-item" href="/add/add-project.php">Add Project</a>
+              <a class="dropdown-item" href="/add/add-location.php">Add Location</a>
               <a class="dropdown-item" href="/update/update-sample.php">Update Sample</a>
+              <a class="dropdown-item" href="/update/update-project.php">Update Project</a>
+              <a class="dropdown-item" href="/update/update-location.php">Update Location</a>
             </div>
           </li>
           <li class="nav-item dropdown">
