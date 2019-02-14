@@ -8,9 +8,7 @@ require '../db-connect.php'; ?>
 </div>
 <div class="container">
 <form class="justify content center" action="sample-added.php" method="post">
-    <div class="justify-content-center">
     <div class="row">
-        
         <div class="col-md-8">
             <div class="row">
         
