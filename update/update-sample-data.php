@@ -6,14 +6,15 @@
 <div class="container">
     <h1 class="display-4 text-center mb-5">Update Sample</h1>
     <hr class="mb-4">
-    <div class="justify-content-center">
-    <form action="sample-updated.php" method="post"> 
+</div>
+<div class="container">
+<form class="justify content center" action="sample-updated.php" method="post"> 
     <?php
     require '../db-connect.php';
-    if (isset($_POST['idanswer'])){
-        $answer=$_POST['idanswer'];
-        $query = "SELECT * FROM sample WHERE sample_id ='$answer'";
-        $response = @mysqli_query($dbc,$query);
+    if (isset($_POST['update-sample-id'])){
+        $sample_id = $_POST['update-sample-id'];
+        $query = "SELECT * FROM sample WHERE sample_id ='$sample_id'";
+        $response = @mysqli_query($dbc, $query);
         if($response){
             //-- check if record exist  
             echo '<div class="row">';
