@@ -11,10 +11,10 @@
     <div class="row justify-content-center">
         <div class="col-4">
             <p class="text-muted pb-2">To update a sample, search by Sample ID below</p>
-            <form action="update-data.php" method="post"> 
+            <form action="update-sample-data" method="post"> 
                 <div id="create-label-query" class="form-group">
-                    <label for="sampleID">Sample ID</label>  
-                    <input required class="form-control" type="text" name="idanswer" placeholder="Enter Sample ID">
+                    <label for="update-sample-id">Sample ID</label>  
+                    <input required class="form-control" type="text" name="update-sample-id" placeholder="Enter Sample ID">
                 </div>
                 <input type="submit" class="btn btn-primary" value="Find Sample"/>
             </form>
