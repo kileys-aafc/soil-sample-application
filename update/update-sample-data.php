@@ -352,31 +352,31 @@
                         <div class="form-group row">
                             <label class="col-sm-5 col-form-label" for="arch_year_jar_1">Archive Year</label>
                             <div class="col-sm-7">
-                                <input class="form-control" type="text" name="arch_year_jar_1"  value="'.$row_archive_jar2["arch_year"].'" placeholder="YYYY" required/>
+                                <input class="form-control" type="text" name="arch_year_jar_1"  value="'.$row_archive_jar2["arch_year"].'" placeholder="YYYY"/>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-5 col-form-label" for="section_jar_1">Section</label>
                             <div class="col-sm-7">
-                                <input class="form-control" type="text" name="section_jar_1"  value="'.$row_archive_jar2["section"].'"required/>
+                                <input class="form-control" type="text" name="section_jar_1"  value="'.$row_archive_jar2["section"].'" />
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-5 col-form-label" for="column_jar_1">Column</label>
                             <div class="col-sm-7">
-                                <input class="form-control" type="text" name="column_jar_1"  value="'.$row_archive_jar2["column"].'" required/>
+                                <input class="form-control" type="text" name="column_jar_1"  value="'.$row_archive_jar2["column"].'" />
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-5 col-form-label" for="row_jar_1">Row</label>
                             <div class="col-sm-7">
-                                <input class="form-control" type="text" name="row_jar_1"  value="'.$row_archive_jar2["row"].'" required/>
+                                <input class="form-control" type="text" name="row_jar_1"  value="'.$row_archive_jar2["row"].'" />
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-5 col-form-label" for="box_id_jar_1">Box ID</label>
                             <div class="col-sm-7">
-                                <input class="form-control" type="text" name="box_id_jar_1"  value="'.$row_archive_jar2["box_id"].'" required/>
+                                <input class="form-control" type="text" name="box_id_jar_1"  value="'.$row_archive_jar2["box_id"].'" />
                             </div>
                         </div>
                     </div>
