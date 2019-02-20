@@ -8,113 +8,126 @@
     <hr class="mb-4">
 </div>
 <div class="container">
-<form class="justify content center" action="sample-updated.php" method="post"> 
+<form class="justify content center" action="sample-updated.php" method="post">
+<div class="row">
+ 
     <?php
     require '../db-connect.php';
     if (isset($_POST['update-sample-id'])){
         $sample_id = $_POST['update-sample-id'];
-        $query = "SELECT * FROM sample WHERE sample_id ='$sample_id'";
-        $response = @mysqli_query($dbc, $query);
+        $query_sample = "SELECT * FROM sample_info WHERE sample_id ='$sample_id'";
+        $response = @mysqli_query($dbc, $query_sample);
         if($response){
             //-- check if record exist  
-            echo '<div class="row">';
             if(mysqli_num_rows($response)>0){
                 $status="";
                
-                if ($row = mysqli_fetch_array($response)){                      
+                if ($row_sample_info = mysqli_fetch_array($response)){                      
                 echo'
-                <div class="col-sm-4 px-5">
+                <!-- Sample Info -->
+                <div class="col-md-8">
+                <div class="row">
+                <div class="col-md-6">
                     <h4 class="text-center mb-4">Sample Info</h4>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="sample_id">Sample ID</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="sample_id" value= "'.$answer.'" readonly/>
-                        </div>
-                    </div>';
-                    
-                echo'
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="site_num">Site Number</label>
-                        <div class="col-sm-7">';
-                
-                    $queryAdd_SiteNum= "SELECT site_num FROM site_info";
-                    $get_addSiteNum=@mysqli_query($dbc,$queryAdd_SiteNum);
-
-                    echo'<select class="form-control" required name="site_num">';
-                    //----echo the current site number
-                    echo"<option value=".$row['site_num']." hidden>".$row['site_num']."</option>";
-                    //----give options to all site numbers
-                    while($row_addSiteNum=mysqli_fetch_assoc($get_addSiteNum)){      
-                        echo"<option value=".$row_addSiteNum['site_num'].">".$row_addSiteNum['site_num']."</option>";
-                    }
-                    echo"</select></div></div>";
-
-                    echo '
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="field_id">Field ID</label>
-                        <div class="col-sm-7">    
-                            <input class= "form-control" type="text" name="field_id" value="'.$row['field_id'].'" />
+                            <input class="form-control" required type="text" name="sample_id" value="'.$sample_id.'" readonly/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="site_type">Site Type</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" name="site_type" value="'.$row['site_type'].'" />
+                        <label class="col-sm-5 col-form-label pr-0" for="loc_id">Location ID</label>
+                        <div class="col-sm-7">';   
+                        
+                            
+                            $query_loc_id = "SELECT loc_id FROM location_info";
+                            $get_loc_id = @mysqli_query($dbc, $query_loc_id);
+
+                            echo
+                                '<select class="form-control" name="loc_id" required>
+                                 <option value="'.$row_sample_info["loc_id"].'" hidden>'.$row_sample_info["loc_id"].'</option>';
+                            
+                            while($row_loc_id = mysqli_fetch_assoc($get_loc_id))
+                            {      
+                                echo '<option value='.$row_loc_id["loc_id"].'>'.$row_loc_id["loc_id"].'</option>';
+                            }
+                            echo"</select>";
+                    echo'    
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label pr-0" for="proj_id">Project ID</label>
+                        <div class="col-sm-7">';
+                            
+                            
+                            $query_proj_id = "SELECT proj_id FROM projects";
+                            $get_proj_id = @mysqli_query($dbc, $query_proj_id);
+
+                            echo
+                                '<select class="form-control" name="proj_id" required >
+                                <option value="'.$row_sample_info["proj_id"].'">'.$row_sample_info["proj_id"].'</option>';
+                            
+                            while($row_proj_id = mysqli_fetch_assoc($get_proj_id))
+                            {      
+                                echo '<option value='.$row_proj_id["proj_id"].'>'.$row_proj_id["proj_id"].'</option>';
+                            }
+                            echo"</select>";
+                        echo '    
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label pr-0" for="year">Year</label>
                         <div class="col-sm-7">
-                            <select class="form-control" required name="year">
-                                <option value="'.$row['year'].'" placeholder="" hidden>'.$row['year'].'</option>';
-                                for ($i=2000;$i>=1980;$i--)
-                                {
-                                echo'<option value="'.$i.'">'.$i.'</option>';
+                            <input class="form-control" type="text" name="year" value="'.$row_sample_info["year"].'" required />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label pr-0" for="date">Date</label>
+                        <div class="col-sm-7">
+                            <input class="form-control" type="date" name="date" value="'.$row_sample_info["date"].'"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label pr-0" for="province">Province</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" required name="province">
+                                <option value="'.$row_sample_info["province"].'">'.$row_sample_info["province"].'</option>';
+                                $provinces = array("AB", "BC", "MB", "NB", "NL", "NT", "NS", "NU", "ON", "PE", "QC", "SK", "YT");
+                                foreach($provinces as $prov){
+                                echo '<option value="'.$prov.'">'.$prov.'</option>';
                                 }
-                    echo'
-                            </select>
+                            echo' 
+                            </select>      
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="sample_num">Sample Number</label>
+                        <label class="col-sm-5 col-form-label pr-0" for="u_depth">Upper Depth</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="sample_num" value="'.$row['sample_num'].'" />
+                            <input class="form-control" type="text" name="u_depth" value="'.$row_sample_info["u_depth"].'" placeholder="Centimetres" required />
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="lab_num">Lab Number</label>
+                        <label class="col-sm-5 col-form-label pr-0" for="l_depth">Lower Depth</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="lab_num" value="'.$row['lab_num'].'" />
+                            <input class="form-control" type="text" name="l_depth" value="'.$row_sample_info["l_depth"].'" placeholder="Centimetres" required />
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="zone">Zone Number</label>
+                        <label class="col-sm-5 col-form-label pr-0" for="horizon">Horizon</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="zone" value="'.$row['zone'].'" />
+                            <input class="form-control" type="text" name="horizon" value="'.$row_sample_info["horizon"].'" placeholder=""/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="shelf">Shelf Number</label>
+                        <label class="col-sm-5 col-form-label pr-0" for="orig_id">Original ID</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="shelf" value="'.$row['shelf'].'" />
+                            <input class="form-control" type="text" name="orig_id" value="'.$row_sample_info["orig_id"].'" placeholder=""/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="level">level</label>
+                        <label class="col-sm-5 col-form-label pr-0" for="notes">Notes</label>
                         <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="level" value="'.$row['level'].'" />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="row">Row</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="row" value="'.$row['row'].'" />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="box">Box</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" required type="text" name="box" value="'.$row['box'].'" />
+                            <input class="form-control" type="text" name="notes" value="'.$row_sample_info["notes"].'" placeholder=""/>
                         </div>
                     </div>
                 </div>';  
@@ -124,7 +137,7 @@
             else{
                 $status="disabled";
                 echo"ERROR: No entries found. Please check the value you entered.</br>
-                You have entered Sample ID: <b>$answer</b> ";
+                You have entered Sample ID: <b>'.$sample_info.'</b>";
                 echo mysqli_error($dbc)."</br>";
             }
             //mysqli_close($dbc);       
@@ -136,95 +149,101 @@
             //-- Physical Info --
             
         
-            $query2=" SELECT sample.sample_id,physical.* FROM sample left JOIN physical ON sample.sample_id=physical.SMPL_ID where sample.sample_id = '$answer' order by sample.sample_id";
-            $response2 = @mysqli_query($dbc,$query2);
+            $query_physical = "SELECT sample_info.sample_id, physical.* FROM sample_info left JOIN physical ON sample_info.sample_id = physical.sample_id where sample_info.sample_id = '$sample_id' order by sample_info.sample_id";
+            $response_physical = @mysqli_query($dbc, $query_physical);
             
-            if($response2){
-                if(mysqli_num_rows($response2)>0){ 
+            if($response_physical){
+                if(mysqli_num_rows($response_physical)>0){ 
                     $status="";
             //-- RECORDS EXIST --    
         
-            if ($row_QueryPhy = mysqli_fetch_array($response2)){
- 
-            echo' 
-                
-
-                <div class="col-sm-4 px-5">
-                    <h4 class="text-center mb-4">Physical Info</h4>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label" for="LAB">Lab</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" value="'.$row_QueryPhy['LAB'].'" name="LAB"/>
-                        </div>
+            if ($row_physical = mysqli_fetch_array($response_physical)){
+            
+            //-- Physical Info  --
+            echo'
+            <div class="col-md-6">
+                <h4 class="text-center mb-4">Physical</h4>
+                <div class="form-group row">                    
+                    <label class="col-sm-4 col-form-label" for="bulkd">Bulk Density</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="bulkd" value="'.$row_physical["bulkd"].'" placeholder="g/cm&sup3"/>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label" for="LOCATION">Location</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" value="'.$row_QueryPhy['LOCATION'].'" name="LOCATION"/>
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="t_gravel">Total Gravel</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="t_gravel" value="'.$row_physical["t_gravel"].'" placeholder="%"/>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label" for="LOCATION">Depth</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" value="'.$row_QueryPhy['DEPTH'].'" name="DEPTH"/>
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="t_clay">Total Clay</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="t_clay" value="'.$row_physical["t_clay"].'" placeholder="%"/>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label" for="SAND">Depth</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" value="'.$row_QueryPhy['SAND'].'" name="SAND"/>
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="t_silt">Total Silt</label>
+                    <div class="col-sm-7">
+                        <input class="form-control"  type="text" name="t_silt" value="'.$row_physical["t_silt"].'" placeholder="%"/>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label" for="CLAY">Clay</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" value="'.$row_QueryPhy['CLAY'].'" name="CLAY"/>
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="t_sand">Total Sand</label>
+                    <div class="col-sm-7">
+                        <input class="form-control"  type="text" name="t_sand" value="'.$row_physical["t_sand"].'" placeholder="%"/>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label" for="SILT">Silt</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" value="'.$row_QueryPhy['SILT'].'" name="SILT"/>
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="vc_sand">Very Coarse Sand</label>
+                    <div class="col-sm-7">
+                        <input class="form-control"  type="text" name="vc_sand" value="'.$row_physical["vc_sand"].'" placeholder="%"/>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label" for="SAND_VC">SAND_VC</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" value="'.$row_QueryPhy['SAND_VC'].'" name="SAND_VC"/>
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="c_sand">Coarse Sand</label>
+                    <div class="col-sm-7">
+                        <input class="form-control"  type="text" name="c_sand" value="'.$row_physical["c_sand"].'" placeholder="%"/>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label" for="SAND_C">SAND_C</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" value="'.$row_QueryPhy['SAND_C'].'" name="SAND_C"/>
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="m_sand">Medium Sand</label>
+                    <div class="col-sm-7">
+                        <input class="form-control"  type="text" name="m_sand" value="'.$row_physical["m_sand"].'" placeholder="%"/>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label" for="SAND_M">SAND_M</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" value="'.$row_QueryPhy['SAND_M'].'" name="SAND_M"/>
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="f_sand">Fine Sand</label>
+                    <div class="col-sm-7">
+                        <input class="form-control"  type="text" name="f_sand" value="'.$row_physical["f_sand"].'" placeholder="%"/>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label" for="SAND_F">SAND_F</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" value="'.$row_QueryPhy['SAND_F'].'" name="SAND_F"/>
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="vf_sand">Very Fine Sand</label>
+                    <div class="col-sm-7">
+                        <input class="form-control"  type="text" name="vf_sand" value="'.$row_physical["vf_sand"].'" placeholder="%"/>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label" for="SAND_VF">SAND_VF</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" value="'.$row_QueryPhy['SAND_VF'].'" name="SAND_VF"/>
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="texture">Texture</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" value="'.$row_physical["texture"].'" name="texture"/>
                     </div>
-                </div>';
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="field_txt">Field Texture</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" value="'.$row_physical["field_txt"].'" name="field_txt"/>
+                    </div>
+                </div>
+            </div>
+        </div>';
                                                                                         
             }     
             } 
             else {
                 $status="disabled";
                 echo "ERROR: No entries found. Please check the value you entered.</br>
-                      You have entered Sample ID:<b> $answer</b></br>";
+                      You have entered Sample ID:<b>$sample_id</b></br>";
             }
      
             }
@@ -235,135 +254,249 @@
             
             
                 
-            $query3=" SELECT sample.sample_id,chemical.* FROM sample left JOIN chemical ON sample.sample_id=chemical.SMPL_ID where sample.sample_id = '$answer' order by sample.sample_id";
-            $response3 = @mysqli_query($dbc,$query3);
+            $query_archive = "SELECT sample_info.sample_id, archive.* FROM sample_info left JOIN archive ON sample_info.sample_id = archive.sample_id where sample_info.sample_id = '$sample_id' order by sample_info.sample_id";
+            $response_archive = @mysqli_query($dbc, $query_archive);
             
-            if($response3){
-                if(mysqli_num_rows($response3)>0){ 
+            echo'<div class="row">';
+
+            if($response_archive){
+                if(mysqli_num_rows($response_archive)>0){ 
                     $status="";
             //-- RECORDS EXIST --    
         
-            if ($row_QueryChe = mysqli_fetch_array($response3)){
- 
-            echo'
-                <div class="col-sm-4 px-5">
-                <h4 class="text-center mb-4">Chemical Info</h4>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label" for="ORG_MTR">ORG_MTR</label>
+            if ($row_archive = mysqli_fetch_array($response_archive)){
+            
+            //-- Archive Info
+            echo'                         
+                <div class="col-md-6 mt-5 px-5">
+                    <div class="row justify-content-center mb-5">
+                        <h4 class="d-inline mr-2">Archive</h4>
+                        <h4 class="d-inline text-muted">(Jar #1)</h4>
+                    </div>
+                    <div class="form-group row mt-">
+                        <label class="col-sm-5 col-form-label" for="jar_1">Jar #</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="ORG_MTR" value="'.$row_QueryChe['ORG_MTR'].'" />
+                            <input class="form-control" type="text" name="jar_1" value="'.$row_archive["jar"].'" readonly/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-4 col-form-label" for="CEC">CEC</label>
+                        <label class="col-sm-5 col-form-label" for="arch_year_jar_1">Archive Year</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="CEC" value="'.$row_QueryChe['CEC'].'" />
+                            <input class="form-control" type="text" name="arch_year_jar_1"  value="'.$row_archive["arch_year"].'" placeholder="YYYY" required/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-4 col-form-label" for="BUFFER_PH">BUFFER_PH</label>
+                        <label class="col-sm-5 col-form-label" for="section_jar_1">Section</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="BUFFER_PH" value="'.$row_QueryChe['BUFFER_PH'].'" />
+                            <input class="form-control" type="text" name="section_jar_1"  value="'.$row_archive["section"].'"required/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-4 col-form-label" for="PER_K">PER_K</label>
+                        <label class="col-sm-5 col-form-label" for="column_jar_1">Column</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="PER_K" value="'.$row_QueryChe['PER_K'].'" />
+                            <input class="form-control" type="text" name="column_jar_1"  value="'.$row_archive["column"].'" required/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-4 col-form-label" for="PER_MG">PER_MG</label>
+                        <label class="col-sm-5 col-form-label" for="row_jar_1">Row</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="PER_MG" value="'.$row_QueryChe['PER_MG'].'" />
+                            <input class="form-control" type="text" name="row_jar_1"  value="'.$row_archive["row"].'" required/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-4 col-form-label" for="PER_CA">PER_CA</label>
+                        <label class="col-sm-5 col-form-label" for="box_id_jar_1">Box ID</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="PER_CA" value="'.$row_QueryChe['PER_CA'].'" />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label" for="PER_NA">PER_NA</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" name="PER_NA" value="'.$row_QueryChe['PER_NA'].'" />
+                            <input class="form-control" type="text" name="box_id_jar_1"  value="'.$row_archive["box_id"].'" required/>
                         </div>
                     </div>
                 </div>
-            </div>';
+                ';
            }     
         } 
         
         else {
                 $status="disabled";
                 echo "ERROR: No entries found. Please check the value you entered.</br>
-                You have entered Sample ID:<b> $answer</b></br>";
+                You have entered Sample ID:<b>$sample_id</b></br>";
         }
     }
         else{
             echo "<table><tr><td>ERROR: No entries found. Please select a field</td></tr></table>";
             
         }
-      
-        $query4=" SELECT sample.sample_id,biome.* FROM sample left JOIN biome ON sample.sample_id=biome.SMPL_ID where sample.sample_id = '$answer' order by sample.sample_id";
-        $response4 = @mysqli_query($dbc,$query4);
+
+            $query_archive_jar2 = "SELECT sample_info.sample_id, archive.* FROM sample_info left JOIN archive ON sample_info.sample_id = archive.sample_id WHERE sample_info.sample_id = '$sample_id' AND archive.jar = 2";
+            $response_archive_jar2 = @mysqli_query($dbc, $query_archive_jar2);
+            
+            $row_archive_jar2 = mysqli_fetch_array($response_archive_jar2);
+            $rowcount_archive_jar2 = mysqli_num_rows($response_archive_jar2);
+            
+            
+                    //-- Archive Info Jar #2
+                    echo'                         
+                    <div class="col-md-6 mt-5 px-5">
+                    <div class="row justify-content-center">
+                        <h4 class="d-inline mr-2">Archive</h4>
+                        <h4 class="d-inline text-muted">(Jar #2)</h4>
+                    </div>
+                    <p class="small text-center mb-4">(If required)</p>
+                        <div class="form-group row">
+                        <label class="col-sm-5 col-form-label" for="jar_2_required">Second Jar?</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" name="jar_2_required">
+                                    <option value="no">No</option>
+                                    <option value="yes"'; if($rowcount_archive_jar2 > 0){echo'selected="selected"';} echo'>Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label" for="arch_year_jar_1">Archive Year</label>
+                            <div class="col-sm-7">
+                                <input class="form-control" type="text" name="arch_year_jar_1"  value="'.$row_archive_jar2["arch_year"].'" placeholder="YYYY" required/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label" for="section_jar_1">Section</label>
+                            <div class="col-sm-7">
+                                <input class="form-control" type="text" name="section_jar_1"  value="'.$row_archive_jar2["section"].'"required/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label" for="column_jar_1">Column</label>
+                            <div class="col-sm-7">
+                                <input class="form-control" type="text" name="column_jar_1"  value="'.$row_archive_jar2["column"].'" required/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label" for="row_jar_1">Row</label>
+                            <div class="col-sm-7">
+                                <input class="form-control" type="text" name="row_jar_1"  value="'.$row_archive_jar2["row"].'" required/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label" for="box_id_jar_1">Box ID</label>
+                            <div class="col-sm-7">
+                                <input class="form-control" type="text" name="box_id_jar_1"  value="'.$row_archive_jar2["box_id"].'" required/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>';
+                }     
+              
+        //-- Chemical Info  -->            
+    
+        $query_chemical = "SELECT sample_info.sample_id, chemical.* FROM sample_info left JOIN chemical ON sample_info.sample_id = chemical.sample_id where sample_info.sample_id = '$sample_id' order by sample_info.sample_id";
+        $response_chemical = @mysqli_query($dbc, $query_chemical);
         
-        if($response4){
-            if(mysqli_num_rows($response4)>0){  
+        if($response_chemical){
+            if(mysqli_num_rows($response_chemical)>0){  
                 $status="";
         //-- RECORDS EXIST --    
         
-        if ($row_QueryBio = mysqli_fetch_array($response4)){
+        if ($row_chemical = mysqli_fetch_array($response_chemical)){
  
         echo'
-            <div class="row">
-            <!-- Soil Bio -->
-                <div class="col-sm-4 mt-5 px-5">
-                <h4 class="text-center mb-4">Biology Info</h4>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="biome01">Soil-Bio 01</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" name="biome01" value="'.$row_QueryBio['biome01'].'" />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="biome02">Soil-Bio 02</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" name="biome02" value="'.$row_QueryBio['biome02'].'" />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="biome03">Soil-Bio 03</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" name="biome03" value="'.$row_QueryBio['biome03'].'" />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="biome03">Soil-Bio 04</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" name="biome04" value="'.$row_QueryBio['biome04'].'" />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="biome03">Soil-Bio 05</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" name="biome05" value="'.$row_QueryBio['biome05'].'" />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="biome04">Soil-Bio 06</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" name="biome06" value="'.$row_QueryBio['biome06'].'" />
-                        </div>
-                    </div>
-                </div>';
+        <div class="col-md-4">
+        <h4 class="text-center mb-4">Chemical Info</h4>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label" for="ph_cacl2">pH (CaCl<sub>2</sub>)</label>
+            <div class="col-sm-7">
+                <input class="form-control" type="text" value="'.$row_chemical["ph_cacl2"].'" name="ph_cacl2"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label" for="ph_h2o">pH (H<sub>2</sub>O)</label>
+            <div class="col-sm-7">
+                <input class="form-control" type="text" value="'.$row_chemical["ph_h2o"].'" name="ph_h2o"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label" for="ttl_c">Total C</label>
+            <div class="col-sm-7">
+                <input class="form-control" type="text" value="'.$row_chemical["ttl_c"].'" name="ttl_c" placeholder="%"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label" for="ttl_n">Total N</label>
+            <div class="col-sm-7">
+                <input class="form-control" type="text" value="'.$row_chemical["ttl_n"].'" name="ttl_n" placeholder="%"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label" for="caco3">CaCO<sub>3</sub></label>
+            <div class="col-sm-7">
+                <input class="form-control" type="text" value="'.$row_chemical["caco3"].'" name="caco3" placeholder="%"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label" for="org_c">org_c</label>
+            <div class="col-sm-7">
+                <input class="form-control" type="text" value="'.$row_chemical["org_c"].'" name="org_c"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label" for="org_c_n">org_c_n</label>
+            <div class="col-sm-7">
+                <input class="form-control" type="text" value="'.$row_chemical["org_c_n"].'" name="org_c_n"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label" for="tec">Total Exchangable Cations</label>
+            <div class="col-sm-7">
+                <input class="form-control" type="text" value="'.$row_chemical["tec"].'" name="tec" placeholder="meq/100g"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label" for="cec">Cation Exchange Capacity</label>
+            <div class="col-sm-7">
+                <input class="form-control" type="text" value="'.$row_chemical["cec"].'" name="cec" placeholder="meq/100g"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label" for="ca_exch">Exchangable Ca</label>
+            <div class="col-sm-7">
+                <input class="form-control" type="text" value="'.$row_chemical["ca_exch"].'" name="ca_exch" placeholder="meq/100g"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label" for="mg_exch">Exchangable Mg</label>
+            <div class="col-sm-7">
+                <input class="form-control" type="text" value="'.$row_chemical["mg_exch"].'" name="mg_exch" placeholder="meq/100g"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label" for="k_exch">Exchangable K</label>
+            <div class="col-sm-7">
+                <input class="form-control" type="text" value="'.$row_chemical["k_exch"].'" name="k_exch" placeholder="meq/100g"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label" for="exch_na">Exchangable Na</label>
+            <div class="col-sm-7">
+                <input class="form-control" type="text" value="'.$row_chemical["na_exch"].'" name="na_exch" placeholder="meq/100g"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label" for="avail_pbi">Available P (NaHCO<sub>3</sub>)</label>
+            <div class="col-sm-7">
+                <input class="form-control" type="text" value="'.$row_chemical["avail_pbi"].'" name="avail_pbi" placeholder="&#xb5;g/g"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label" for="avail_pbr">Available P (Bray)</label>
+            <div class="col-sm-7">
+                <input class="form-control" type="text" value="'.$row_chemical["avail_pbr"].'" name="avail_pbr" placeholder="&#xb5;g/g"/>
+            </div>
+        </div>
+    </div>
+</div>';
         }     
          } 
          else {
                $status="disabled";
                echo "ERROR: No entries found. Please check the value you entered.</br>
-               You have entered Sample ID:<b> $answer</b></br>";
+               You have entered Sample ID:<b>$sample_id</b></br>";
         }
         }
         else {
@@ -371,66 +504,20 @@
             
         }
         
-        
-        
-        $query5=" SELECT sample.sample_id,spectral.* FROM sample left JOIN spectral ON sample.sample_id=spectral.SMPL_ID where sample.sample_id = '$answer' order by sample.sample_id";
-        $response5 = @mysqli_query($dbc,$query5);
-        
-        if($response5){
-            if(mysqli_num_rows($response5)>0){ 
-                $status="";
-        //-- RECORDS EXIST ---    
-        
-        if ($row_QuerySpectral = mysqli_fetch_array($response5)){
- 
-            echo'
-                <div class="col-sm-4 mt-5 px-5">
-                    <h4 class="text-center mb-4">Spectral Info</h4>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="spectral01">Spectral 01</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" name="spectral01" value="'.$row_QuerySpectral['spectral01'].'"/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="spectral02">Spectral 02</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" name="spectral02" value="'.$row_QuerySpectral['spectral02'].'"/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="spectral03">Spectral 03</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" name="spectral03" value="'.$row_QuerySpectral['spectral03'].'"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            ';                                                                          
-            }     
-        } 
-            else{
-                $status="disabled";
-                echo "ERROR: No entries found. Please check the value you entered.</br>
-                You have entered Sample ID:<b> $answer</b></br>";
-            }
-        }
-            else{
-                echo "<table><tr><td>ERROR: No entries found. Please select a field</td></tr></table>";
-            }
     
     mysqli_close($dbc);
-           }
         
-    else{
-            redirect_homepage();
-    }
+        
+  //--  else{
+  //--          redirect_homepage();
+  //--  }
 ?>
-    <div class="row justify-content-center"> 
-        <div class="text-center mt-3 mb-5" name="">    
-            <input class="btn btn-danger" type="submit" id="updateButton" name="updateNow" value="Update Sample" <?php echo $status ?> />
-        </div>
+    <!-- Submit -->
+    <div class="text-center my-5" name="submit"> 
+        <input class="btn btn-danger" type="submit" name="update-sample" value="Update Sample" <?php echo $status ?> />
     </div>
-</form> 
+    
+</form>
+</div> 
 </body>   
 </html>
