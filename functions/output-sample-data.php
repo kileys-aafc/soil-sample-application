@@ -176,7 +176,7 @@
                         <td>'.$avail_pbi.'</td>
                     </tr>
                     <tr>
-                        <th scope="row">Available P (&#xb5;/g); Bray Method</th>
+                        <th scope="row">Available P (&#xb5;g/g); Bray Method</th>
                         <td>'.$avail_pbr.'</td>
                     </tr>
                 </tbody>
