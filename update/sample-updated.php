@@ -1,135 +1,137 @@
-<head><title>Update Sample</title></head>
-   
-<?php
-    include '../nav-template.php';  
-    include("../functions/redirect-homepage.php");
-?>
+<head><title>Sample Updated</title></head>
+<?php include '../nav-template.php'; ?>
 
-
-       
+<main role="main">       
 <div class="container">
-    <div class="row justify-content-center" id="instruction" >
-		<div class="col-6 text-center">
+    <div class="row justify-content-center">
+    	<div class="col-6 text-center">
             <h1 class="display-4">Sample Updated</h1>
             <p class="lead my-4">Here is the updated sample data.</p>  
         </div> 
     </div>
     <div class="row">
-    <hr class="mb-4">   
-<?php   
-        
-        if (isset($_POST['updateNow'])){        
-        $site_num=$_POST['site_num'];
-        $field_id=$_POST['field_id'];
-        $site_type=$_POST['site_type'];
-        $year=$_POST['year'];
-        $sample_num=$_POST['sample_num'];
-        $lab_num=$_POST['lab_num'];
-        $zone=$_POST['zone'];
-        $shelf=$_POST['shelf'];
-        $level=$_POST['level'];
-        $rowrow=$_POST['row'];
-        $box=$_POST['box'];
-        $sample_id=$_POST['sample_id'];
-            
-        //------physical variables
-        $SMPL_ID=$_POST['sample_id'];
-        $LAB=$_POST['LAB'];
-        $LOCATION=$_POST['LOCATION'];
-        $DEPTH=$_POST['DEPTH'];
-        $SAND=$_POST['SAND'];
-        $CLAY=$_POST['CLAY'];
-        $SILT=$_POST['SILT'];
-        $SAND_VC=$_POST['SAND_VC'];
-        $SAND_C=$_POST['SAND_C'];
-        $SAND_M=$_POST['SAND_M'];
-        $SAND_F=$_POST['SAND_F'];
-        $SAND_VF=$_POST['SAND_VF'];
-        //-------------Chemical
-        $ORG_MTR=$_POST['ORG_MTR'];
-        $CEC=$_POST['CEC'];
-        $BUFFER_PH=$_POST['BUFFER_PH'];
-        $PER_K=$_POST['PER_K'];
-        $PER_MG=$_POST['PER_MG'];
-        $PER_CA=$_POST['PER_CA'];
-        $PER_NA=$_POST['PER_NA'];  
-//------biome info from $_POST[]--------
-        $biome01=$_POST['biome01'];
-        $biome02=$_POST['biome02'];
-        $biome03=$_POST['biome03'];
-        $biome04=$_POST['biome04'];
-        $biome05=$_POST['biome05'];
-        $biome06=$_POST['biome06'];
-//------spectral info from $_POST[]--------
-        $spectral01=$_POST['spectral01'];
-        $spectral02=$_POST['spectral02'];
-        $spectral03=$_POST['spectral03'];
-       require '../db-connect.php';
+    	<hr class="mb-4">
+	</div>
+</div>   
+	<?php        
+        if(isset($_POST['update-sample'])){
+		//------Sample info from $_POST[] --------
+		$sample_id = $_POST['sample_id'];
+		$loc_id = $_POST['loc_id'];        
+		$proj_id = $_POST['proj_id'];    
+		$year = $_POST['year'];
+		if($_POST['date'] == ""){$date = "NULL";}else{$date = $_POST['date'];}
+		$province = $_POST['province'];
+		$u_depth = $_POST['u_depth'];
+		$l_depth = $_POST['l_depth'];
+		$horizon = trim($_POST['horizon']);
+		$orig_id = $_POST['orig_id'];
+		$notes = $_POST['notes'];
+		//------Physical info from $_POST[] --------
+		if($_POST['bulkd'] == ""){$bulkd = "NULL";}else{$bulkd = $_POST['bulkd'];}      
+		if($_POST['t_gravel'] == ""){$t_gravel = "NULL";}else{$t_gravel = $_POST['t_gravel'];}
+		if($_POST['t_clay'] == ""){$t_clay = "NULL";}else{$t_clay = $_POST['t_clay'];}
+		if($_POST['t_silt'] == ""){$t_silt = "NULL";}else{$t_silt = $_POST['t_silt'];}
+		if($_POST['t_sand'] == ""){$t_sand = "NULL";}else{$t_sand = $_POST['t_sand'];}
+		if($_POST['vc_sand'] == ""){$vc_sand = "NULL";}else{$vc_sand = $_POST['vc_sand'];}
+		if($_POST['c_sand'] == ""){$c_sand = "NULL";}else{$c_sand = $_POST['c_sand'];}
+		if($_POST['m_sand'] == ""){$m_sand = "NULL";}else{$m_sand = $_POST['m_sand'];}
+		if($_POST['f_sand'] == ""){$f_sand = "NULL";}else{$f_sand = $_POST['f_sand'];}
+		if($_POST['vf_sand'] == ""){$vf_sand = "NULL";}else{$vf_sand = $_POST['vf_sand'];}
+		$texture = $_POST['texture'];
+		$field_txt = $_POST['field_txt'];
+		//------Chemical info from $_POST[]--------
+		if($_POST['ph_cacl2'] == ""){$ph_cacl2 = "NULL";}else{$ph_cacl2 = $_POST['ph_cacl2'];}
+		if($_POST['ph_h2o'] == ""){$ph_h2o = "NULL";}else{$ph_h2o = $_POST['ph_h2o'];}
+		if($_POST['ttl_c'] == ""){$ttl_c = "NULL";}else{$ttl_c = $_POST['ttl_c'];}
+		if($_POST['ttl_n'] == ""){$ttl_n = "NULL";}else{$ttl_n = $_POST['ttl_n'];}
+		if($_POST['caco3'] == ""){$caco3 = "NULL";}else{$caco3 = $_POST['caco3'];}
+		if($_POST['org_c'] == ""){$org_c = "NULL";}else{$org_c = $_POST['org_c'];}
+		if($_POST['org_c_n'] == ""){$org_c_n = "NULL";}else{$org_c_n = $_POST['org_c_n'];}
+		if($_POST['tec'] == ""){$tec = "NULL";}else{$tec = $_POST['tec'];}
+		if($_POST['cec'] == ""){$cec = "NULL";}else{$cec = $_POST['cec'];}
+		if($_POST['ca_exch'] == ""){$ca_exch = "NULL";}else{$ca_exch = $_POST['ca_exch'];} 
+		if($_POST['mg_exch'] == ""){$mg_exch = "NULL";}else{$mg_exch = $_POST['mg_exch'];}
+		if($_POST['k_exch'] == ""){$k_exch = "NULL";}else{$k_exch = $_POST['k_exch'];}
+		if($_POST['na_exch'] == ""){$na_exch = "NULL";}else{$na_exch = $_POST['na_exch'];}
+		if($_POST['avail_pbi'] == ""){$avail_pbi = "NULL";}else{$avail_pbi = $_POST['avail_pbi'];}   
+		if($_POST['avail_pbr'] == ""){$avail_pbr = "NULL";}else{$avail_pbr = $_POST['avail_pbr'];}
+		//------Archive Jar #1 info from $_POST[]--------
+		$jar_1 = $_POST['jar_1'];
+		$arch_year_jar_1 = $_POST['arch_year_jar_1'];
+		$section_jar_1 = strtoupper($_POST['section_jar_1']);
+		$column_jar_1 = strtoupper($_POST['column_jar_1']);
+		$row_jar_1 = $_POST['row_jar_1'];
+		$box_id_jar_1 = $_POST['box_id_jar_1'];
+		//------Archive Jar #2 info from $_POST[]--------
+		$jar_2 = 2;
+		$jar_2_required = $_POST['jar_2_required'];
+		if(isset($_POST['arch_year_jar_2'])){$arch_year_jar_2 = $_POST['arch_year_jar_2'];};
+		if(isset($_POST['section_jar_2'])){$section_jar_2 = strtoupper($_POST['section_jar_2']);};
+		if(isset($_POST['column_jar_2'])){$column_jar_2 = strtoupper($_POST['column_jar_2']);};
+		if(isset($_POST['row_jar_2'])){$row_jar_2 = $_POST['row_jar_2'];};
+		if(isset($_POST['box_id_jar_2'])){$box_id_jar_2 = $_POST['box_id_jar_2'];};
+	
 
+	   require '../db-connect.php';
+	   
+	   
 
-        $queryUpdate="         
-        UPDATE sample SET site_num='$site_num',field_id='$field_id',site_type='$site_type',year='$year',sample_num='$sample_num', lab_num='$lab_num',zone='$zone',shelf='$shelf',level='$level',row='$rowrow',box='$box' WHERE sample_id='$sample_id';";      
-    
+//-----------------Sample Info Update Query------------
+		$query_update = "UPDATE sample_info SET loc_id='$loc_id', proj_id='$proj_id', year=$year, date=$date, province='$province', u_depth='$u_depth', l_depth='$l_depth', horizon='$horizon', orig_id='$orig_id', notes='$notes' WHERE sample_id='$sample_id';";      
+
 //-----------------Physical Update Query------------
-        $queryUpdate .="
-        INSERT INTO physical 
-        ( SMPL_ID, LAB, LOCATION, DEPTH, SAND, CLAY, SILT, SAND_VC, SAND_C, SAND_M, SAND_F, SAND_VF)VALUES        ('$SMPL_ID','$LAB','$LOCATION','$DEPTH','$SAND','$CLAY','$SILT','$SAND_VC','$SAND_C','$SAND_M','$SAND_F','$SAND_VF')
-        ON DUPLICATE KEY UPDATE LAB='$LAB',LOCATION='$LOCATION',DEPTH='$DEPTH',SAND='$SAND',CLAY='$CLAY',SILT='$SILT',SAND_VC='$SAND_VC',SAND_C='$SAND_C',SAND_M='$SAND_M',SAND_F='$SAND_F',SAND_VF='$SAND_VF';";
+        $query_update .= "INSERT INTO physical (sample_id, bulkd, t_gravel, t_clay, t_silt, t_sand, vc_sand, c_sand, m_sand, f_sand, vf_sand, texture, field_txt) VALUES ('$sample_id','$bulkd','$t_gravel','$t_clay','$t_silt','$t_sand','$vc_sand','$c_sand','$m_sand','$f_sand','$vf_sand','$texture','$field_txt')
+        				ON DUPLICATE KEY UPDATE bulkd=$bulkd, t_gravel=$t_gravel, t_clay=$t_clay, t_silt=$t_silt, t_sand=$t_sand, vc_sand=$vc_sand, c_sand=$c_sand, m_sand=$m_sand, f_sand=$f_sand, vf_sand=$vf_sand, texture='$texture', field_txt='$field_txt' ;";
      
 //-----------------Chemical Update Query------------             
-        $queryUpdate .="
-        INSERT INTO chemical (`SMPL_ID`, `ORG_MTR`, `CEC`, `BUFFER_PH`, `PER_K`, `PER_MG`, `PER_CA`, `PER_NA`) VALUES('$SMPL_ID', '$ORG_MTR', '$CEC', '$BUFFER_PH', '$PER_K', '$PER_MG', '$PER_CA', '$PER_NA')
-        ON DUPLICATE KEY UPDATE 
-        ORG_MTR='$ORG_MTR', CEC='$CEC', BUFFER_PH='$BUFFER_PH',PER_K='$PER_K',PER_MG='$PER_MG',PER_CA='$PER_CA',PER_NA='$PER_NA';";
+        $query_update .= "INSERT INTO chemical (sample_id, ph_cacl2, ph_h2o, ttl_c, ttl_n, caco3, org_c, org_c_n, tec, cec, ca_exch, mg_exch, k_exch, na_exch, avail_pbi, avail_pbr) VALUES ('$sample_id', '$ph_cacl2', '$ph_h2o', '$ttl_c', '$ttl_n', '$caco3', '$org_c', '$org_c_n', '$tec', '$cec', '$ca_exch', '$mg_exch', '$k_exch', '$na_exch', '$avail_pbi', '$avail_pbr')
+        ON DUPLICATE KEY UPDATE ph_cacl2=$ph_cacl2, ph_h2o=$ph_h2o, ttl_c=$ttl_c, ttl_n=$ttl_n, caco3=$caco3, org_c=$org_c, org_c_n=$org_c_n, tec=$tec, cec=$cec, ca_exch=$ca_exch, mg_exch=$mg_exch, k_exch=$k_exch, na_exch=$na_exch, avail_pbi=$avail_pbi, avail_pbr=$avail_pbr ;";
            
-//-----------------Biome Update Query------------
-        $queryUpdate .="
-        INSERT INTO biome (`SMPL_ID`, `biome01`, `biome02`, `biome03`, `biome04`, `biome05`, `biome06`) VALUES('$SMPL_ID','$biome01','$biome02','$biome03','$biome04','$biome05','$biome06') 
-        ON DUPLICATE KEY UPDATE 
-        biome01='$biome01', biome02='$biome02', biome03='$biome03', biome04='$biome04', biome05='$biome05', biome06='$biome06';";
+//-----------------Archive Jar #1 Update Query------------
+        $query_update .= "INSERT INTO archive (sample_id, jar, arch_year, section, arch_col, arch_row, box_id) VALUES('$sample_id', '$jar_1', '$arch_year_jar_1','$section_jar_1', '$column_jar_1', '$row_jar_1', '$box_id_jar_1') 
+        ON DUPLICATE KEY UPDATE jar=$jar_1, arch_year=$arch_year_jar_1, section='$section_jar_1', arch_col='$column_jar_1', arch_row='$row_jar_1', box_id='$box_id_jar_1';";
            
-//-----------------Spectral Update Query------------
-        $queryUpdate .="
-        INSERT INTO spectral (`SMPL_ID`, `spectral01`, `spectral02`, `spectral03`) 
-        VALUES ('$SMPL_ID','$spectral01','$spectral02','$spectral03')
-        ON DUPLICATE KEY UPDATE 
-        spectral01='$spectral01',spectral02='$spectral02',spectral03='$spectral03'
-        ;";
+//-----------------Archive Jar #2 Update Query------------
+		//-- Check if Jar #2 is required --- 
+		if($jar_2_required == "yes"){
+			$query_update .= "INSERT INTO archive (sample_id, jar, arch_year, section, arch_col, arch_row, box_id) VALUES('$sample_id', '$jar_2', '$arch_year_jar_2', '$section_jar_2', '$column_jar_2', '$row_jar_2', '$box_id_jar_2') 
+			ON DUPLICATE KEY UPDATE jar=$jar_2, arch_year=$arch_year_jar_2, section='$section_jar_2', arch_col='$column_jar_2', arch_row='$row_jar_2', box_id='$box_id_jar_2';";
+		};  
+
+        $query_update .= "SELECT * FROM sample_info, physical, chemical, archive WHERE sample_info.sample_id = $sample_id and sample_info.sample_id = physical.sample_id and sample_info.sample_id = chemical.sample_id and sample_info.sample_id = archive.sample_id";
             
-        $queryUpdate .= "SELECT * FROM sample,physical,chemical,biome,spectral WHERE sample.sample_id ='$sample_id' 
-        and sample.sample_id=physical.SMPL_ID and 
-        sample.sample_id=chemical.SMPL_ID and 
-        sample.sample_id=biome.SMPL_ID and 
-        sample.sample_id=spectral.SMPL_ID ";
-            
-     
-       $responseUpdate = @mysqli_multi_query($dbc,$queryUpdate);
+        $update_response = @mysqli_multi_query($dbc, $query_update);
         
-        if($responseUpdate){ 
-        do{
-                if ($result=mysqli_store_result($dbc)){
-                        while($row = mysqli_fetch_row($result)){    
-////////--------------------print out the informations about the new updated sample ------------///////     
-                            include("../functions/output-sample-data.php");
-                        }  
-                   
-                        mysqli_free_result($result);
-                }
-           
-            }
-            while(mysqli_next_result($dbc));
+        if($update_response){include("../functions/output-sample-data.php");
+        	//-- do{ 
+            //--    if ($result=mysqli_store_result($dbc)){
+            //--            while($row = mysqli_fetch_row($result)){    
+			//--			//----Output Updated Sample Data ---
+			//--				
+			//--				include("../functions/output-sample-data.php");
+			//--				echo"print out included";
+            //--            }  
+            //--       
+            //--            mysqli_free_result($result);
+			//--	}
+			//--           
+            //--}
+            //--	while(mysqli_next_result($dbc));
         }
       
-      else{
-        echo "RESPONSE SHOW UPDATE FAIL</br>
-        ERROR: Could not issue database query</br>";
-        echo mysqli_error($dbc)."</br>";
-        }            mysqli_close($dbc);  
-        }
-        else{
-                     redirect_homepage();
+      	else{
+			echo "RESPONSE SHOW UPDATE FAIL</br>
+			ERROR: Could not issue database query</br>";
+			echo mysqli_error($dbc)."</br>";
+		}            
+mysqli_close($dbc);  
+}
 
-     }
+else{
+	echo "error updating";
+}
+        
 ?>  
         
 	<div class="row justify-content-center">
