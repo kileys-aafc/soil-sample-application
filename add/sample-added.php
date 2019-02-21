@@ -20,7 +20,7 @@
                 $loc_id = $_POST['loc_id'];        
                 $proj_id = $_POST['proj_id'];    
                 $year = $_POST['year'];
-                if(isset($_POST['date'])){$date = $_POST['date'];};
+                if($_POST['date'] == ""){$date = NULL;}else{$date = $_POST['date'];}
                 $province = $_POST['province'];
                 $u_depth = $_POST['u_depth'];
                 $l_depth = $_POST['l_depth'];
@@ -28,34 +28,34 @@
                 $orig_id = $_POST['orig_id'];
                 $notes = $_POST['notes'];
                 //------Physical info from $_POST[] --------
-                $bulkd = $_POST['bulkd'];      
-                $t_gravel = $_POST['t_gravel'];
-                $t_clay = $_POST['t_clay'];
-                $t_silt = $_POST['t_silt'];
-                $t_sand = $_POST['t_sand'];
-                $vc_sand = $_POST['vc_sand'];
-                $c_sand = $_POST['c_sand'];
-                $m_sand = $_POST['m_sand'];
-                $f_sand = $_POST['f_sand'];
-                $vf_sand = $_POST['vf_sand'];
-                $texture = $_POST['texture'];
-                $field_txt = $_POST['field_txt'];
+                if($_POST['bulkd'] == ""){$bulk = NULL;}else{$bulk = $_POST['bulkd'];}      
+                if($_POST['t_gravel'] == ""){$t_gravel = NULL;}else{$t_gravel = $_POST['t_gravel'];}
+                if($_POST['t_clay'] == ""){$t_clay = NULL;}else{$t_clay = $_POST['t_clay'];}
+                if($_POST['t_silt'] == ""){$t_silt = NULL;}else{$t_silt = $_POST['t_silt'];}
+                if($_POST['t_sand'] == ""){$t_sand = NULL;}else{$t_sand = $_POST['t_sand'];}
+				if($_POST['vc_sand'] == ""){$vc_sand = NULL;}else{$vc_sand = $_POST['vc_sand'];}
+				if($_POST['c_sand'] == ""){$c_sand = NULL;}else{$c_sand = $_POST['c_sand'];}
+				if($_POST['m_sand'] == ""){$m_sand = NULL;}else{$m_sand = $_POST['m_sand'];}
+				if($_POST['f_sand'] == ""){$f_sand = NULL;}else{$f_sand = $_POST['f_sand'];}
+				if($_POST['vf_sand'] == ""){$vf_sand = NULL;}else{$vf_sand = $_POST['vf_sand'];}
+				if($_POST['texture'] == ""){$texture = NULL;}else{$texture = $_POST['texture'];}
+				if($_POST['field_txt'] == ""){$field_txt = NULL;}else{$field_txt = $_POST['field_txt'];}
                 //------Chemical info from $_POST[]--------
-                $ph_cacl2 = $_POST['ph_cacl2'];
-                $ph_h2o = $_POST['ph_h2o'];
-                $ttl_c = $_POST['ttl_c'];
-                $ttl_n = $_POST['ttl_n'];
-                $caco3 = $_POST['caco3'];
-                $org_c = $_POST['org_c'];
-                $org_c_n = $_POST['org_c_n'];
-                $tec = $_POST['tec'];
-                $cec = $_POST['cec']; 
-                $ca_exch = $_POST['ca_exch']; 
-                $mg_exch = $_POST['mg_exch']; 
-                $k_exch = $_POST['k_exch'];
-                $na_exch = $_POST['na_exch'];
-                $avail_pbi = $_POST['avail_pbi'];   
-                $avail_pbr = $_POST['avail_pbr']; 
+                if($_POST['ph_cacl2'] == ""){$ph_cacl2 = NULL;}else{$ph_cacl2 = $_POST['ph_cacl2'];}
+				if($_POST['ph_h2o'] == ""){$ph_h2o = NULL;}else{$ph_h2o = $_POST['ph_h2o'];}
+				if($_POST['ttl_c'] == ""){$ttl_c = NULL;}else{$ttl_c = $_POST['ttl_c'];}
+				if($_POST['ttl_n'] == ""){$ttl_n = NULL;}else{$ttl_n = $_POST['ttl_n'];}
+				if($_POST['caco3'] == ""){$caco3 = NULL;}else{$caco3 = $_POST['caco3'];}
+				if($_POST['org_c'] == ""){$org_c = NULL;}else{$org_c = $_POST['org_c'];}
+				if($_POST['org_c_n'] == ""){$org_c_n = NULL;}else{$org_c_n = $_POST['org_c_n'];}
+				if($_POST['tec'] == ""){$tec = NULL;}else{$tec = $_POST['tec'];}
+				if($_POST['cec'] == ""){$cec = NULL;}else{$cec = $_POST['cec'];}
+				if($_POST['ca_exch'] == ""){$ca_exch = NULL;}else{$ca_exch = $_POST['ca_exch'];} 
+				if($_POST['mg_exch'] == ""){$mg_exch = NULL;}else{$mg_exch = $_POST['mg_exch'];}
+				if($_POST['k_exch'] == ""){$k_exch = NULL;}else{$k_exch = $_POST['k_exch'];}
+				if($_POST['na_exch'] == ""){$na_exch = NULL;}else{$na_exch = $_POST['na_exch'];}
+				if($_POST['avail_pbi'] == ""){$avail_pbi = NULL;}else{$avail_pbi = $_POST['avail_pbi'];}   
+				if($_POST['avail_pbr'] == ""){$avail_pbr = NULL;}else{$avail_pbr = $_POST['avail_pbr'];}
                 //------Archive Jar #1 info from $_POST[]--------
                 $jar_1 = $_POST['jar_1'];
                 $arch_year_jar_1 = $_POST['arch_year_jar_1'];
