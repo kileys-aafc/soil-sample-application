@@ -293,11 +293,11 @@
                         </tr>
                         <tr>
                             <th scope="row">Column</th>
-                            <td>'.$archive['column'].'</td>
+                            <td>'.$archive['arch_col'].'</td>
                         </tr>
                         <tr>
                             <th scope="row">Row</th>
-                            <td>'.$archive['row'].'</td>
+                            <td>'.$archive['arch_row'].'</td>
                         </tr>
                         <tr>
                             <th scope="row">Box_id</th>
