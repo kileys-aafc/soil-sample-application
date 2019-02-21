@@ -20,7 +20,7 @@
                 $loc_id = $_POST['loc_id'];        
                 $proj_id = $_POST['proj_id'];    
                 $year = $_POST['year'];
-                $date = $_POST['date'];
+                if(isset($_POST['date'])){$date = $_POST['date'];};
                 $province = $_POST['province'];
                 $u_depth = $_POST['u_depth'];
                 $l_depth = $_POST['l_depth'];
