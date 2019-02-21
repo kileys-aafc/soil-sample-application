@@ -364,13 +364,13 @@
                         <div class="form-group row">
                             <label class="col-sm-5 col-form-label" for="column_jar_1">Column</label>
                             <div class="col-sm-7">
-                                <input class="form-control" type="text" name="column_jar_2"  value="'.$row_archive_jar2["column"].'" />
+                                <input class="form-control" type="text" name="column_jar_2"  value="'.$row_archive_jar2["arch_col"].'" />
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-5 col-form-label" for="row_jar_1">Row</label>
                             <div class="col-sm-7">
-                                <input class="form-control" type="text" name="row_jar_2"  value="'.$row_archive_jar2["row"].'" />
+                                <input class="form-control" type="text" name="row_jar_2"  value="'.$row_archive_jar2["arch_row"].'" />
                             </div>
                         </div>
                         <div class="form-group row">
