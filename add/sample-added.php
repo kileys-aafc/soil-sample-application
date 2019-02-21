@@ -28,7 +28,7 @@
                 $orig_id = $_POST['orig_id'];
                 $notes = $_POST['notes'];
                 //------Physical info from $_POST[] --------
-                if($_POST['bulkd'] == ""){$bulk = NULL;}else{$bulk = $_POST['bulkd'];}      
+                if($_POST['bulkd'] == ""){$bulkd = NULL;}else{$bulkd = $_POST['bulkd'];}      
                 if($_POST['t_gravel'] == ""){$t_gravel = NULL;}else{$t_gravel = $_POST['t_gravel'];}
                 if($_POST['t_clay'] == ""){$t_clay = NULL;}else{$t_clay = $_POST['t_clay'];}
                 if($_POST['t_silt'] == ""){$t_silt = NULL;}else{$t_silt = $_POST['t_silt'];}
