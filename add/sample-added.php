@@ -131,7 +131,7 @@
                             
                                 //Add Archive Jar #1 info -----------------------------------------------------------
                                                     
-                                $query_insert_archive_1 = "INSERT INTO archive (`sample_id`, `jar`, `arch_year`, `section`, `column`, `row`, `box_id`) VALUES (?,?,?,?,?,?,?)";
+                                $query_insert_archive_1 = "INSERT INTO archive (`sample_id`, `jar`, `arch_year`, `section`, `arch_col`, `arch_row`, `box_id`) VALUES (?,?,?,?,?,?,?)";
                         
                                 $stmt_insert_archive_1 = mysqli_prepare($dbc, $query_insert_archive_1);
                                 
@@ -149,7 +149,7 @@
                                     //Add Archive Jar #2 info -----------------------------------------------------------                      
                                     
                                     if($jar_2_required == "yes") {
-                                        $query_insert_archive_2 = "INSERT INTO archive (`sample_id`, `jar`, `arch_year`, `section`, `column`, `row`, `box_id`) VALUES (?,?,?,?,?,?,?)";
+                                        $query_insert_archive_2 = "INSERT INTO archive (`sample_id`, `jar`, `arch_year`, `section`, `arch_col`, `arch_row`, `box_id`) VALUES (?,?,?,?,?,?,?)";
                             
                                         $stmt_insert_archive_2 = mysqli_prepare($dbc, $query_insert_archive_2); 
 
