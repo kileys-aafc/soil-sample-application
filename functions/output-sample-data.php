@@ -27,7 +27,7 @@
                 </tr>
                 <tr>
                     <th scope="row">Province</th>
-                    <td>'.$prov.'</td>
+                    <td>'.$province.'</td>
                 </tr>
                 <tr>
                     <th scope="row">Upper Depth</th>
