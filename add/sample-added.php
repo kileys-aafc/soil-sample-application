@@ -21,7 +21,7 @@
                 $proj_id = $_POST['proj_id'];    
                 $year = $_POST['year'];
                 $date = $_POST['date'];
-                $prov = $_POST['prov'];
+                $province = $_POST['province'];
                 $u_depth = $_POST['u_depth'];
                 $l_depth = $_POST['l_depth'];
                 $horizon = trim($_POST['horizon']);
@@ -94,7 +94,7 @@
                         die("<pre>".mysqli_error($dbc).PHP_EOL.$query_insert_sample_info."</pre>");
                     }
                     
-                    mysqli_stmt_bind_param($stmt_insert_sample, "iiiissddsss", $sample_id, $loc_id, $proj_id, $year, $date, $prov, $u_depth, $l_depth, $horizon, $orig_id, $notes);
+                    mysqli_stmt_bind_param($stmt_insert_sample, "iiiissddsss", $sample_id, $loc_id, $proj_id, $year, $date, $province, $u_depth, $l_depth, $horizon, $orig_id, $notes);
                     
                     mysqli_stmt_execute($stmt_insert_sample);
                     $affected_rows_sample_info = mysqli_stmt_affected_rows($stmt_insert_sample);

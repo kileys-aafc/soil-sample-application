@@ -74,13 +74,13 @@ require '../db-connect.php'; ?>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="prov">Province</label>
+                        <label class="col-sm-5 col-form-label pr-0" for="province">Province</label>
                         <div class="col-sm-7">
-                            <select class="form-control" required name="prov">
+                            <select class="form-control" required name="province">
                                 <option value="" hidden>Please Select</option>
                                 <?php $provinces = array("AB", "BC", "MB", "NB", "NL", "NT", "NS", "NU", "ON", "PE", "QC", "SK", "YT"); ?>
-                                <?php foreach($provinces as $prov){ ?>
-                                <option value="<?php echo $prov;?>"><?php echo $prov;?></option>
+                                <?php foreach($provinces as $province){ ?>
+                                <option value="<?php echo $province;?>"><?php echo $province;?></option>
                                 <?php } ?>
                             </select>      
                         </div>
