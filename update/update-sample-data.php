@@ -294,13 +294,13 @@
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="column_jar_1">Column</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="column_jar_1"  value="'.$row_archive["column"].'" required/>
+                            <input class="form-control" type="text" name="column_jar_1"  value="'.$row_archive["arch_col"].'" required/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="row_jar_1">Row</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="row_jar_1"  value="'.$row_archive["row"].'" required/>
+                            <input class="form-control" type="text" name="row_jar_1"  value="'.$row_archive["arch_row"].'" required/>
                         </div>
                     </div>
                     <div class="form-group row">
