@@ -78,7 +78,7 @@
 	   
 
 //-----------------Sample Info Update Query------------
-		$query_update = "UPDATE sample_info SET loc_id='$loc_id', proj_id='$proj_id', year=$year, date=$date, province='$province', u_depth='$u_depth', l_depth='$l_depth', horizon='$horizon', orig_id='$orig_id', notes='$notes' WHERE sample_id='$sample_id';";      
+		$query_update = "UPDATE sample_info SET loc_id='$loc_id', proj_id='$proj_id', year=$year, date=STR_TO_DATE('$date','%Y-%m-%d'), province='$province', u_depth='$u_depth', l_depth='$l_depth', horizon='$horizon', orig_id='$orig_id', notes='$notes' WHERE sample_id='$sample_id';";      
 
 //-----------------Physical Update Query------------
         $query_update .= "INSERT INTO physical (sample_id, bulkd, t_gravel, t_clay, t_silt, t_sand, vc_sand, c_sand, m_sand, f_sand, vf_sand, texture, field_txt) VALUES ('$sample_id','$bulkd','$t_gravel','$t_clay','$t_silt','$t_sand','$vc_sand','$c_sand','$m_sand','$f_sand','$vf_sand','$texture','$field_txt')
