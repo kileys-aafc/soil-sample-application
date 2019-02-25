@@ -381,7 +381,14 @@
                 }
 ?>
 </div>    
-</form> 
+</form>
+<div class="container">       
+	<div class="row justify-content-center">
+		<div class="col-6 my-4 text-center">    
+			<a href="scan-sample.php"><button class="btn btn-primary">Back</button></a>
+		</div>
+    </div>
+</div> 
 </div>
 </body>   
 </html>
