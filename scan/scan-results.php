@@ -317,6 +317,7 @@
                 else{
                     echo "<p>ERROR: No entries found. Please select a field</p>";
                 }
+                    
         
         
             $query_location_info = "SELECT sample_info.loc_id , location_info.* FROM sample_info left JOIN location_info ON sample_info.loc_id = location_info.loc_id where sample_info.sample_id = '$sample' order by sample_info.sample_id";
@@ -362,7 +363,7 @@
                         </tr>
                     </tbody>
                 </table>
-                </div></div>
+                </div>
                 ';
                                                                                        
                 }} 
@@ -374,11 +375,100 @@
                 else{
                     echo "<p>ERROR: No entries found. Please select a field</p>";
                 }
-                mysqli_close($dbc);
+            
+                //-- Projects
+
+                $query_projects = "SELECT sample_info.proj_id, projects.* FROM sample_info left JOIN projects ON sample_info.proj_id = projects.proj_id where sample_info.sample_id = '$sample' order by sample_info.sample_id";
+                $projects_response = @mysqli_query($dbc, $query_projects);
+                if($projects_response){
+                    if(mysqli_num_rows($projects_response)>0){  
+                    //-----------------------RECORDS EXIST-------------------------------    
+            
+                    if ($projects = mysqli_fetch_array($projects_response)){
+     
+                    echo'
+                    <div class="col-sm-4">
+                    <h4><strong>Projects</strong></h4>
+                    <table class="table table-secondary table-striped table-bordered table-sm">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Project ID</th>
+                                <td>'.$projects['proj_id'].'</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Project Name</th>
+                                <td>'.$projects['proj_name'].'</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    ';
+                                                                                           
+                    }} 
+                    
+                    else{
+                        echo "ERROR: No entries found. Please check the value you entered.</br>
+                        You have entered Sample ID:<strong>$sample</strong></br>";
+                    }}
+                    else{
+                        echo "<p>ERROR: No entries found. Please select a field</p>";
+                    }
+
+                
+            $query_archive_jar_2 = "SELECT sample_info.sample_id , archive.* FROM sample_info left JOIN archive ON sample_info.sample_id = archive.sample_id where sample_info.sample_id = '$sample' and archive.jar = 2";
+            $archive_jar_2_response = @mysqli_query($dbc, $query_archive_jar_2);
+            if($archive_jar_2_response){
+                if(mysqli_num_rows($archive_jar_2_response)> 0){  
+                //--------------------RECORDS EXIST---------------    
+        
+                if ($archive_jar_2 = mysqli_fetch_array($archive_jar_2_response)){
+     
+                    echo'
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-4">
+                    <h4><strong>Archive (Jar #2)</strong></h4>
+                    <table class="table table-secondary table-striped table-bordered table-sm">
+                        <tbody>
+                            <tr>
+                                <th>Sample ID</th>
+                                <td>'.$archive_jar_2['sample_id'].'</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Jar Number</th>
+                                <td>'.$archive_jar_2['jar'].'</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Year Archived</th>
+                                <td>'.$archive_jar_2['arch_year'].'</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Section</th>
+                                <td>'.$archive_jar_2['section'].'</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Column</th>
+                                <td>'.$archive_jar_2['arch_col'].'</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Row</th>
+                                <td>'.$archive_jar_2['arch_row'].'</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Box_id</th>
+                                <td>'.$archive_jar_2['box_id'].'</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    ';
+                              
+                    mysqli_close($dbc);
                 }
                 else{
                     echo "Error!";
                 }
+                    }}}
 ?>
 </div>    
 </form>
