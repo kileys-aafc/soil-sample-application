@@ -9,7 +9,7 @@
 ?>
 
 <main role="main" class="container">
-<h1 class="display-4 text-center">Delete Samples</h1>
+<h1 class="display-4 text-center">Delete Sample</h1>
 <div class="container">
     <div class="row justify-content-center my-4">
         <div class="col-4">          
