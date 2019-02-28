@@ -29,6 +29,12 @@
                 </div>
             </div>
             <div class="form-group row">
+                <label class="col-sm-5 col-form-label" for="loc_acc">Location Accuracy</label>
+                <div class="col-sm-7">
+                    <input class="form-control" type="text" name="loc_acc" required/>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label class="col-sm-5 col-form-label" for="map_unit">Soil Map Unit</label>
                 <div class="col-sm-7">
                     <input class="form-control" type="text" name="map_unit"/>

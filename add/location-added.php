@@ -9,6 +9,7 @@
         $loc_id = $_POST['loc_id'];
         $lat_dd = $_POST['lat_dd'];
         $long_dd = $_POST['long_dd'];
+        $loc_acc = $_POST['loc_acc'];
         $map_unit = $_POST['map_unit'];
         $subgroup = $_POST['subgroup'];
         $series = $_POST['series'];  
@@ -16,10 +17,10 @@
         require_once('../db-connect.php');
     
        
-        $insert_location = "INSERT INTO location_info (`loc_id`,`lat_dd`, `long_dd`, `map_unit`, `subgroup`, `series`) VALUES (?,?,?,?,?,?)";
+        $insert_location = "INSERT INTO location_info (`loc_id`,`lat_dd`, `long_dd`,`loc_acc`, `map_unit`, `subgroup`, `series`) VALUES (?,?,?,?,?,?,?)";
 
         $stmt = mysqli_prepare($dbc, $insert_location);
-        mysqli_stmt_bind_param($stmt,"iddsss", $loc_id, $lat_dd, $long_dd, $map_unit, $subgroup, $series);
+        mysqli_stmt_bind_param($stmt,"idddsss", $loc_id, $lat_dd, $long_dd, $loc_acc, $map_unit, $subgroup, $series);
         mysqli_stmt_execute($stmt);
         $affected_rows = mysqli_stmt_affected_rows($stmt);        
         
@@ -53,6 +54,10 @@
                             <tr>
                                 <th>Longitude</th>
                                 <td>'.$long_dd.'</td>
+                            </tr>
+                            <tr>
+                                <th>Map Unit</th>
+                                <td>'.$loc_acc.'</td>
                             </tr>
                             <tr>
                                 <th>Map Unit</th>
@@ -108,6 +113,10 @@
                             <tr>
                                 <th>Map Unit</th>
                                 <td>'.$map_unit.'</td>
+                            </tr>
+                            <tr>
+                                <th>Map Unit</th>
+                                <td>'.$loc_acc.'</td>
                             </tr>
                             <tr>
                                 <th>Subgroup</th>
