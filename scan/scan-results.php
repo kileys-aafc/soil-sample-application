@@ -238,11 +238,11 @@
                             <td>'.$chemical['na_exch'].'</td>
                         </tr>
                         <tr>
-                            <th scope="row">Available P (μg/g); NaHCO<sub>3</sub> extractable</th>
+                            <th scope="row">Available P (&microg/g); NaHCO<sub>3</sub> extractable</th>
                             <td>'.$chemical['avail_pbi'].'</td>
                         </tr>
                         <tr>
-                            <th scope="row">Available P (μg/g); Bray Method</th>
+                            <th scope="row">Available P (&microg/g); Bray Method</th>
                             <td>'.$chemical['avail_pbr'].'</td>
                         </tr>
                     </tbody>
