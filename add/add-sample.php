@@ -7,7 +7,7 @@ require '../db-connect.php'; ?>
     <hr class="mb-4">
 </div>
 <div class="container">
-<form class="justify content center" action="sample-added.php" method="post">
+<form action="sample-added.php" method="post">
     <div class="row">
         <div class="col-md-8">
             <div class="row">
