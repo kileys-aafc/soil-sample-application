@@ -1,4 +1,5 @@
-<?php include 'nav-template.php';?>    
+<title>CanSIS Soil Sample Archive</title>
+<?php include 'nav-template.php';?>
 <main role="main" class="container">
 	<section class="jumbotron text-center">
 		<div class="container">
