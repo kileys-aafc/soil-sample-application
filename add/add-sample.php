@@ -3,8 +3,12 @@
 require '../db-connect.php'; ?>
 
 <div class="container">
-    <h1 class="display-4 text-center mb-5">Add New Sample</h1>
-    <hr class="mb-4">
+    <div class="row">
+        <div class="col">
+            <h1 class="display-4 text-center">Add New Sample</h1>
+            <hr class="mb-4">
+        </div>
+    </div>
 </div>
 <div class="container">
 <form action="sample-added.php" method="post">

@@ -16,9 +16,14 @@
         }
     }
 </script>
-
-<main role="main" class="container">
-<h2 class="text-center">Change Password</h2>   
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="display-4 text-center mb-4">Change Password</h1>
+            <hr class="mb-4">
+        </div>
+    </div>
+</div>           
 <div class="container">
     <div class="row justify-content-center my-4">
         <div class="col-4">
