@@ -2,13 +2,15 @@
 <?php include '../nav-template.php'; ?>
 
 <div class="container">
-    <h1 class="display-4 text-center mb-5">Update Project</h1>
-    <hr class="mb-4">
-    <p class="text-muted text-center pb-2">To update a project, search by Project ID below</p>
-    
-    
+    <div class="row">
+        <div class="col">
+            <h1 class="display-4 text-center">Update Project</h1>
+            <hr class="mb-4">
+        </div>
+    </div>
 </div>
 <div class="container">
+<p class="text-muted text-center pb-2">To update a project, search by Project ID below</p>
     <form action="update-project-data.php" method="post">
         <div class="row justify-content-center">
             <div class="col-4">               
