@@ -73,8 +73,6 @@
                     <div class="dropdown-menu" aria-labelledby="dropdown04">    
                         <a class="dropdown-item" href="/admin/manage-users.php">Manage Users</a>
                         <a class="dropdown-item" href="/admin/delete-sample.php">Delete Sample</a>
-                        <a class="dropdown-item" href="/admin/delete-Location.php">Delete Location</a>
-                        <a class="dropdown-item" href="/admin/delete-Project.php">Delete Project</a>
                     </div>
                 </li>';
             }
