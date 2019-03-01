@@ -55,8 +55,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle"  id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
             <div class="dropdown-menu" aria-labelledby="dropdown03">
-              <a class="dropdown-item" href="/about/info.php">Storage System</a>
-              <a class="dropdown-item" href="/about/data-structure.php">Database Structure</a>
+              <a class="dropdown-item" href="/about/info.php">Archive Info</a>
               <a class="dropdown-item" href="/about/contact.php">Contact Admin</a>
             </div>
           </li>
