@@ -1,4 +1,4 @@
-<head><title>Change Account Password</title></head>
+<head><title>Change Password</title></head>
 <?php include '../nav-template.php'; ?>
   
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -19,13 +19,13 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1 class="display-4 text-center mb-4">Change Password</h1>
+            <h1 class="display-4 text-center">Change Password</h1>
             <hr class="mb-4">
         </div>
     </div>
 </div>           
 <div class="container">
-    <div class="row justify-content-center my-4">
+    <div class="row justify-content-center my-3">
         <div class="col-4">
             <form action="password-changed.php" method="post">
                 <div class="form-group"> 

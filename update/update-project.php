@@ -15,7 +15,6 @@
         <div class="row justify-content-center">
             <div class="col-4">               
                 <div id="create-label-query" class="form-group">
-                    <label for="update-project-id">Project ID</label>  
                     <input required class="form-control" type="text" name="update-project-id" placeholder="Enter Project ID">
                 </div>
                 <input type="submit" class="btn btn-primary" value="Find Project"/>

@@ -1,4 +1,4 @@
-<head><title>Delete Sample Data</title></head>
+<head><title>Delete Sample</title></head>
 <?php
      include '../nav-template.php';  
     include("../functions/redirect-homepage.php");
@@ -7,11 +7,17 @@
     require '../db-connect.php';
     check_admin();
 ?>
-
-<main role="main" class="container">
-<h1 class="display-4 text-center">Delete Sample</h1>
 <div class="container">
-    <div class="row justify-content-center my-4">
+    <div class="row">
+        <div class="col">
+            <h1 class="display-4 text-center">Delete Sample</h1>
+            <hr class="mb-4">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <p class="text-muted text-center pb-2">To delete a sample, enter sample ID below</p>
+    <div class="row justify-content-center my-2">
         <div class="col-4">          
             <form action="delete-sample-data.php" method="post">  
                 <div class="form-group">      

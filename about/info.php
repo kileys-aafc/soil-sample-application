@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1 class="display-4 text-center mb-4">About the Archive</p>
+            <h1 class="display-4 text-center">About the Archive</p>
             <hr class="mb-4">
         </div>
     </div>
