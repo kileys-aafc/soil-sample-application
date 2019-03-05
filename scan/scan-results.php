@@ -1,10 +1,9 @@
 <title>Scan Results</title>
 <?php
-    include '../nav-template.php';  
+    include '../nav-template.php';
+    include '../functions/leaflet-basemap.php';  
     require '../db-connect.php';
 ?>
-
-<main role="main">
 <div class="container">
     <div class="row justify-content-center" id="instruction" >
         <div class="col-6 text-center">
@@ -12,7 +11,11 @@
             <p class="lead my-4">Here is the sample data that was retrieved.</p>  
         </div> 
     </div>
-    <hr class="mb-4">    
+    <hr class="mb-4">
+</div>
+<div class="container">
+    <!-- Add web map -->
+    <div class="mb-5" id="map"></div>     
     <div class="row">
         <div class="col-md">
             <form action="" method="post"> 
@@ -270,7 +273,7 @@
  
                 echo'
                 </div>
-                <div class="row">
+                <div class="row mt-3">
                 <div class="col-sm-4">
                 <h4><strong>Archive</strong></h4>
                 <table class="table table-secondary table-striped table-bordered table-sm">
@@ -327,6 +330,15 @@
                 //-----------------------RECORDS EXIST-------------------------------    
         
                 if ($location_info = mysqli_fetch_array($location_info_response)){
+
+                    // --- Define global variables here to be accessed by leaflet---
+
+                    $GLOBALS['lat'] = $location_info["lat_dd"];
+                    $GLOBALS['long'] = $location_info["long_dd"];
+                    echo '<script>';
+                        echo 'var GLOBALS_lat ='.json_encode($GLOBALS['lat']).';';
+                        echo 'var GLOBALS_long ='.json_encode($GLOBALS['long']).';';
+                    echo '</script>';
  
                 echo'
                 <div class="col-sm-4">
@@ -425,7 +437,7 @@
      
                     echo'
                     </div>
-                    <div class="row">
+                    <div class="row mt-3">
                     <div class="col-sm-4">
                     <h4><strong>Archive (Jar #2)</strong></h4>
                     <table class="table table-secondary table-striped table-bordered table-sm">
@@ -472,6 +484,23 @@
 ?>
 </div>    
 </form>
+<script>
+    var mymap = L.map('map').setView([GLOBALS_lat, GLOBALS_long], 10);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mymap);
+
+    // NRCAN WMS Basemap
+    // var wmsLayer = L.tileLayer.wms('http://maps.geogratis.gc.ca/wms/CBMT?',  {
+	// 	layers: ['National', 'Sub_national', 'Regional', 'Sub_regional'],
+	// 	attribution: 'Basemap: <a href="https://www.nrcan.gc.ca/earth-sciences/geography/topographic-information/web-services/17216">NRCAN</a> contributors'
+	// }).addTo(mymap);
+        
+    var X = GLOBALS_lat
+    var Y = GLOBALS_long
+       
+    var point = [X, Y];
+    var marker = L.marker(point).addTo(mymap);
+</script> 
 <div class="container">       
 	<div class="row justify-content-center">
 		<div class="col-6 my-4 text-center">    
