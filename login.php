@@ -37,7 +37,7 @@
                         mysqli_stmt_bind_result($stmtLogin,$username,$hashed_password,$admin);
                         if(mysqli_stmt_fetch($stmtLogin)){
                             if($password==$hashed_password){
-                                //passrod is correct. Start a new session and save the suername to the session
+                                //Password is correct. Start a new session and save the username to the session
                                 session_start();
                                 $_SESSION['username']=$username;
                                 $_SESSION['admin']=$admin;
@@ -46,18 +46,16 @@
                                 $password_err="The password you entered is not valid.";
                             }
                         }else{
-                            echo "System error. Please contact the administrator.</br>
-                            Error Code: Not Fetch.";
+                            echo "System error. Please contact the administrator.</br>";
                         }
                     }else{
                         $username_err="Username does not exist.";
                     }
                 }else{
-                    echo "Oops! Something went wrong with dataabse. Please try again later.";
+                    echo "Oops! Something went wrong with database. Please contact the administrator.";
                 }
             }else{
-                echo "System error. Please contact the administrator.</br>
-                            Error Code: Not Prepare.";
+                echo "System error. Please contact the administrator.</br>";
             }
             mysqli_stmt_close($stmtLogin);
         }
