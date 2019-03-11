@@ -1,15 +1,19 @@
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-<script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<!-- Bootstrap version of datatables 
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+-->
 
+<script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"> 
 
-<!-- <script type="text/javascript" src="//cdn.datatables.net/fixedcolumns/3.2.2/js/dataTables.fixedColumns.min.js"></script> -->
 <script type="text/javascript"> 
-//Sample Results Table
+
+// Sample Info Table
 $(document).ready(function(){           
-var table = $('#myTable').DataTable({
+var table = $('#sample_info_table').DataTable({
     "columnDefs": [{
         "targets": '_all',
         "searchable": false
@@ -20,9 +24,9 @@ var table = $('#myTable').DataTable({
 });   
         
         
-// SITE INFO TABLE
+// Projects Table
 $(document).ready(function(){           
-var table = $('#myTable2').DataTable({
+var table = $('#projects_table').DataTable({
     "columnDefs": [{
         "targets": '_all',
         "searchable": false
@@ -32,9 +36,9 @@ var table = $('#myTable2').DataTable({
     });
 }); 	
         
-// PHYSICAL TABLE
+// Location Info Table
 $(document).ready(function(){           
-var table = $('#myTable3').DataTable({
+var table = $('#location_info_table').DataTable({
     "columnDefs": [{
         "targets": '_all',
         "searchable": false
@@ -44,9 +48,9 @@ var table = $('#myTable3').DataTable({
     });
 });
 
-// CHEMICAL TABLE
+// Chemical Table
 $(document).ready(function(){           
-var table = $('#myTable4').DataTable({
+var table = $('#chemical_table').DataTable({
     "columnDefs": [{
         "targets": '_all',
         "searchable": false
@@ -56,10 +60,10 @@ var table = $('#myTable4').DataTable({
     });
 });
 
-// SOIL BIOME TABLE
+// Physical Table
         
 $(document).ready(function(){           
-var table = $('#myTable5').DataTable({
+var table = $('#physical_table').DataTable({
     "columnDefs": [{
         "targets": '_all',
         "searchable": false
@@ -68,61 +72,52 @@ var table = $('#myTable5').DataTable({
     "lengthChange": false
     });
 });
-        
-// SOIL-SPECTRAL TABLE
-        
-$(document).ready(function(){           
-var table = $('#myTable6').DataTable({
-    "columnDefs": [{
-        "targets": '_all',
-        "searchable": false
-        }],
-    "searching": false,
-    "lengthChange": false
-    });
-});
+
 </script>
+        
 <?php
 
-function build_query_table($response,$response2,$response3,$response4,$response5,$response6){
+function build_query_table($response_samples, $response_locations, $response_projects){
 
-    echo '<div class="row justify-content-center mb-3 row"> 
-    <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#sampleTableResults"  aria-expanded="false" aria-controls="sampleTableResults">Sample Results</button>
-    <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#siteTableResults"  aria-expanded="false" aria-controls="siteTableResults">Site Results</button> 
-    <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#physicalTableResults"  aria-expanded="false" aria-controls="physicalTableResults">Physical Results</button>
-    <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#chemicalTableResults"  aria-expanded="false" aria-controls="chemicalTableResults">Chemical Results</button>
-    <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#biomeTableResults"  aria-expanded="false" aria-controls="biomeTableResults">Biome Results</button>
-    <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#spectralTableResults"  aria-expanded="false" aria-controls="spectralTableResults">Spectral Results</button>
+    echo '
+    <div class="row justify-content-center mb-3 row"> 
+        <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#sample_info_results"  aria-expanded="false" aria-controls="sample_info_results">Sample Info</button>
+        <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#projects_results"  aria-expanded="false" aria-controls="projects_results">Projects</button> 
+        <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#location_info_results"  aria-expanded="false" aria-controls="location_info_results">Location Info</button>
+        <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#physical_results"  aria-expanded="false" aria-controls="physical_results">Physical</button>
+        <button class="btn btn-outline-success mx-2" type="button" data-toggle="collapse" data-target="#chemical_results"  aria-expanded="false" aria-controls="chemical_results">Chemical</button>
     </div>';
 
-    echo '<div id="sampleTableResults" class="row collapse show">';
+    //--- Sample Info Table ---
+    echo '<div id="sample_info_results" class="row collapse show">';
 
-    if($response){
-//-----------------------check if RECORDS EXIST-------------------------------    
-        if(mysqli_num_rows($response)>0){  
-//-----------------------print out the table head roll----------Please modify if add/delete fields---------------   
+    if($response_samples){
+    //--- check if records exist ---   
+        if(mysqli_num_rows($response_samples)>0){  
             echo '
-            <table id="myTable" class="table table-striped" >
-            <thead>
-            <tr>
-            <th>Sample ID</th>
-            <th>Location ID</th>        
-            <th>Project ID</th>
-            <th>Year</th>
-            <th>Date</th>
-            <th>Province</th>
-            <th>Upper Depth</th>
-            <th>Lower Depth</th>
-            <th>Horizon</th>
-            <th>Original ID</th>
-            <th>Notes</th>
-            </tr>
-            </thead>
+            <table id="sample_info_table" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Sample ID</th>
+                        <th>Location ID</th>        
+                        <th>Project ID</th>
+                        <th>Year</th>
+                        <th>Date</th>
+                        <th>Province</th>
+                        <th>Upper Depth</th>
+                        <th>Lower Depth</th>
+                        <th>Horizon</th>
+                        <th>Original ID</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
             <tbody>';
-            while ($row = mysqli_fetch_array($response)){
-//-----------------------print out each record as a roll-------Please modify if add/delete fields---------------       
+            
+            $data = $response_samples -> fetch_all(MYSQLI_ASSOC);
+            foreach ($data as $row){
+            //--- print out each record as a row ---       
                 echo '<tr><td>' . 
-                $row['0'] . '</td><td>' . 
+                $row['sample_id'] . '</td><td>' . 
                 $row['loc_id'] . '</td><td>' . 
                 $row['proj_id'] . '</td><td>' .
                 $row['year'] . '</td><td>' . 
@@ -135,7 +130,7 @@ function build_query_table($response,$response2,$response3,$response4,$response5
                 $row['notes'] . '</td>' ;
                  
             }
-//-----------------------print out table foot----------Please modify if add/delete fields---------------   
+  
            echo"</tbody>
            </table>";
         }else{
@@ -143,247 +138,204 @@ function build_query_table($response,$response2,$response3,$response4,$response5
         }
     }else{
         echo "<table><tr><td>ERROR: No entries found. Please select a field</td></tr></table>";
-        //echo mysqli_error($dbc)."</br>";
+        
     }
     echo'</div>';
 
 
-//----------------------tab 2  [site_info table]    
-     echo '<div id="siteTableResults" class="collapse">';
-    if($response2){
-       if(mysqli_num_rows($response2)>0){  
+    //--- Projects Table ---   
+    echo '<div id="projects_results" class="collapse">';
+    if($response_projects){
+       if(mysqli_num_rows($response_projects)>0){  
 
-    //-----------------------RECORDS EXIST-------------------------------    
-            echo '
-            <table id="myTable2" class="table table-striped" >
-            <thead>
-            <tr class="header" >
-                <th>Sample ID</th>
-                <th>site Number</th>
-                <th>Site Name</th>
-                <th>Province</th>
-                <th>Location Lat</th>
-                <th>Location Lon</th>
-                <th>Size (ha)</th>
-                <th>Year Est.</th>
-                <th>Ecologital Setting</th>
-            </tr>
-            </thead>
+        //--- if records exist ---    
+        echo'
+            <table id="projects_table" class="table table-striped" >
+                <thead>
+                    <tr class="header">
+                        <th>Project ID</th>
+                        <th>Project Name</th>
+                    </tr>
+                </thead>
             <tbody>';
 
-
-       while ($row_querySite = mysqli_fetch_array($response2)){       
-           echo '<tr>
-          <td>' . $row_querySite['sample_id'] . '</td>
-           <td>' . $row_querySite['site_num'] . '</td>
-           <td>' . $row_querySite['site_name'] . '</td>
-           <td>' . $row_querySite['site_prov'] . '</td>
-           <td>' . $row_querySite['lat_d'] .'°'.$row_querySite['lat_m'].'\''.$row_querySite['lat_s'].'"</td> 
-           <td>' . $row_querySite['lon_d'] .'°'.$row_querySite['lon_m'].'\''.$row_querySite['lon_s'].'"</td>
-           <td>' . $row_querySite['size_ha'] . '</td>
-           <td>' . $row_querySite['year_establish'] . '</td>
-           <td>' . $row_querySite['ecol_setting'] . '</td>
-    </tr>';
-       }
-
-
-
+        $projects_data = $response_projects -> fetch_all(MYSQLI_ASSOC);
+        foreach ($projects_data as $row){       
+        echo'
+        <tr>
+            <td>'.$row['proj_id'].'</td>
+            <td>'.$row['proj_name'].'</td>
+        </tr>';
+        }
            echo"</tbody></table>";
-
-    
+ 
        }else{
            echo "<table><tr><td>Could not issue database query. Records does not exist in site table!</td></tr></table>";
        }
     }else{   
         echo "<table><tr><td>ERROR: No entries found. Please select a field</td></tr></table>";
-        //echo mysqli_error($dbc)."</br>";
+        
     }
      echo'</div>';
-   
-    
-//----------------------tab 3  [physical table]
-   echo '<div id="physicalTableResults" class="collapse">';
-    if($response3){
-       if(mysqli_num_rows($response3)>0){  
+
+    //--- Location Info Table ---
+    echo '<div id="location_info_results" class="collapse">';
+    if($response_locations){
+        if(mysqli_num_rows($response_locations)>0){  
             echo '
-            <table id="myTable3" class="table table-striped">
+            <table id="location_info_table" class="table table-striped">
                 <thead>
                     <tr>
-
-                    <th>SAMP_ID</th>
-                    <th>LAB</th>
-                    <th>LOCATION</th>
-                    <th>DEPTH</th>
-                    <th>Sand</th>
-                    <th>Clay</th>
-                    <th>Silt</th>
-                    <th>Sand_VC</th>
-                    <th>Sand_C</th>
-                    <th>Sand_M</th>
-                    <th>Sand_F</th>
-                    <th>Sand_VF</th>
+                        <th>Location ID</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                        <th>Location Accuracy</th>
+                        <th>Soil Map Unit</th>
+                        <th>Soil Subgroup</th>
+                        <th>Soil Series</th>
                     </tr>
                 </thead>
-            <tbody>';
-       while ($row_QueryPhy = mysqli_fetch_array($response3)){
-           echo '<tr><td>' . 
-
-            $row_QueryPhy[0] . '</td><td>' .
-            $row_QueryPhy['LAB'] . '</td><td>' . 
-            $row_QueryPhy['LOCATION'] . '</td><td>' . 
-            $row_QueryPhy['DEPTH'] . '</td><td>' .
-            $row_QueryPhy['SAND'] . '</td><td>' . 
-            $row_QueryPhy['CLAY'] . '</td><td>' .
-            $row_QueryPhy['SILT'] . '</td><td>' .
-            $row_QueryPhy['SAND_VC'] . '</td><td>' . 
-            $row_QueryPhy['SAND_C'] . '</td><td>' .
-            $row_QueryPhy['SAND_M'] . '</td><td>'.
-            $row_QueryPhy['SAND_F'] . '</td><td>'.
-            $row_QueryPhy['SAND_VF'] . '</td>' ;
-            }
-
-
-           echo"</tr></tbody></table>";
-
-
-       
-       } else{
-           echo "<table><tr><td>Could not issue database query. Records does not exist in physical table!</td></tr></table>";
-       }
-    }else{
+                <tbody>';
+        $locations_data = $response_locations -> fetch_all(MYSQLI_ASSOC);
+        foreach ($locations_data as $row){
+            echo 
+            '<tr>
+                <td>'.$row['loc_id'].'</td>
+                <td>'.$row['lat_dd'].'</td>
+                <td>'.$row['long_dd'].'</td>
+                <td>'.$row['loc_acc'].'</td>
+                <td>'.$row['map_unit'].'</td>
+                <td>'.$row['subgroup'].'</td>
+                <td>'.$row['series'].'</td>
+            ';}
+            echo"</tr></tbody></table>";
+        } 
+        else{
+            echo "<table><tr><td>Could not issue database query. Records does not exist in physical table!</td></tr></table>";
+        }
+    }
+    else{
         echo "<table><tr><td>ERROR: No entries found. Please select a field</td></tr></table>";
-        //echo mysqli_error($dbc)."</br>";
+        
     }
     echo'</div>';
 
-
-//----------------------------tab 4 [chemical table]
-    echo '<div id="chemicalTableResults" class="collapse">';
-    if($response4){
-       if(mysqli_num_rows($response4)>0){  
-    //-----------------------RECORDS EXIST-------------------------------    
+    //--- Physical table
+    echo '<div id="physical_results" class="collapse">';
+    if($response_samples){
+        if(mysqli_num_rows($response_samples)>0){  
+        //--- records exists --- 
             echo '
-            <table id="myTable4" class="table table-striped">
+            <table id="physical_table" class="table table-striped">
                 <thead>
                     <tr>
-                    <th>Sample ID </th>
-                    <th>ORG_MTR</th>
-                    <th>CEC</th>
-                    <th>BUFFER_PH</th>
-                    <th>PER_K</th>
-                    <th>PER_MG</th>
-                    <th>PER_CA</th>
-                    <th>PER_NA</th>
+                        <th>Sample ID</th>
+                        <th>Bulk Density</th>
+                        <th>Total Gravel</th>
+                        <th>Total Clay</th>
+                        <th>Total Silt</th>
+                        <th>Total Sand</th>
+                        <th>Very Coarse Sand</th>
+                        <th>Coarse Sand</th>
+                        <th>Medium Sand</th>
+                        <th>Fine Sand</th>
+                        <th>Very Fine Sand</th>
+                        <th>Texture</th>
+                        <th>Field Texture</th>
                     </tr>
                 </thead>
             <tbody>';
-       while ($row_QueryChe = mysqli_fetch_array($response4)){
-           echo '<tr><td>' . 
-            $row_QueryChe[0] . '</td><td>' .
-            $row_QueryChe['ORG_MTR'] . '</td><td>' .
-            $row_QueryChe['CEC'] . '</td><td>' .
-            $row_QueryChe['BUFFER_PH'] . '</td><td>' .
-            $row_QueryChe['PER_K'] . '</td><td>' .
-            $row_QueryChe['PER_MG'] . '</td><td>' .
-            $row_QueryChe['PER_CA'] . '</td><td>' .
-            $row_QueryChe['PER_NA'] . '</td>' ;
-       }
-
-
-           echo"</tr></tbody></table>";
-
-
-       
-       } else{
+            
+            foreach ($data as $row){
+                echo'
+                <tr>
+                    <td>'.$row['sample_id'].'</td>
+                    <td>'.$row['bulkd'].'</td>
+                    <td>'.$row['t_gravel'].'</td>
+                    <td>'.$row['t_clay'].'</td>
+                    <td>'.$row['t_silt'].'</td>
+                    <td>'.$row['t_sand'].'</td>
+                    <td>'.$row['vc_sand'].'</td>
+                    <td>'.$row['c_sand'].'</td>
+                    <td>'.$row['m_sand'].'</td>
+                    <td>'.$row['f_sand'].'</td>
+                    <td>'.$row['vf_sand'].'</td>
+                    <td>'.$row['texture'].'</td>
+                    <td>'.$row['field_txt'].'</td>
+                </tr>' ;
+            }
+        echo"</tbody></table>";           
+        } 
+        else{
            echo "<table><tr><td>Could not issue database query. Records does not exist in chemical table!</td></tr></table>";
-       }
-    }else{
+        }
+    }
+    else{
         echo "<table><tr><td>ERROR: No entries found. Please select a field</td></tr></table>";
-       //echo mysqli_error($dbc)."</br>";
     }
     echo'</div>';
-   
-    
-//----------------------------------tab 5 [soil biome table]
-    
-    echo '<div id="biomeTableResults" class="collapse" >';
-    if($response5){
-       if(mysqli_num_rows($response5)>0){  
-    //-----------------------RECORDS EXIST-------------------------------    
+
+    //--- chemical
+    echo '<div id="chemical_results" class="collapse">';
+    if($response_samples){
+        if(mysqli_num_rows($response_samples)>0){  
+        //--- records exists ---    
             echo '
-            <table id="myTable5" class="table table-striped">
+            <table id="chemical_table" class="table table-striped">
                 <thead>
                     <tr>
-                    <th>Sample ID </th>
-                    <th>Biome01</th>
-                    <th>Biome02</th>
-                    <th>Biome03</th>
-                    <th>Biome04</th>
-                    <th>Biome05</th>
-                    <th>Biome06</th>                   
+                        <th>Sample ID</th>
+                        <th>pH (CaCl<sub>2</sub>)</th>
+                        <th>pH (H<sub>2</sub>O)</th>
+                        <th>Total C</th>
+                        <th>Total N</th>
+                        <th>CaCO<sub>3</sub></th>
+                        <th>org_c</th>
+                        <th>org_c_n</th>
+                        <th>Total Exchangable Cations</th>
+                        <th>Cation Exchange Capacity</th>
+                        <th>Exchangable Ca</th>
+                        <th>Exchangable Mg</th>
+                        <th>Exchangable K</th>
+                        <th>Exchangable Na</th>
+                        <th>Available P (NaHCO<sub>3</sub>)</th>
+                        <th>Available P (Bray)</th>
                     </tr>
                 </thead>
             <tbody>';
-       while ($row_QueryPhy = mysqli_fetch_array($response5)){
-           echo '<tr><td>' . 
-            $row_QueryPhy[0] . '</td><td>' .
-            $row_QueryPhy['biome01'] . '</td><td>' .
-            $row_QueryPhy['biome02'] . '</td><td>' .
-            $row_QueryPhy['biome03'] . '</td><td>' .
-            $row_QueryPhy['biome04'] . '</td><td>' .
-            $row_QueryPhy['biome05'] . '</td><td>' .
-            $row_QueryPhy['biome06'] . '</td>' ;
-            }
-
-
-           echo"</tr></tbody>></table>";
-       } else{
-           echo "<table><tr><td>Could not issue database query. Records does not exist in soil biome table!</td></tr></table>";
-       }
-    }else{
-        echo "<table><tr><td>ERROR: No entries found. Please select a field</td></tr></table>";
-       //echo mysqli_error($dbc)."</br>";
-    }
-    echo'</div>';
-    
-    
-//------------------------------------tab6 [soil spectral table]
-      echo '<div id="spectralTableResults" class="collapse">';
-    if($response6){
-       if(mysqli_num_rows($response6)>0){  
-    //-----------------------RECORDS EXIST-------------------------------    
+        
+            foreach ($data as $row){
             echo '
-            <table id="myTable6" class="table table-striped">
-                <thead>
-                    <tr>
-                    <th>Sample ID </th>
-                    <th>Spectral01</th>
-                    <th>Spectral02</th>
-                    <th>Spectral03</th>
-                    
-                    </tr>
-                </thead>
-            <tbody>';
-       while ($row_QueryPhy = mysqli_fetch_array($response6)){
-           echo '<tr><td>' . 
-            $row_QueryPhy[0] . '</td><td>' .
-            $row_QueryPhy['spectral01'] . '</td><td>' .
-            $row_QueryPhy['spectral02'] . '</td><td>' .
-            $row_QueryPhy['spectral03'] . '</td>' ;
+            <tr>
+                <td>'.$row['sample_id'].'</td>
+                <td>'.$row['ph_cacl2'].'</td>
+                <td>'.$row['ph_h2o'].'</td>
+                <td>'.$row['ttl_c'].'</td>
+                <td>'.$row['ttl_n'].'</td>
+                <td>'.$row['caco3'].'</td>
+                <td>'.$row['org_c'].'</td>
+                <td>'.$row['org_c_n'].'</td>
+                <td>'.$row['tec'].'</td>
+                <td>'.$row['cec'].'</td>
+                <td>'.$row['ca_exch'].'</td>
+                <td>'.$row['mg_exch'].'</td>
+                <td>'.$row['k_exch'].'</td>
+                <td>'.$row['na_exch'].'</td>
+                <td>'.$row['avail_pbi'].'</td>
+                <td>'.$row['avail_pbr'].'</td>
+            </tr>    
+                ';
             }
-
-
-           echo"</tr></tbody></table>";
-       } else{
-           echo "<table><tr><td>Could not issue database query. Records does not exist in soil spectral table!</td></tr></table>";
-       }
-   }else{
+        echo"</tbody></table>";
+        } 
+        else{
+            echo "<table><tr><td>Could not issue database query. Records does not exist in soil biome table!</td></tr></table>";
+        }
+    }
+    else{
         echo "<table><tr><td>ERROR: No entries found. Please select a field</td></tr></table>";
-       //echo mysqli_error($dbc)."</br>";
     }
     echo'</div>';
-    echo "</div>";
-    
 }
 ?>
 
