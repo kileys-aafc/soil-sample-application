@@ -18,7 +18,7 @@
 				<div class="card-body">
 						<h5 class="card-title">Search Database</h5>
 						<p class="card-text">Query soil samples currently stored in the database</p>
-						<p><a class="btn btn-secondary" href="/query/query-sample.php" role="button">View details</a></p>
+						<p><a class="btn btn-secondary" href="/query/query-database.php" role="button">View details</a></p>
 					</div>
 				</div>
 				<div class="card">
