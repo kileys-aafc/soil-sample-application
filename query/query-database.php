@@ -74,7 +74,7 @@ require '../db-connect.php'; ?>
         </div>        
     </form>
 </div>
-<div id="query-sample-results" class="container">                
+<div id="query-sample-results" class="container mb-5">                
 	<?php include 'query-samples.php'?>
 </div>    
 

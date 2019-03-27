@@ -56,7 +56,8 @@ var table = $('#chemical_table').DataTable({
         "searchable": false
         }],
     "searching": false,
-    "lengthChange": false
+    "lengthChange": false,
+    "scrollX": true
     });
 });
 
@@ -69,7 +70,8 @@ var table = $('#physical_table').DataTable({
         "searchable": false
         }],
     "searching": false,
-    "lengthChange": false
+    "lengthChange": false,
+    "scrollX": true
     });
 });
 
@@ -98,17 +100,17 @@ function build_query_table($response_samples, $response_locations, $response_pro
             <table id="sample_info_table" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Sample ID</th>
-                        <th>Location ID</th>        
-                        <th>Project ID</th>
-                        <th>Year</th>
-                        <th>Date</th>
-                        <th>Province</th>
-                        <th>Upper Depth</th>
-                        <th>Lower Depth</th>
-                        <th>Horizon</th>
-                        <th>Original ID</th>
-                        <th>Notes</th>
+                        <th>sample_id</th>
+                        <th>loc_id</th>        
+                        <th>proj_id</th>
+                        <th>year</th>
+                        <th>date</th>
+                        <th>province</th>
+                        <th>u_depth</th>
+                        <th>l_depth</th>
+                        <th>horizon</th>
+                        <th>orig_id</th>
+                        <th>notes</th>
                     </tr>
                 </thead>
             <tbody>';
@@ -186,13 +188,13 @@ function build_query_table($response_samples, $response_locations, $response_pro
             <table id="location_info_table" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Location ID</th>
-                        <th>Latitude</th>
-                        <th>Longitude</th>
-                        <th>Location Accuracy</th>
-                        <th>Soil Map Unit</th>
-                        <th>Soil Subgroup</th>
-                        <th>Soil Series</th>
+                        <th>loc_id</th>
+                        <th>lat_dd</th>
+                        <th>long_dd</th>
+                        <th>loc_acc</th>
+                        <th>map_unit</th>
+                        <th>subgroup</th>
+                        <th>series</th>
                     </tr>
                 </thead>
                 <tbody>';
@@ -229,19 +231,19 @@ function build_query_table($response_samples, $response_locations, $response_pro
             <table id="physical_table" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Sample ID</th>
-                        <th>Bulk Density</th>
-                        <th>Total Gravel</th>
-                        <th>Total Clay</th>
-                        <th>Total Silt</th>
-                        <th>Total Sand</th>
-                        <th>Very Coarse Sand</th>
-                        <th>Coarse Sand</th>
-                        <th>Medium Sand</th>
-                        <th>Fine Sand</th>
-                        <th>Very Fine Sand</th>
-                        <th>Texture</th>
-                        <th>Field Texture</th>
+                        <th>sample_id</th>
+                        <th>bulkd</th>
+                        <th>t_gravel</th>
+                        <th>t_clay</th>
+                        <th>t_silt</th>
+                        <th>t_sand</th>
+                        <th>vc_sand</th>
+                        <th>c_sand</th>
+                        <th>m_sand</th>
+                        <th>f_sand</th>
+                        <th>vf_sand</th>
+                        <th>texture</th>
+                        <th>field_txt</th>
                     </tr>
                 </thead>
             <tbody>';
@@ -284,22 +286,22 @@ function build_query_table($response_samples, $response_locations, $response_pro
             <table id="chemical_table" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Sample ID</th>
-                        <th>pH (CaCl<sub>2</sub>)</th>
-                        <th>pH (H<sub>2</sub>O)</th>
-                        <th>Total C</th>
-                        <th>Total N</th>
-                        <th>CaCO<sub>3</sub></th>
+                        <th>sample_id</th>
+                        <th>ph_cacl2</th>
+                        <th>ph_h2o</th>
+                        <th>ttl_c</th>
+                        <th>ttl_n</th>
+                        <th>caco3</th>
                         <th>org_c</th>
                         <th>org_c_n</th>
-                        <th>Total Exchangable Cations</th>
-                        <th>Cation Exchange Capacity</th>
-                        <th>Exchangable Ca</th>
-                        <th>Exchangable Mg</th>
-                        <th>Exchangable K</th>
-                        <th>Exchangable Na</th>
-                        <th>Available P (NaHCO<sub>3</sub>)</th>
-                        <th>Available P (Bray)</th>
+                        <th>tec</th>
+                        <th>cec</th>
+                        <th>ca_exch</th>
+                        <th>mg_exch</th>
+                        <th>k_exch</th>
+                        <th>na_exch</th>
+                        <th>avail_pbi</th>
+                        <th>avail_pbr</th>
                     </tr>
                 </thead>
             <tbody>';
