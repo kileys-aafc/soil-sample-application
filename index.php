@@ -13,7 +13,7 @@
 	</section>
 	<div class="container">
 		<div class="row mb-5">
-			<div class="card-deck">
+			<div class="card-deck w-100">
 				<div class="card">
 					<i class="fas fa-search bg-secondary text-center text-light py-4" style="font-size: 800%"></i>
 					<div class="card-body">
@@ -45,7 +45,7 @@
 	</div>
 	<div class="container">
 		<div class="row mb-5">
-			<div class="card-deck">
+			<div class="card-deck w-100">
 				<div class="card">
 					<i class="fas fa-database bg-secondary text-center text-light py-4" style="font-size: 800%"></i>
 					<div class="card-body">
