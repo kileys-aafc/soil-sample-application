@@ -106,10 +106,6 @@
                             <td>'.$physical['sample_id'].'</td>
                         </tr>
                         <tr>
-                            <th scope="row">Bulk Density</th>
-                            <td>'.$physical['bulkd'].'</td>
-                        </tr>
-                        <tr>
                             <th scope="row">Total Gravel %</th>
                             <td>'.$physical['t_gravel'].'</td>
                         </tr>
@@ -146,7 +142,19 @@
                             <td>'.$physical['vf_sand'].'</td>
                         </tr>
                         <tr>
-                            <th scope="row">Soil texture</th>
+                            <th scope="row">Upper Depth (Bulk Density)</th>
+                            <td>'.$physical['u_depth_bd'].'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Lower Depth (Bulk Density)</th>
+                            <td>'.$physical['l_depth_bd'].'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Bulk Density</th>
+                            <td>'.$physical['bulkd'].'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Soil Texture</th>
                             <td>'.$physical['texture'].'</td>
                         </tr>
                         <tr>
@@ -225,20 +233,28 @@
                             <td>'.$chemical['cec'].'</td>
                         </tr>
                         <tr>
-                            <th scope="row">Exchangable Ca</th>
-                            <td>'.$chemical['ca_exch'].'</td>
+                            <th scope="row">Exchangable Al</th>
+                            <td>'.$chemical['al_exch'].'</td>
                         </tr>
                         <tr>
-                            <th scope="row">Exchangable Mg</th>
-                            <td>'.$chemical['mg_exch'].'</td>
+                            <th scope="row">Exchangable Ca</th>
+                            <td>'.$chemical['ca_exch'].'</td>
                         </tr>
                         <tr>
                             <th scope="row">Exchangable K</th>
                             <td>'.$chemical['k_exch'].'</td>
                         </tr>
                         <tr>
+                            <th scope="row">Exchangable Mg</th>
+                            <td>'.$chemical['mg_exch'].'</td>
+                        </tr>
+                        <tr>
                             <th scope="row">Exchangable Na</th>
                             <td>'.$chemical['na_exch'].'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Available K (&microg/g)</th>
+                            <td>'.$chemical['avail_k'].'</td>
                         </tr>
                         <tr>
                             <th scope="row">Available P (&microg/g); NaHCO<sub>3</sub> extractable</th>
@@ -303,8 +319,12 @@
                             <td>'.$archive['arch_row'].'</td>
                         </tr>
                         <tr>
-                            <th scope="row">Box_id</th>
+                            <th scope="row">Box ID</th>
                             <td>'.$archive['box_id'].'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Weight (g)</th>
+                            <td>'.$archive['weight'].'</td>
                         </tr>
                     </tbody>
                 </table>
