@@ -232,7 +232,6 @@ function build_query_table($response_samples, $response_locations, $response_pro
                 <thead>
                     <tr>
                         <th>sample_id</th>
-                        <th>bulkd</th>
                         <th>t_gravel</th>
                         <th>t_clay</th>
                         <th>t_silt</th>
@@ -242,6 +241,9 @@ function build_query_table($response_samples, $response_locations, $response_pro
                         <th>m_sand</th>
                         <th>f_sand</th>
                         <th>vf_sand</th>
+                        <th>u_depth_bd</th>
+                        <th>l_depth_bd</th>
+                        <th>bulkd</th>
                         <th>texture</th>
                         <th>field_txt</th>
                     </tr>
@@ -252,7 +254,6 @@ function build_query_table($response_samples, $response_locations, $response_pro
                 echo'
                 <tr>
                     <td>'.$row['sample_id'].'</td>
-                    <td>'.$row['bulkd'].'</td>
                     <td>'.$row['t_gravel'].'</td>
                     <td>'.$row['t_clay'].'</td>
                     <td>'.$row['t_silt'].'</td>
@@ -262,6 +263,9 @@ function build_query_table($response_samples, $response_locations, $response_pro
                     <td>'.$row['m_sand'].'</td>
                     <td>'.$row['f_sand'].'</td>
                     <td>'.$row['vf_sand'].'</td>
+                    <td>'.$row['bulkd'].'</td>
+                    <td>'.$row['u_depth_bd'].'</td>
+                    <td>'.$row['l_depth_bd'].'</td>
                     <td>'.$row['texture'].'</td>
                     <td>'.$row['field_txt'].'</td>
                 </tr>' ;
@@ -296,10 +300,12 @@ function build_query_table($response_samples, $response_locations, $response_pro
                         <th>org_c_n</th>
                         <th>tec</th>
                         <th>cec</th>
+                        <th>al_exch</th>
                         <th>ca_exch</th>
-                        <th>mg_exch</th>
                         <th>k_exch</th>
+                        <th>mg_exch</th>
                         <th>na_exch</th>
+                        <th>avail_k</th>
                         <th>avail_pbi</th>
                         <th>avail_pbr</th>
                     </tr>
@@ -319,10 +325,12 @@ function build_query_table($response_samples, $response_locations, $response_pro
                 <td>'.$row['org_c_n'].'</td>
                 <td>'.$row['tec'].'</td>
                 <td>'.$row['cec'].'</td>
+                <td>'.$row['al_exch'].'</td>
                 <td>'.$row['ca_exch'].'</td>
-                <td>'.$row['mg_exch'].'</td>
                 <td>'.$row['k_exch'].'</td>
+                <td>'.$row['mg_exch'].'</td>
                 <td>'.$row['na_exch'].'</td>
+                <td>'.$row['avail_k'].'</td>
                 <td>'.$row['avail_pbi'].'</td>
                 <td>'.$row['avail_pbr'].'</td>
             </tr>    
