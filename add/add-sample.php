@@ -124,12 +124,6 @@ require '../db-connect.php'; ?>
                 <!--  Physical Info  -->
                 <div class="col-md-6">
                     <h4 class="text-center mb-4">Physical</h4>
-                    <div class="form-group row">                    
-                        <label class="col-sm-4 col-form-label" for="bulkd">Bulk Density</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" name="bulkd" placeholder="g/cm&sup3"/>
-                        </div>
-                    </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="t_gravel">Total Gravel</label>
                         <div class="col-sm-7">
@@ -182,6 +176,24 @@ require '../db-connect.php'; ?>
                         <label class="col-sm-4 col-form-label" for="vf_sand">Very Fine Sand</label>
                         <div class="col-sm-7">
                             <input class="form-control"  type="text" name="vf_sand" placeholder="%"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">                    
+                        <label class="col-sm-4 col-form-label" for="u_depth_bd">Upper Depth (Bulk Density)</label>
+                        <div class="col-sm-7">
+                            <input class="form-control" type="text" name="u_depth_bd" placeholder="cm"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">                    
+                        <label class="col-sm-4 col-form-label" for="l_depth_bd">Lower Depth (Bulk Density)</label>
+                        <div class="col-sm-7">
+                            <input class="form-control" type="text" name="l_depth_bd" placeholder="cm"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">                    
+                        <label class="col-sm-4 col-form-label" for="bulkd">Bulk Density</label>
+                        <div class="col-sm-7">
+                            <input class="form-control" type="text" name="bulkd" placeholder="g/cm&sup3"/>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -242,6 +254,12 @@ require '../db-connect.php'; ?>
                             <input class="form-control" type="text" name="box_id_jar_1" required/>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label" for="weight_jar_1">Weight</label>
+                        <div class="col-sm-7">
+                            <input class="form-control" type="text" name="weight_jar_1" placeholder="g"/>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Archive 2 -->                            
@@ -288,6 +306,12 @@ require '../db-connect.php'; ?>
                         <label class="col-sm-5 col-form-label" for="box_id_jar_2">Box ID</label>
                         <div class="col-sm-7">
                             <input class="form-control" type="text" name="box_id_jar_2"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label" for="weight_jar_2">Weight</label>
+                        <div class="col-sm-7">
+                            <input class="form-control" type="text" name="weight_jar_2" placeholder="g"/>
                         </div>
                     </div>
                 </div>
@@ -352,6 +376,12 @@ require '../db-connect.php'; ?>
                 </div>
             </div>
             <div class="form-group row">
+                <label class="col-sm-4 col-form-label" for="al_exch">Exchangable Al</label>
+                <div class="col-sm-7">
+                    <input class="form-control" type="text" name="al_exch" placeholder="meq/100g"/>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="ca_exch">Exchangable Ca</label>
                 <div class="col-sm-7">
                     <input class="form-control" type="text" name="ca_exch" placeholder="meq/100g"/>
@@ -373,6 +403,12 @@ require '../db-connect.php'; ?>
                 <label class="col-sm-4 col-form-label" for="exch_na">Exchangable Na</label>
                 <div class="col-sm-7">
                     <input class="form-control" type="text" name="na_exch" placeholder="meq/100g"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label" for="avail_k">Available K</label>
+                <div class="col-sm-7">
+                    <input class="form-control" type="text" name="avail_k" placeholder="&#xb5;g/g"/>
                 </div>
             </div>
             <div class="form-group row">
