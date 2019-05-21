@@ -163,12 +163,7 @@
             echo'
             <div class="col-md-6">
                 <h4 class="text-center mb-4">Physical</h4>
-                <div class="form-group row">                    
-                    <label class="col-sm-4 col-form-label" for="bulkd">Bulk Density</label>
-                    <div class="col-sm-7">
-                        <input class="form-control" type="text" name="bulkd" value="'.$row_physical["bulkd"].'" placeholder="g/cm&sup3"/>
-                    </div>
-                </div>
+                
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="t_gravel">Total Gravel</label>
                     <div class="col-sm-7">
@@ -221,6 +216,24 @@
                     <label class="col-sm-4 col-form-label" for="vf_sand">Very Fine Sand</label>
                     <div class="col-sm-7">
                         <input class="form-control"  type="text" name="vf_sand" value="'.$row_physical["vf_sand"].'" placeholder="%"/>
+                    </div>
+                </div>
+                <div class="form-group row">                    
+                    <label class="col-sm-4 col-form-label" for="u_depth_bd">Upper Depth (Bulk Density)</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="u_depth_bd" value="'.$row_physical["u_depth_bd"].'" placeholder="cm"/>
+                    </div>
+                </div>
+                <div class="form-group row">                    
+                    <label class="col-sm-4 col-form-label" for="l_depth_bd">Lower Depth (Bulk Density)</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="l_depth_bd" value="'.$row_physical["l_depth_bd"].'" placeholder="cm"/>
+                    </div>
+                </div>
+                <div class="form-group row">                    
+                    <label class="col-sm-4 col-form-label" for="bulkd">Bulk Density</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="bulkd" value="'.$row_physical["bulkd"].'" placeholder="g/cm&sup3"/>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -309,6 +322,12 @@
                             <input class="form-control" type="text" name="box_id_jar_1"  value="'.$row_archive["box_id"].'" required/>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label" for="weight_jar_1">Weight</label>
+                        <div class="col-sm-7">
+                            <input class="form-control" type="text" name="weight_jar_1"  value="'.$row_archive["weight"].'" placeholder="g"/>
+                        </div>
+                    </div>
                 </div>
                 ';
            }     
@@ -377,6 +396,12 @@
                             <label class="col-sm-5 col-form-label" for="box_id_jar_1">Box ID</label>
                             <div class="col-sm-7">
                                 <input class="form-control" type="text" name="box_id_jar_2"  value="'.$row_archive_jar2["box_id"].'" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label" for="weight_jar_2">Weight</label>
+                            <div class="col-sm-7">
+                                <input class="form-control" type="text" name="weight_jar_2"  value="'.$row_archive_jar2["weight"].'" placeholder="g"/>
                             </div>
                         </div>
                     </div>
@@ -454,6 +479,12 @@
             </div>
         </div>
         <div class="form-group row">
+            <label class="col-sm-4 col-form-label" for="al_exch">Exchangable Al</label>
+            <div class="col-sm-7">
+                <input class="form-control" type="text" value="'.$row_chemical["al_exch"].'" name="al_exch" placeholder="meq/100g"/>
+            </div>
+        </div>
+        <div class="form-group row">
             <label class="col-sm-4 col-form-label" for="ca_exch">Exchangable Ca</label>
             <div class="col-sm-7">
                 <input class="form-control" type="text" value="'.$row_chemical["ca_exch"].'" name="ca_exch" placeholder="meq/100g"/>
@@ -475,6 +506,12 @@
             <label class="col-sm-4 col-form-label" for="exch_na">Exchangable Na</label>
             <div class="col-sm-7">
                 <input class="form-control" type="text" value="'.$row_chemical["na_exch"].'" name="na_exch" placeholder="meq/100g"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label" for="avail_k">Available K</label>
+            <div class="col-sm-7">
+                <input class="form-control" type="text" value="'.$row_chemical["avail_k"].'" name="avail_k" placeholder="&#xb5;g/g"/>
             </div>
         </div>
         <div class="form-group row">
