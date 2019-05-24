@@ -52,6 +52,9 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                     <a class="nav-link" href="/query/query-database.php"><i class="fas fa-search pr-2"
 						style="font-size: 100%"></i>Query Database</a>
                 </li>
+                <?php if ($_SESSION['admin'] == 1) {
+                //-- Check if admin
+                echo '
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">Manage Samples</a>
@@ -64,6 +67,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                         <a class="dropdown-item" href="/update/update-location.php">Update Location</a>
                     </div>
                 </li>
+                ';}?>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="dropdown03" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">About</a>

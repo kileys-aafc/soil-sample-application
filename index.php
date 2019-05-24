@@ -43,6 +43,9 @@
 			</div>
 		</div>
 	</div>
+	<?php if ($_SESSION['admin'] == 1) {
+	//-- Display if admin
+    echo '
 	<div class="container">
 		<div class="row mb-5">
 			<div class="card-deck w-100">
@@ -65,17 +68,18 @@
 					</div>
 				</div>
 				<div class="card">
-					<i class="far fa-question-circle bg-secondary text-center text-light py-4"
+					<i class="fas fa-users bg-secondary text-center text-light py-4"
 						style="font-size: 800%"></i>
 					<div class="card-body">
-						<h5 class="card-title">Extra</h5>
-						<p class="card-text">Information about the database and warehouse storage</p>
+						<h5 class="card-title">Manage Users</h5>
+						<p class="card-text">Manage user accounts and passwords</p>
 						<p><a class="btn btn-secondary" href="/about/info.php" role="button">View details</a></p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	';}?>
 </main>
 </body>
 
