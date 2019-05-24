@@ -16,7 +16,7 @@
             <p class="text-muted pb-2">To update a sample, search by Sample ID below</p>
             <form action="update-sample-data" method="post"> 
                 <div id="create-label-query" class="form-group">
-                    <input required class="form-control" type="text" name="update-sample-id" placeholder="Enter Sample ID">
+                    <input required class="form-control" type="text" name="sample-id" placeholder="Enter Sample ID">
                 </div>
                 <input type="submit" class="btn btn-primary" value="Find Sample"/>
             </form>

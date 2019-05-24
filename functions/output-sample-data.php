@@ -1,267 +1,497 @@
 <?php echo'
 <div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <h4><strong>Sample Info</strong></h4>
-            <table class="table table-secondary table-striped table-bordered table-sm">
-                <tbody>
-                <tr>
-                    <th>Sample ID</th>
-                    <td>'.$sample_id.'</td>
-                </tr>
-                <tr>
-                    <th scope="row">Location ID</th>
-                    <td>'.$loc_id.'</td>
-                </tr>
-                <tr>
-                    <th scope="row">Project ID</th>
-                    <td>'.$proj_id.'</td>
-                </tr>
-                <tr>
-                    <th scope="row">Year</th>
-                    <td>'.$year.'</td>
-                </tr>
-                <tr>
-                    <th scope="row">Date</th>
-                    <td>'.$date.'</td>
-                </tr>
-                <tr>
-                    <th scope="row">Province</th>
-                    <td>'.$province.'</td>
-                </tr>
-                <tr>
-                    <th scope="row">Upper Depth</th>
-                    <td>'.$u_depth.'</td>
-                </tr>
-                <tr>
-                    <th scope="row">Lower Depth</th>
-                    <td>'.$l_depth.'</td>
-                </tr>
-                <tr>
-                    <th scope="row">Horizon</th>
-                    <td>'.$horizon.'</td>
-                </tr>
-                <tr>
-                    <th scope="row">Original ID</th>
-                    <td>'.$orig_id.'</td>
-                </tr>
-                <tr>
-                    <th scope="row">Notes</th>
-                    <td>'.$notes.'</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-md-4">
+<div class="row">
+    <div class="col-md">
+        <form action="" method="post">'; 
+        
+            $sample = $_POST['sample_id'];
+            $query_sample_info = "SELECT * FROM sample_info WHERE sample_id ='$sample'";
+            $sample_info_response = @mysqli_query($dbc, $query_sample_info);
+            if($sample_info_response){
+                if(mysqli_num_rows($sample_info_response) > 0){
+                    if ($sample_info = mysqli_fetch_array($sample_info_response)){                      
+                                          
+                        echo'
+                        <h4><strong>Sample Info</strong></h4>
+                        <table class="table table-secondary table-striped table-bordered table-sm">
+                            <tbody>
+                                <tr>
+                                    <th>Sample ID</th>
+                                    <td>'.$sample_info['sample_id'].'</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Location ID</th>
+                                    <td>'.$sample_info['loc_id'].'</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Project ID</th>
+                                    <td>'.$sample_info['proj_id'].'</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Year</th>
+                                    <td>'.$sample_info['year'].'</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Date</th>
+                                    <td>'.$sample_info['date'].'</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Province</th>
+                                    <td>'.$sample_info['province'].'</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Upper Depth</th>
+                                    <td>'.$sample_info['u_depth'].'</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Lower Depth</th>
+                                    <td>'.$sample_info['l_depth'].'</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Horizon</th>
+                                    <td>'.$sample_info['horizon'].'</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Original ID</th>
+                                    <td>'.$sample_info['orig_id'].'</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Notes</th>
+                                    <td>'.$sample_info['notes'].'</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                ';
+            }}
+            else{
+                echo'
+                    ERROR: No entries found. Please check the value you entered.</br>
+                    You have entered Sample ID: <strong>$sample</strong> 
+                ';
+                echo mysqli_error($dbc)."</br>";
+            }
+        }
+
+        $query_physical = "SELECT sample_info.sample_id , physical.* FROM sample_info left JOIN physical ON sample_info.sample_id = physical.sample_id where sample_info.sample_id = '$sample' order by sample_info.sample_id";
+        $physical_response = @mysqli_query($dbc, $query_physical);
+        if($physical_response){
+            if(mysqli_num_rows($physical_response) > 0){  
+            //---------------RECORDS EXIST-----------   
+                if ($physical = mysqli_fetch_array($physical_response)){
+                    echo'
+            <div class="col-md">
             <h4><strong>Physical</strong></h4>
             <table class="table table-secondary table-striped table-bordered table-sm">
                 <tbody>
                     <tr>
                         <th>Sample ID</th>
-                        <td>'.$sample_id.'</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Bulk Density</th>
-                        <td>'.$bulkd.'</td>
+                        <td>'.$physical['sample_id'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">Total Gravel %</th>
-                        <td>'.$t_gravel.'</td>
+                        <td>'.$physical['t_gravel'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">Total Clay %</th>
-                        <td>'.$t_clay.'</td>
+                        <td>'.$physical['t_clay'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">Total Silt %</th>
-                        <td>'.$t_silt.'</td>
+                        <td>'.$physical['t_silt'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">Total Sand %</th>
-                        <td>'.$t_sand.'</td>
+                        <td>'.$physical['t_sand'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">Very Coarse Sand</th>
-                        <td>'.$vc_sand.'</td>
+                        <td>'.$physical['vc_sand'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">Coarse Sand</th>
-                        <td>'.$c_sand.'</td>
+                        <td>'.$physical['c_sand'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">Medium Sand</th>
-                        <td>'.$m_sand.'</td>
+                        <td>'.$physical['m_sand'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">Fine Sand</th>
-                        <td>'.$f_sand.'</td>
+                        <td>'.$physical['f_sand'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">Very Fine Sand</th>
-                        <td>'.$vf_sand.'</td>
+                        <td>'.$physical['vf_sand'].'</td>
                     </tr>
                     <tr>
-                        <th scope="row">Soil texture</th>
-                        <td>'.$texture.'</td>
+                        <th scope="row">Upper Depth (Bulk Density)</th>
+                        <td>'.$physical['u_depth_bd'].'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Lower Depth (Bulk Density)</th>
+                        <td>'.$physical['l_depth_bd'].'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Bulk Density</th>
+                        <td>'.$physical['bulkd'].'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Soil Texture</th>
+                        <td>'.$physical['texture'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">Field Soil Texture</th>
-                        <td>'.$field_txt.'</td>
+                        <td>'.$physical['field_txt'].'</td>
                     </tr>
                 </tbody>
             </table>
-        </div>
-        <div class="col-md-4">
+            </div>
+            ';
+        }}
+
+        else
+        {
+            echo "ERROR: No entries found. Please check the value you entered.</br>
+            You have entered Sample ID:<strong>$sample</strong></br>";
+        }}
+
+        else
+        {
+            echo "<p>ERROR: No entries found. Please select a field</p>";
+            echo mysqli_error($dbc);
+            //echo mysqli_error($dbc)."</br>";
+        }
+    
+    
+    $query_chemical = "SELECT sample_info.sample_id , chemical.* FROM sample_info left JOIN chemical ON sample_info.sample_id = chemical.sample_id where sample_info.sample_id = '$sample' order by sample_info.sample_id";
+    $chemical_response = @mysqli_query($dbc, $query_chemical);
+    if($chemical_response){
+        if(mysqli_num_rows($chemical_response) > 0){  
+        //------------------RECORDS EXIST-------------    
+    
+        if ($chemical = mysqli_fetch_array($chemical_response)){
+            echo'
+            <div class="col-md">
             <h4><strong>Chemical</strong></h4>
             <table class="table table-secondary table-striped table-bordered table-sm">
                 <tbody>
                     <tr>
                         <th>Sample ID</th>
-                        <td>'.$sample_id.'</td>
+                        <td>'.$chemical['sample_id'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">pH (CaCl<sub>2</sub>)</th>
-                        <td>'.$ph_cacl2.'</td>
+                        <td>'.$chemical['ph_cacl2'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">pH (H<sub>2</sub>O)</th>
-                        <td>'.$ph_h2o.'</td>
+                        <td>'.$chemical['ph_h2o'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">Total Carbon %</th>
-                        <td>'.$ttl_c.'</td>
+                        <td>'.$chemical['ttl_c'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">Total Nitrogen %</th>
-                        <td>'.$ttl_n.'</td>
+                        <td>'.$chemical['ttl_n'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">CaCO<sub>3</sub></th>
-                        <td>'.$caco3.'</td>
+                        <td>'.$chemical['caco3'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">Organic Carbon %</th>
-                        <td>'.$org_c.'</td>
+                        <td>'.$chemical['org_c'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">Organic Carbon (Non-Calcareous)</th>
-                        <td>'.$org_c_n.'</td>
+                        <td>'.$chemical['org_c_n'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">Total Exchangable Cations</th>
-                        <td>'.$tec.'</td>
+                        <td>'.$chemical['tec'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">Cation Exchange Capacity</th>
-                        <td>'.$cec.'</td>
+                        <td>'.$chemical['cec'].'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Exchangable Al</th>
+                        <td>'.$chemical['al_exch'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">Exchangable Ca</th>
-                        <td>'.$ca_exch.'</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Exchangable Mg</th>
-                        <td>'.$mg_exch.'</td>
+                        <td>'.$chemical['ca_exch'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">Exchangable K</th>
-                        <td>'.$k_exch.'</td>
+                        <td>'.$chemical['k_exch'].'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Exchangable Mg</th>
+                        <td>'.$chemical['mg_exch'].'</td>
                     </tr>
                     <tr>
                         <th scope="row">Exchangable Na</th>
-                        <td>'.$na_exch.'</td>
+                        <td>'.$chemical['na_exch'].'</td>
                     </tr>
                     <tr>
-                        <th scope="row">Available P (&#xb5;g/g); NaHCO<sub>3</sub> extractable</th>
-                        <td>'.$avail_pbi.'</td>
+                        <th scope="row">Available K (&microg/g)</th>
+                        <td>'.$chemical['avail_k'].'</td>
                     </tr>
                     <tr>
-                        <th scope="row">Available P (&#xb5;g/g); Bray Method</th>
-                        <td>'.$avail_pbr.'</td>
+                        <th scope="row">Available P (&microg/g); NaHCO<sub>3</sub> extractable</th>
+                        <td>'.$chemical['avail_pbi'].'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Available P (&microg/g); Bray Method</th>
+                        <td>'.$chemical['avail_pbr'].'</td>
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <h4><strong>Archive Jar #1</strong></h4>
-            <table class="table table-secondary table-striped table-bordered table-sm">
-                <tbody>
-                    <tr>
-                        <th>Sample ID</th>
-                        <td>'.$sample_id.'</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Jar Number</th>
-                        <td>'.$jar_1.'</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Year Archived</th>
-                        <td>'.$arch_year_jar_1.'</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Section</th>
-                        <td>'.$section_jar_1.'</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Column</th>
-                        <td>'.$column_jar_1.'</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Row</th>
-                        <td>'.$row_jar_1.'</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Box ID</th>
-                        <td>'.$box_id_jar_1.'</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-';
-if($jar_2_required == "yes"){
-    echo '
-        <div class="col-md-4">
-            <h4><strong>Archive Jar #2</strong></h4>
-            <table class="table table-secondary table-striped table-bordered table-sm">
-                <tbody>
-                    <tr>
-                        <th>Sample ID</th>
-                        <td>'.$sample_id.'</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Jar Number</th>
-                        <td>'.$jar_2.'</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Year Archived</th>
-                        <td>'.$arch_year_jar_2.'</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Section</th>
-                        <td>'.$section_jar_2.'</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Column</th>
-                        <td>'.$column_jar_2.'</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Row</th>
-                        <td>'.$row_jar_2.'</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Box ID</th>
-                        <td>'.$box_id_jar_2.'</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>';
-}
+            </div>
+            ';
+                                                                                    
+        }} 
+        else{
+            echo "ERROR: No entries found. Please check the value you entered.</br>
+            You have entered Sample ID:<strong>$sample</strong></br>";
+        }}
+        else{
+            echo "<p>ERROR: No entries found. Please select a field</p>";
+            }
+    
+    
+        $query_archive = "SELECT sample_info.sample_id , archive.* FROM sample_info left JOIN archive ON sample_info.sample_id = archive.sample_id where sample_info.sample_id = '$sample' order by sample_info.sample_id";
+        $archive_response = @mysqli_query($dbc, $query_archive);
+        if($archive_response){
+            if(mysqli_num_rows($archive_response)> 0){  
+            //--------------------RECORDS EXIST---------------    
+    
+            if ($archive = mysqli_fetch_array($archive_response)){
 
+            echo'
+            </div>
+            <div class="row mt-3">
+            <div class="col-sm-4">
+            <h4><strong>Archive</strong></h4>
+            <table class="table table-secondary table-striped table-bordered table-sm">
+                <tbody>
+                    <tr>
+                        <th>Sample ID</th>
+                        <td>'.$archive['sample_id'].'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Jar Number</th>
+                        <td>'.$archive['jar'].'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Year Archived</th>
+                        <td>'.$archive['arch_year'].'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Section</th>
+                        <td>'.$archive['section'].'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Column</th>
+                        <td>'.$archive['arch_col'].'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Row</th>
+                        <td>'.$archive['arch_row'].'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Box ID</th>
+                        <td>'.$archive['box_id'].'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Weight (g)</th>
+                        <td>'.$archive['weight'].'</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            ';
+                                                                                    
+            }} 
+            
+            else{
+                echo "ERROR: No entries found. Please check the value you entered.</br>
+                You have entered Sample ID:<strong>$sample</strong></br>";
+            }}
+            else{
+                echo "<p>ERROR: No entries found. Please select a field</p>";
+            }
+                
+    
+    
+        $query_location_info = "SELECT sample_info.loc_id , location_info.* FROM sample_info left JOIN location_info ON sample_info.loc_id = location_info.loc_id where sample_info.sample_id = '$sample' order by sample_info.sample_id";
+        $location_info_response = @mysqli_query($dbc, $query_location_info);
+        if($location_info_response){
+            if(mysqli_num_rows($location_info_response)>0){  
+            //-----------------------RECORDS EXIST-------------------------------    
+    
+            if ($location_info = mysqli_fetch_array($location_info_response)){
+
+                // --- Define global variables here to be accessed by leaflet---
+
+                $GLOBALS['lat'] = $location_info["lat_dd"];
+                $GLOBALS['long'] = $location_info["long_dd"];
+                echo '<script>';
+                    echo 'var GLOBALS_lat ='.json_encode($GLOBALS['lat']).';';
+                    echo 'var GLOBALS_long ='.json_encode($GLOBALS['long']).';';
+                echo '</script>';
+
+            echo'
+            <div class="col-sm-4">
+            <h4><strong>Location Info</strong></h4>
+            <table class="table table-secondary table-striped table-bordered table-sm">
+                <tbody>
+                    <tr>
+                        <th>Location ID</th>
+                        <td>'.$location_info['loc_id'].'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Latitude</th>
+                        <td>'.$location_info['lat_dd'].'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Longitude</th>
+                        <td>'.$location_info['long_dd'].'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Location Accuracy</th>
+                        <td>'.$location_info['loc_acc'].'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Soil Map Unit</th>
+                        <td>'.$location_info['map_unit'].'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Soil Subgroup</th>
+                        <td>'.$location_info['subgroup'].'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Soil Series</th>
+                        <td>'.$location_info['series'].'</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            ';
+                                                                                   
+            }} 
+            
+            else{
+                echo "ERROR: No entries found. Please check the value you entered.</br>
+                You have entered Sample ID:<strong>$sample</strong></br>";
+            }}
+            else{
+                echo "<p>ERROR: No entries found. Please select a field</p>";
+            }
+        
+            //-- Projects
+
+            $query_projects = "SELECT sample_info.proj_id, projects.* FROM sample_info left JOIN projects ON sample_info.proj_id = projects.proj_id where sample_info.sample_id = '$sample' order by sample_info.sample_id";
+            $projects_response = @mysqli_query($dbc, $query_projects);
+            if($projects_response){
+                if(mysqli_num_rows($projects_response)>0){  
+                //-----------------------RECORDS EXIST-------------------------------    
+        
+                if ($projects = mysqli_fetch_array($projects_response)){
+ 
+                echo'
+                <div class="col-sm-4">
+                <h4><strong>Projects</strong></h4>
+                <table class="table table-secondary table-striped table-bordered table-sm">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Project ID</th>
+                            <td>'.$projects['proj_id'].'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Project Name</th>
+                            <td>'.$projects['proj_name'].'</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                ';
+                                                                                       
+                }} 
+                
+                else{
+                    echo "ERROR: No entries found. Please check the value you entered.</br>
+                    You have entered Sample ID:<strong>$sample</strong></br>";
+                }}
+                else{
+                    echo "<p>ERROR: No entries found. Please select a field</p>";
+                }
+
+            
+        $query_archive_jar_2 = "SELECT sample_info.sample_id , archive.* FROM sample_info left JOIN archive ON sample_info.sample_id = archive.sample_id where sample_info.sample_id = '$sample' and archive.jar = 2";
+        $archive_jar_2_response = @mysqli_query($dbc, $query_archive_jar_2);
+        if($archive_jar_2_response){
+            if(mysqli_num_rows($archive_jar_2_response)> 0){  
+            //--------------------RECORDS EXIST---------------    
+    
+            if ($archive_jar_2 = mysqli_fetch_array($archive_jar_2_response)){
+ 
+                echo'
+                </div>
+                <div class="row mt-3">
+                <div class="col-sm-4">
+                <h4><strong>Archive (Jar #2)</strong></h4>
+                <table class="table table-secondary table-striped table-bordered table-sm">
+                    <tbody>
+                        <tr>
+                            <th>Sample ID</th>
+                            <td>'.$archive_jar_2['sample_id'].'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Jar Number</th>
+                            <td>'.$archive_jar_2['jar'].'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Year Archived</th>
+                            <td>'.$archive_jar_2['arch_year'].'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Section</th>
+                            <td>'.$archive_jar_2['section'].'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Column</th>
+                            <td>'.$archive_jar_2['arch_col'].'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Row</th>
+                            <td>'.$archive_jar_2['arch_row'].'</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Box_id</th>
+                            <td>'.$archive_jar_2['box_id'].'</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                ';
+                          
+                
+            }
+            else{
+                echo "Error!";
+            }
+                }}
 echo'
-    </div>
-</div>';
+</div>    
+</form>
 
-
+ 
+</div>
+</body>   
+</html>
+';
 ?>

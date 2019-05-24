@@ -108,23 +108,19 @@
 
         $query_update .= "SELECT * FROM sample_info, physical, chemical, archive WHERE sample_info.sample_id = $sample_id and sample_info.sample_id = physical.sample_id and sample_info.sample_id = chemical.sample_id and sample_info.sample_id = archive.sample_id";
             
-        $update_response = @mysqli_multi_query($dbc, $query_update);
+        $update_response = mysqli_multi_query($dbc, $query_update);
         
-        if($update_response){include("../functions/output-sample-data.php");
-        	//-- do{ 
-            //--    if ($result=mysqli_store_result($dbc)){
-            //--            while($row = mysqli_fetch_row($result)){    
-			//--			//----Output Updated Sample Data ---
-			//--				
-			//--				include("../functions/output-sample-data.php");
-			//--				echo"print out included";
-            //--            }  
-            //--       
-            //--            mysqli_free_result($result);
-			//--	}
-			//--           
-            //--}
-            //--	while(mysqli_next_result($dbc));
+        if($update_response){
+        	do{ 
+            	if($result=mysqli_store_result($dbc)){
+                    while($row = mysqli_fetch_row($result)){						
+					}
+					//----Output Updated Sample Data ---
+					include("../functions/output-sample-data.php");
+					mysqli_free_result($result);
+				}
+			}
+            while(mysqli_next_result($dbc));
         }
       
       	else{

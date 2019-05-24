@@ -13,8 +13,8 @@
  
     <?php
     require '../db-connect.php';
-    if (isset($_POST['update-sample-id'])){
-        $sample_id = $_POST['update-sample-id'];
+    if (isset($_POST['sample-id'])){
+        $sample_id = $_POST['sample-id'];
         $query_sample = "SELECT * FROM sample_info WHERE sample_id ='$sample_id'";
         $response = @mysqli_query($dbc, $query_sample);
         if($response){
@@ -325,7 +325,7 @@
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="weight_jar_1">Weight</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="weight_jar_1"  value="'.$row_archive["weight"].'" placeholder="g"/>
+                            <input class="form-control" type="number" name="weight_jar_1"  value="'.$row_archive["weight"].'" placeholder="g"/>
                         </div>
                     </div>
                 </div>
