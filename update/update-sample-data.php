@@ -1,7 +1,9 @@
 <head><title>Update Sample</title></head>
-<?php include '../nav-template.php';  
-      include("../functions/redirect-homepage.php");            
-?>
+<?php 
+include '../nav-template.php';  
+include '../functions/check-admin.php';
+check_admin();
+?>            
 
 <div class="container">
     <h1 class="display-4 text-center mb-5">Update Sample</h1>
