@@ -6,8 +6,8 @@ This function check if the current user is an admin user
 -----if not, after the admin pages address is typed in, it automatically jump to home page
 ---------------------------------------------------------------------------------------------------*/
 function check_admin (){
-    if($_SESSION['admin'] ==0){
-         header("location:http://".$_SERVER['SERVER_NAME']."/soil/connect/index.php");
+    if($_SESSION['admin']!=1){
+         header("location:http://".$_SERVER['SERVER_NAME']."/index");
     } 
 }
     
