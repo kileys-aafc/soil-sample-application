@@ -44,21 +44,6 @@
         </div>
     </div>
 </div>
-    
-   
-    <?php
-            if($_SESSION['admin']==0){
-               
-                echo '
-        
-
-               <div id="apply_to_admin">
-                    <p><strong>Apply as Admin</strong></p>
-                    <p> As an admin user, you have more privilege to </p>
-                    <p>Please contact the administrator.<p>
-           </div>';
-          }
-    ?>
 </main>      
 </body>   
 </html>
