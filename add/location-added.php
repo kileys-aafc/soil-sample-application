@@ -1,7 +1,9 @@
 <head><title>Location Added</title></head>
 <?php
-    include("../nav-template.php"); 
-    include("../functions/redirect-homepage.php");
+include '../nav-template.php'; 
+include '../functions/check-admin.php';
+check_admin();
+include("../functions/redirect-homepage.php");
 ?>
 
 <?php

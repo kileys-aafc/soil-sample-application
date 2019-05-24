@@ -1,6 +1,9 @@
 <head><title>Update Location</title></head> 
-<?php include '../nav-template.php'; ?>
-
+<?php 
+include '../nav-template.php'; 
+include '../functions/check-admin.php';
+check_admin();
+?>
 <div class="container">
     <div class="row">
         <div class="col">

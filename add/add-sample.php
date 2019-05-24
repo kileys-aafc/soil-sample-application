@@ -1,5 +1,8 @@
 <head><title>Add Sample</title></head>
-<?php include '../nav-template.php'; 
+<?php 
+include '../nav-template.php'; 
+include '../functions/check-admin.php';
+check_admin();
 require '../db-connect.php'; ?>
 
 <div class="container">

@@ -1,5 +1,10 @@
 <head><title>Location Updated</title></head>
-<?php include '../nav-template.php'; ?>
+<?php 
+include '../nav-template.php'; 
+include '../functions/check-admin.php';
+check_admin();
+?>
+
 
 <main role="main">       
 <div class="container">
