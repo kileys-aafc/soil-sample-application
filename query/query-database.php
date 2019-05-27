@@ -33,7 +33,7 @@ require '../db-connect.php'; ?>
             <div class="form-group col">
             <label for="select_province">Province</label>
                 <select class="form-control" id="select_province" name="province">
-					<option value="" hidden>All</option>
+					<option value="">All</option>
 					<?php $provinces = array("AB", "BC", "MB", "NB", "NL", "NT", "NS", "NU", "ON", "PE", "QC", "SK", "YT"); ?>
 					<?php foreach($provinces as $province){ ?>
 					<option value="<?php echo $province;?>"><?php echo $province;?></option>
