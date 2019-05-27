@@ -27,19 +27,19 @@ check_admin();
             <div class="form-group row">
                 <label class="col-sm-5 col-form-label" for="lat_dd">Latitude</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="lat_dd" placeholder="decimal degrees" required/>
+                    <input class="form-control" type="number" step="any" name="lat_dd" placeholder="decimal degrees" required/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-5 col-form-label" for="long_dd">Longitude</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="long_dd" placeholder="decimal degrees" required/>
+                    <input class="form-control" type="number" step="any" name="long_dd" placeholder="decimal degrees" required/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-5 col-form-label" for="loc_acc">Location Accuracy</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="loc_acc" placeholder="metres" required/>
+                    <input class="form-control" type="number" step="any" name="loc_acc" placeholder="metres" required/>
                 </div>
             </div>
             <div class="form-group row">

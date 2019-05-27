@@ -21,7 +21,7 @@ check_admin();
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="project_id">Project ID</label>
                     <div class="col-sm-8">
-                        <input class="form-control" required type="text" name="proj_id" value="" />
+                        <input class="form-control" required type="number" name="proj_id" value="" />
                     </div>
                 </div>
                 <div class="form-group row">

@@ -71,7 +71,7 @@ require '../db-connect.php'; ?>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label pr-0" for="year">Year</label>
                         <div class="col-sm-7">
-                            <input class="form-control"  type="text" name="year" value="" placeholder="YYYY" required />
+                            <input class="form-control"  type="number" name="year" value="" placeholder="YYYY" required />
                         </div>
                     </div>
                     <div class="form-group row">
@@ -95,13 +95,13 @@ require '../db-connect.php'; ?>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label pr-0" for="u_depth">Upper Depth</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="u_depth" placeholder="Centimetres" required />
+                            <input class="form-control" type="number" name="u_depth" placeholder="Centimetres" required />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label pr-0" for="l_depth">Lower Depth</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="l_depth" placeholder="Centimetres" required />
+                            <input class="form-control" type="number" name="l_depth" placeholder="Centimetres" required />
                         </div>
                     </div>
                     <div class="form-group row">
@@ -130,73 +130,73 @@ require '../db-connect.php'; ?>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="t_gravel">Total Gravel</label>
                         <div class="col-sm-7">
-                            <input class="form-control"  type="text" name="t_gravel" placeholder="%"/>
+                            <input class="form-control"  type="number" step="any" name="t_gravel" placeholder="%"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="t_clay">Total Clay</label>
                         <div class="col-sm-7">
-                            <input class="form-control"  type="text" name="t_clay" placeholder="%"/>
+                            <input class="form-control"  type="number" step="any" name="t_clay" placeholder="%"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="t_silt">Total Silt</label>
                         <div class="col-sm-7">
-                            <input class="form-control"  type="text" name="t_silt" placeholder="%"/>
+                            <input class="form-control"  type="number" step="any" name="t_silt" placeholder="%"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="t_sand">Total Sand</label>
                         <div class="col-sm-7">
-                            <input class="form-control"  type="text" name="t_sand" placeholder="%"/>
+                            <input class="form-control"  type="number" step="any" name="t_sand" placeholder="%"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="vc_sand">Very Coarse Sand</label>
                         <div class="col-sm-7">
-                            <input class="form-control"  type="text" name="vc_sand" placeholder="%"/>
+                            <input class="form-control"  type="number" step="any" name="vc_sand" placeholder="%"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="c_sand">Coarse Sand</label>
                         <div class="col-sm-7">
-                            <input class="form-control"  type="text" name="c_sand" placeholder="%"/>
+                            <input class="form-control"  type="number" step="any" name="c_sand" placeholder="%"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="m_sand">Medium Sand</label>
                         <div class="col-sm-7">
-                            <input class="form-control"  type="text" name="m_sand" placeholder="%"/>
+                            <input class="form-control"  type="number" step="any" name="m_sand" placeholder="%"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="f_sand">Fine Sand</label>
                         <div class="col-sm-7">
-                            <input class="form-control"  type="text" name="f_sand" placeholder="%"/>
+                            <input class="form-control"  type="number" step="any" name="f_sand" placeholder="%"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label" for="vf_sand">Very Fine Sand</label>
                         <div class="col-sm-7">
-                            <input class="form-control"  type="text" name="vf_sand" placeholder="%"/>
+                            <input class="form-control"  type="number" step="any" name="vf_sand" placeholder="%"/>
                         </div>
                     </div>
                     <div class="form-group row">                    
                         <label class="col-sm-4 col-form-label" for="u_depth_bd">Upper Depth (Bulk Density)</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="u_depth_bd" placeholder="cm"/>
+                            <input class="form-control" type="number" name="u_depth_bd" placeholder="cm"/>
                         </div>
                     </div>
                     <div class="form-group row">                    
                         <label class="col-sm-4 col-form-label" for="l_depth_bd">Lower Depth (Bulk Density)</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="l_depth_bd" placeholder="cm"/>
+                            <input class="form-control" type="number" name="l_depth_bd" placeholder="cm"/>
                         </div>
                     </div>
                     <div class="form-group row">                    
                         <label class="col-sm-4 col-form-label" for="bulkd">Bulk Density</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="bulkd" placeholder="g/cm&sup3"/>
+                            <input class="form-control" type="number" step="any" name="bulkd" placeholder="g/cm&sup3"/>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -224,13 +224,13 @@ require '../db-connect.php'; ?>
                     <div class="form-group row mt-">
                         <label class="col-sm-5 col-form-label" for="jar_1">Jar #</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="jar_1" value="1" readonly/>
+                            <input class="form-control" type="number" name="jar_1" value="1" readonly/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="arch_year_jar_1">Archive Year</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="arch_year_jar_1" placeholder="YYYY" required/>
+                            <input class="form-control" type="number" name="arch_year_jar_1" placeholder="YYYY" required/>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -248,19 +248,19 @@ require '../db-connect.php'; ?>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="row_jar_1">Row</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="row_jar_1" required/>
+                            <input class="form-control" type="number" name="row_jar_1" required/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="box_id_jar_1">Box ID</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="box_id_jar_1" required/>
+                            <input class="form-control" type="number" name="box_id_jar_1" required/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="weight_jar_1">Weight</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="weight_jar_1" placeholder="g"/>
+                            <input class="form-control" type="number" name="weight_jar_1" placeholder="g"/>
                         </div>
                     </div>
                 </div>
@@ -284,7 +284,7 @@ require '../db-connect.php'; ?>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="arch_year_jar_2">Archive Year</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="arch_year_jar_2"/>
+                            <input class="form-control" type="number" name="arch_year_jar_2"/>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -302,19 +302,19 @@ require '../db-connect.php'; ?>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="row_jar_2">Row</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="row_jar_2"/>
+                            <input class="form-control" type="number" name="row_jar_2"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="box_id_jar_2">Box ID</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="box_id_jar_2"/>
+                            <input class="form-control" type="number" name="box_id_jar_2"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label" for="weight_jar_2">Weight</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="weight_jar_2" placeholder="g"/>
+                            <input class="form-control" type="number" name="weight_jar_2" placeholder="g"/>
                         </div>
                     </div>
                 </div>
@@ -327,103 +327,103 @@ require '../db-connect.php'; ?>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="ph_cacl2">pH (CaCl<sub>2</sub>)</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="ph_cacl2"/>
+                    <input class="form-control" type="number" step="any" name="ph_cacl2"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="ph_h2o">pH (H<sub>2</sub>O)</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="ph_h2o"/>
+                    <input class="form-control" type="number" step="any" name="ph_h2o"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="ttl_c">Total C</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="ttl_c" placeholder="%"/>
+                    <input class="form-control" type="number" step="any" name="ttl_c" placeholder="%"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="ttl_n">Total N</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="ttl_n" placeholder="%"/>
+                    <input class="form-control" type="number" step="any" name="ttl_n" placeholder="%"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="caco3">CaCO<sub>3</sub></label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="caco3" placeholder="%"/>
+                    <input class="form-control" type="number" step="any" name="caco3" placeholder="%"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="org_c">org_c</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="org_c"/>
+                    <input class="form-control" type="number" step="any" name="org_c"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="org_c_n">org_c_n</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="org_c_n"/>
+                    <input class="form-control" type="number" step="any" name="org_c_n"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="tec">Total Exchangable Cations</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="tec" placeholder="meq/100g"/>
+                    <input class="form-control" type="number" step="any" name="tec" placeholder="meq/100g"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="cec">Cation Exchange Capacity</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="cec" placeholder="meq/100g"/>
+                    <input class="form-control" type="number" step="any" name="cec" placeholder="meq/100g"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="al_exch">Exchangable Al</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="al_exch" placeholder="meq/100g"/>
+                    <input class="form-control" type="number" step="any" name="al_exch" placeholder="meq/100g"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="ca_exch">Exchangable Ca</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="ca_exch" placeholder="meq/100g"/>
+                    <input class="form-control" type="number" step="any" name="ca_exch" placeholder="meq/100g"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="mg_exch">Exchangable Mg</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="mg_exch" placeholder="meq/100g"/>
+                    <input class="form-control" type="number" step="any" name="mg_exch" placeholder="meq/100g"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="k_exch">Exchangable K</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="k_exch" placeholder="meq/100g"/>
+                    <input class="form-control" type="number" step="any" name="k_exch" placeholder="meq/100g"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="exch_na">Exchangable Na</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="na_exch" placeholder="meq/100g"/>
+                    <input class="form-control" type="number" step="any" name="na_exch" placeholder="meq/100g"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="avail_k">Available K</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="avail_k" placeholder="&#xb5;g/g"/>
+                    <input class="form-control" type="number" step="any" name="avail_k" placeholder="&#xb5;g/g"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="avail_pbi">Available P (NaHCO<sub>3</sub>)</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="avail_pbi" placeholder="&#xb5;g/g"/>
+                    <input class="form-control" type="number" step="any" name="avail_pbi" placeholder="&#xb5;g/g"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label" for="avail_pbr">Available P (Bray)</label>
                 <div class="col-sm-7">
-                    <input class="form-control" type="text" name="avail_pbr" placeholder="&#xb5;g/g"/>
+                    <input class="form-control" type="number" step="any" name="avail_pbr" placeholder="&#xb5;g/g"/>
                 </div>
             </div>
         </div>

@@ -28,25 +28,25 @@ check_admin();
                         <div class="form-group row">
                             <label class="col-sm-5 col-form-label" for="loc_id">Location ID</label>
                             <div class="col-sm-7">
-                                <input class="form-control" type="text" name="loc_id" value="'.$row_location_info['loc_id'].'" readonly/>
+                                <input class="form-control" type="number" name="loc_id" value="'.$row_location_info['loc_id'].'" readonly/>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-5 col-form-label" for="lat_dd">Latitude (DD)</label>
                             <div class="col-sm-7">
-                                <input class="form-control" type="text" name="lat_dd" value="'.$row_location_info['lat_dd'].'" required/>
+                                <input class="form-control" type="number" step="any" name="lat_dd" value="'.$row_location_info['lat_dd'].'" required/>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-5 col-form-label" for="long_dd">Longitude (DD)</label>
                             <div class="col-sm-7">
-                                <input class="form-control" type="text" name="long_dd" value="'.$row_location_info['long_dd'].'" required/>
+                                <input class="form-control" type="number" step="any" name="long_dd" value="'.$row_location_info['long_dd'].'" required/>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-5 col-form-label" for="loc_acc">Location Accuracy (m)</label>
                             <div class="col-sm-7">
-                                <input class="form-control" type="text" name="loc_acc" value="'.$row_location_info['loc_acc'].'" />
+                                <input class="form-control" type="number" step="any" name="loc_acc" value="'.$row_location_info['loc_acc'].'" />
                             </div>
                         </div>
                         <div class="form-group row">
