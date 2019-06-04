@@ -65,6 +65,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                         <a class="dropdown-item" href="/update/update-sample.php">Update Sample</a>
                         <a class="dropdown-item" href="/update/update-project.php">Update Project</a>
                         <a class="dropdown-item" href="/update/update-location.php">Update Location</a>
+                        <a class="dropdown-item" href="/delete/delete-sample.php">Delete Sample</a>
                     </div>
                 </li>
                 ';}?>
@@ -88,7 +89,6 @@ if ($_SESSION['admin'] == 1) {
 						<a class="nav-link dropdown-toggle"  id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
 						<div class="dropdown-menu" aria-labelledby="dropdown04">
 								<a class="dropdown-item" href="/admin/manage-users.php">Manage Users</a>
-								<a class="dropdown-item" href="/admin/delete-sample.php">Delete Sample</a>
 						</div>
 				</li>';
 }
