@@ -96,10 +96,6 @@ function hideResults() {
     {
         x.style.display = "none";
     }
-    var y = document.getElementById("download-csv");
-    {
-        y.style.display = "none";
-    }
 }
 </script>
 </body>
