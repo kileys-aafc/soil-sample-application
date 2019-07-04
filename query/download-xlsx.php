@@ -254,7 +254,7 @@ mysqli_free_result($result);
 $spreadsheet->setActiveSheetIndex(0);
 $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
 $writer->save('..\download\sample-query.xlsx');
-exit;
-?>
+
+
 
 
