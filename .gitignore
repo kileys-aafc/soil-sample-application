@@ -1,1 +1,3 @@
 soil-sample-app.code-workspace
+/vendor
+*.xlsx
