@@ -69,11 +69,14 @@ require '../db-connect.php'; ?>
         </div>
         <div class="form-row">
             <div class="form-group col text-center mt-3">
-                <button name="submit-query" type="submit" class="btn btn-success" data-toggle="collapse" data-target="#query-sample-results"  aria-expanded="false" aria-controls="sample-results">Query</button>
-            </div>   
+                <button name="submit-query" type="submit" class="btn btn-success">Query</button>
+                <a href="../download/sample-query.xlsx" class="btn btn-primary <?php if(!isset($_POST['submit-query'])) echo "collapse"; ?>">Download .xlsx</a>
+            </div>
+            
         </div>        
     </form>
 </div>
+
 <div id="query-sample-results" class="container mb-5">                
 	<?php include 'query-samples.php'?>
 </div>    
@@ -92,6 +95,10 @@ function hideResults() {
     var x = document.getElementById("query-sample-results");
     {
         x.style.display = "none";
+    }
+    var y = document.getElementById("download-csv");
+    {
+        y.style.display = "none";
     }
 }
 </script>

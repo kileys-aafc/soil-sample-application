@@ -124,5 +124,6 @@ $response_projects = @mysqli_query($dbc,$query_projects);
 //--- call function to build table ---
 include("build-query-table.php");
 build_query_table($response_samples, $response_locations, $response_projects);
+include("download-xlsx.php");
 mysqli_close($dbc);
 }?>
