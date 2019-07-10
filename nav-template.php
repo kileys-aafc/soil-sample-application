@@ -74,6 +74,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
                         aria-expanded="false">About</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown03">
                         <a class="dropdown-item" href="/about/info.php">Archive Info</a>
+                        <a class="dropdown-item" href="/about/definitions.php">Data Definitions</a>
                         <a class="dropdown-item" href="/about/contact.php">Contact Admin</a>
                     </div>
                 </li>
