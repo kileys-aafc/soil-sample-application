@@ -1,7 +1,7 @@
 <?php
-    DEFINE('DB_USER','phpmyadmin'); //change as required 
-    DEFINE ('DB_PASSWORD','soil'); //change as required
-    DEFINE('DB_HOST','localhost'); //change as required
+    DEFINE('DB_USER','root'); //change as required 
+    DEFINE ('DB_PASSWORD','root'); //change as required
+    DEFINE('DB_HOST','127.0.0.1'); //change as required
     DEFINE('DB_NAME','soil_samples'); //change as required
 
 
