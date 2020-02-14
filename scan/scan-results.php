@@ -299,10 +299,6 @@
                             <td>'.$archive['sample_id'].'</td>
                         </tr>
                         <tr>
-                            <th scope="row">Jar Number</th>
-                            <td>'.$archive['jar'].'</td>
-                        </tr>
-                        <tr>
                             <th scope="row">Year Archived</th>
                             <td>'.$archive['arch_year'].'</td>
                         </tr>
