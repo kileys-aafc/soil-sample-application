@@ -18,7 +18,6 @@ require '../db-connect.php'; ?>
     <div class="row">
         <div class="col-md-8">
             <div class="row">
-        
                 <!-- Sample Info -->
                 <div class="col-md-6">
                     <h4 class="text-center mb-4">Sample Info</h4>
@@ -214,107 +213,45 @@ require '../db-connect.php'; ?>
                 </div>
             </div>
             <div class="row">
-
-                <!-- Archive 1 -->
+                <!-- Archive -->
                 <div class="col-md-6 mt-5 px-5">
                     <div class="row justify-content-center mb-5">
                         <h4 class="d-inline mr-2">Archive</h4>
-                        <h4 class="d-inline text-muted">(Jar #1)</h4>
                     </div>
-                    <div class="form-group row mt-">
-                        <label class="col-sm-5 col-form-label" for="jar_1">Jar #</label>
+                    <div class="form-group row">
+                        <label class="col-sm-5 col-form-label" for="arch_year">Archive Year</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="number" name="jar_1" value="1" readonly/>
+                            <input class="form-control" type="number" name="arch_year" placeholder="YYYY" required/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="arch_year_jar_1">Archive Year</label>
+                        <label class="col-sm-5 col-form-label" for="section">Section</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="number" name="arch_year_jar_1" placeholder="YYYY" required/>
+                            <input class="form-control" type="text" name="section" required/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="section_jar_1">Section</label>
+                        <label class="col-sm-5 col-form-label" for="column">Column</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="section_jar_1" required/>
+                            <input class="form-control" type="text" name="column" required/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="column_jar_1">Column</label>
+                        <label class="col-sm-5 col-form-label" for="row">Row</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="text" name="column_jar_1" required/>
+                            <input class="form-control" type="number" name="row" required/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="row_jar_1">Row</label>
+                        <label class="col-sm-5 col-form-label" for="box_id">Box ID</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="number" name="row_jar_1" required/>
+                            <input class="form-control" type="number" name="box_id" required/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="box_id_jar_1">Box ID</label>
+                        <label class="col-sm-5 col-form-label" for="weight">Weight</label>
                         <div class="col-sm-7">
-                            <input class="form-control" type="number" name="box_id_jar_1" required/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="weight_jar_1">Weight</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="number" name="weight_jar_1" placeholder="g"/>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Archive 2 -->                            
-                <div class="col-md-6 mt-5 px-5">
-                    <div class="row justify-content-center">
-                        <h4 class="d-inline mr-2">Archive</h4>
-                        <h4 class="d-inline text-muted">(Jar #2)</h4>
-                    </div>
-                    <p class="small text-center mb-4">(If required)</p>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="jar_2_required">Second Jar?</label>
-                        <div class="col-sm-7">
-                            <select class="form-control" name="jar_2_required">
-                                    <option value="no" >No</option>
-                                    <option value="yes" >Yes</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="arch_year_jar_2">Archive Year</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="number" name="arch_year_jar_2"/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="section_jar_2">Section</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" name="section_jar_2"/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="column_jar_2">Column</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" name="column_jar_2"/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="row_jar_2">Row</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="number" name="row_jar_2"/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="box_id_jar_2">Box ID</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="number" name="box_id_jar_2"/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="weight_jar_2">Weight</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="number" name="weight_jar_2" placeholder="g"/>
+                            <input class="form-control" type="number" name="weight" placeholder="g"/>
                         </div>
                     </div>
                 </div>
