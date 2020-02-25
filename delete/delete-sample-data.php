@@ -6,15 +6,16 @@
     check_admin();
 ?>
 
-<main role="main">
 <div class="container">
-    <div class="row justify-content-center" id="instruction" >
-        <div class="col-6 text-center">
-            <h1 class="display-4">Delete Sample</h1>
-            <p class="lead my-4">Here is the sample data about to be deleted.</p>  
+    <div class="row">
+        <div class="col">
+            <h1 class="display-4 text-center">Delete Sample</h1>
+            <p class="lead text-center my-4">Here is the sample data about to be deleted.</p>
+            <hr class="mb-4">  
         </div> 
     </div>
-    <hr class="mb-4">    
+</div>
+<div class="container">       
     <div class="row">
         <div class="col-md">
         <form action="sample-deleted.php" method="post"> 
@@ -418,7 +419,7 @@ mysqli_close($dbc);
 ?>
 </div>    
 
-    </div>    
+        
     <div class="row justify-content-center">
         <div class="col-6 text-center">
             <input class="form-control" hidden type="text" name="sample_id" value="<?php echo $sample_id ?>"/>
@@ -426,7 +427,7 @@ mysqli_close($dbc);
             <small class="form-text text-muted mb-5">Warning: this cannot be undone</small>  
         </div> 
     <div>    
-   
+    </div>  
 </form> 
 </div>
 </body>   
