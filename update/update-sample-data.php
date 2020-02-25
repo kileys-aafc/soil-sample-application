@@ -6,13 +6,16 @@ check_admin();
 ?>            
 
 <div class="container">
-    <h1 class="display-4 text-center mb-5">Update Sample</h1>
-    <hr class="mb-4">
+    <div class="row">
+        <div class="col">
+            <h1 class="display-4 text-center mb-5">Update Sample</h1>
+            <hr class="mb-4">
+        </div>
+    </div>
 </div>
 <div class="container">
-<form class="justify content center" action="sample-updated.php" method="post">
-<div class="row">
- 
+<form action="sample-updated.php" method="post">
+    <div class="row">
     <?php
     require '../db-connect.php';
     if (isset($_POST['sample-id'])){
@@ -25,20 +28,18 @@ check_admin();
                 $status="";
                
                 if ($row_sample_info = mysqli_fetch_array($response)){                      
+                // Sample Info //
                 echo'
-                <!-- Sample Info -->
-                <div class="col-md-8">
-                <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <h4 class="text-center mb-4">Sample Info</h4>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="sample_id">Sample ID</label>
+                        <label class="col-sm-4 col-form-label" for="sample_id">Sample ID</label>
                         <div class="col-sm-7">
                             <input class="form-control" required type="text" name="sample_id" value="'.$sample_id.'" readonly/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="loc_id">Location ID</label>
+                        <label class="col-sm-4 col-form-label pr-0" for="loc_id">Location ID</label>
                         <div class="col-sm-7">';   
                         
                             
@@ -58,7 +59,7 @@ check_admin();
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="proj_id">Project ID</label>
+                        <label class="col-sm-4 col-form-label pr-0" for="proj_id">Project ID</label>
                         <div class="col-sm-7">';
                             
                             
@@ -67,7 +68,7 @@ check_admin();
 
                             echo
                                 '<select class="form-control" name="proj_id" required >
-                                <option value="'.$row_sample_info["proj_id"].'">'.$row_sample_info["proj_id"].'</option>';
+                                <option value="'.$row_sample_info["proj_id"].'" hidden>'.$row_sample_info["proj_id"].'</option>';
                             
                             while($row_proj_id = mysqli_fetch_assoc($get_proj_id))
                             {      
@@ -78,19 +79,19 @@ check_admin();
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="year">Year</label>
+                        <label class="col-sm-4 col-form-label pr-0" for="year">Year</label>
                         <div class="col-sm-7">
                             <input class="form-control" type="number" name="year" value="'.$row_sample_info["year"].'" required />
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="date">Date</label>
+                        <label class="col-sm-4 col-form-label pr-0" for="date">Date</label>
                         <div class="col-sm-7">
                             <input class="form-control" type="date" name="date" value="'.$row_sample_info["date"].'"/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="province">Province</label>
+                        <label class="col-sm-4 col-form-label pr-0" for="province">Province</label>
                         <div class="col-sm-7">
                             <select class="form-control" required name="province">
                                 <option value="'.$row_sample_info["province"].'">'.$row_sample_info["province"].'</option>';
@@ -103,36 +104,35 @@ check_admin();
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="u_depth">Upper Depth</label>
+                        <label class="col-sm-4 col-form-label pr-0" for="u_depth">Upper Depth</label>
                         <div class="col-sm-7">
                             <input class="form-control" type="number" name="u_depth" value="'.$row_sample_info["u_depth"].'" placeholder="Centimetres" required />
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="l_depth">Lower Depth</label>
+                        <label class="col-sm-4 col-form-label pr-0" for="l_depth">Lower Depth</label>
                         <div class="col-sm-7">
                             <input class="form-control" type="number" name="l_depth" value="'.$row_sample_info["l_depth"].'" placeholder="Centimetres" required />
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="horizon">Horizon</label>
+                        <label class="col-sm-4 col-form-label pr-0" for="horizon">Horizon</label>
                         <div class="col-sm-7">
                             <input class="form-control" type="text" name="horizon" value="'.$row_sample_info["horizon"].'" placeholder=""/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="orig_id">Original ID</label>
+                        <label class="col-sm-4 col-form-label pr-0" for="orig_id">Original ID</label>
                         <div class="col-sm-7">
                             <input class="form-control" type="text" name="orig_id" value="'.$row_sample_info["orig_id"].'" placeholder=""/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label pr-0" for="notes">Notes</label>
+                        <label class="col-sm-4 col-form-label pr-0" for="notes">Notes</label>
                         <div class="col-sm-7">
                             <input class="form-control" type="text" name="notes" value="'.$row_sample_info["notes"].'" placeholder=""/>
                         </div>
-                    </div>
-                </div>';  
+                    </div>';  
                 }      
             }
 
@@ -147,6 +147,76 @@ check_admin();
             else{    
                 echo "<table><tr><td>ERROR: No entries found. Please select a field</td></tr></table>";
             }   
+
+            $query_archive = "SELECT sample_info.sample_id, archive.* FROM sample_info left JOIN archive ON sample_info.sample_id = archive.sample_id where sample_info.sample_id = '$sample_id' order by sample_info.sample_id";
+            $response_archive = @mysqli_query($dbc, $query_archive);
+            
+            
+
+            if($response_archive){
+                if(mysqli_num_rows($response_archive)>0){ 
+                    $status="";
+            //-- RECORDS EXIST --    
+        
+            if ($row_archive = mysqli_fetch_array($response_archive)){
+            
+            //-- Archive Info
+            echo'         
+                    <div class="row justify-content-center mb-4">
+                        <h4>Archive</h4>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label" for="arch_year">Archive Year</label>
+                        <div class="col-sm-7">
+                            <input class="form-control" type="number" name="arch_year"  value="'.$row_archive["arch_year"].'" placeholder="YYYY" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label" for="section">Section</label>
+                        <div class="col-sm-7">
+                            <input class="form-control" type="text" name="section"  value="'.$row_archive["section"].'"required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label" for="arch_col">Column</label>
+                        <div class="col-sm-7">
+                            <input class="form-control" type="text" name="arch_col"  value="'.$row_archive["arch_col"].'" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label" for="arch_row">Row</label>
+                        <div class="col-sm-7">
+                            <input class="form-control" type="number" name="arch_row"  value="'.$row_archive["arch_row"].'" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label" for="box_id">Box ID</label>
+                        <div class="col-sm-7">
+                            <input class="form-control" type="number" name="box_id"  value="'.$row_archive["box_id"].'" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label" for="weight">Weight</label>
+                        <div class="col-sm-7">
+                            <input class="form-control" type="number" step="any" name="weight"  value="'.$row_archive["weight"].'" placeholder="g"/>
+                        </div>
+                    </div>
+                </div>
+            
+                ';
+           }     
+        } 
+        
+        else {
+                $status="disabled";
+                echo "ERROR: No entries found. Please check the value you entered.</br>
+                You have entered Sample ID:<b>$sample_id</b></br>";
+        }
+    }
+        else{
+            echo "<table><tr><td>ERROR: No entries found. Please select a field</td></tr></table>";
+            
+        }
 
             //-- Physical Info --
             
@@ -163,7 +233,7 @@ check_admin();
             
             //-- Physical Info  --
             echo'
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <h4 class="text-center mb-4">Physical</h4>
                 
                 <div class="form-group row">
@@ -251,7 +321,7 @@ check_admin();
                     </div>
                 </div>
             </div>
-        </div>';
+        ';
                                                                                         
             }     
             } 
@@ -265,151 +335,10 @@ check_admin();
             else {
                  echo "<table><tr><td>ERROR: No entries found. Please select a field</td></tr></table>";
             }
+         
             
-            
-            
-                
-            $query_archive = "SELECT sample_info.sample_id, archive.* FROM sample_info left JOIN archive ON sample_info.sample_id = archive.sample_id where sample_info.sample_id = '$sample_id' order by sample_info.sample_id";
-            $response_archive = @mysqli_query($dbc, $query_archive);
-            
-            echo'<div class="row">';
 
-            if($response_archive){
-                if(mysqli_num_rows($response_archive)>0){ 
-                    $status="";
-            //-- RECORDS EXIST --    
-        
-            if ($row_archive = mysqli_fetch_array($response_archive)){
-            
-            //-- Archive Info
-            echo'                         
-                <div class="col-md-6 mt-5 px-5">
-                    <div class="row justify-content-center mb-5">
-                        <h4 class="d-inline mr-2">Archive</h4>
-                        <h4 class="d-inline text-muted">(Jar #1)</h4>
-                    </div>
-                    <div class="form-group row mt-">
-                        <label class="col-sm-5 col-form-label" for="jar_1">Jar #</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" name="jar_1" value="'.$row_archive["jar"].'" readonly/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="arch_year_jar_1">Archive Year</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="number" name="arch_year_jar_1"  value="'.$row_archive["arch_year"].'" placeholder="YYYY" required/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="section_jar_1">Section</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" name="section_jar_1"  value="'.$row_archive["section"].'"required/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="column_jar_1">Column</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="text" name="column_jar_1"  value="'.$row_archive["arch_col"].'" required/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="row_jar_1">Row</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="number" name="row_jar_1"  value="'.$row_archive["arch_row"].'" required/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="box_id_jar_1">Box ID</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="number" name="box_id_jar_1"  value="'.$row_archive["box_id"].'" required/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="weight_jar_1">Weight</label>
-                        <div class="col-sm-7">
-                            <input class="form-control" type="number" step="any" name="weight_jar_1"  value="'.$row_archive["weight"].'" placeholder="g"/>
-                        </div>
-                    </div>
-                </div>
-                ';
-           }     
-        } 
-        
-        else {
-                $status="disabled";
-                echo "ERROR: No entries found. Please check the value you entered.</br>
-                You have entered Sample ID:<b>$sample_id</b></br>";
-        }
-    }
-        else{
-            echo "<table><tr><td>ERROR: No entries found. Please select a field</td></tr></table>";
-            
-        }
-
-            $query_archive_jar2 = "SELECT sample_info.sample_id, archive.* FROM sample_info left JOIN archive ON sample_info.sample_id = archive.sample_id WHERE sample_info.sample_id = '$sample_id' AND archive.jar = 2";
-            $response_archive_jar2 = @mysqli_query($dbc, $query_archive_jar2);
-            
-            $row_archive_jar2 = mysqli_fetch_array($response_archive_jar2);
-            $rowcount_archive_jar2 = mysqli_num_rows($response_archive_jar2);
-            
-            
-                    //-- Archive Info Jar #2
-                    echo'                         
-                    <div class="col-md-6 mt-5 px-5">
-                    <div class="row justify-content-center">
-                        <h4 class="d-inline mr-2">Archive</h4>
-                        <h4 class="d-inline text-muted">(Jar #2)</h4>
-                    </div>
-                    <p class="small text-center mb-4">(If required)</p>
-                        <div class="form-group row">
-                        <label class="col-sm-5 col-form-label" for="jar_2_required">Second Jar?</label>
-                        <div class="col-sm-7">
-                            <select class="form-control" name="jar_2_required">
-                                    <option value="no">No</option>
-                                    <option value="yes"'; if($rowcount_archive_jar2 > 0){echo'selected="selected"';} echo'>Yes</option>
-                            </select>
-                        </div>
-                    </div>
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label" for="arch_year_jar_1">Archive Year</label>
-                            <div class="col-sm-7">
-                                <input class="form-control" type="text" name="arch_year_jar_2"  value="'.$row_archive_jar2["arch_year"].'" placeholder="YYYY"/>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label" for="section_jar_1">Section</label>
-                            <div class="col-sm-7">
-                                <input class="form-control" type="text" name="section_jar_2"  value="'.$row_archive_jar2["section"].'" />
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label" for="column_jar_1">Column</label>
-                            <div class="col-sm-7">
-                                <input class="form-control" type="text" name="column_jar_2"  value="'.$row_archive_jar2["arch_col"].'" />
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label" for="row_jar_1">Row</label>
-                            <div class="col-sm-7">
-                                <input class="form-control" type="number" name="row_jar_2"  value="'.$row_archive_jar2["arch_row"].'" />
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label" for="box_id_jar_1">Box ID</label>
-                            <div class="col-sm-7">
-                                <input class="form-control" type="number" name="box_id_jar_2"  value="'.$row_archive_jar2["box_id"].'" />
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-sm-5 col-form-label" for="weight_jar_2">Weight</label>
-                            <div class="col-sm-7">
-                                <input class="form-control" type="number" step="any" name="weight_jar_2"  value="'.$row_archive_jar2["weight"].'" placeholder="g"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>';
-                }     
+        }     
               
         //-- Chemical Info  -->            
     
