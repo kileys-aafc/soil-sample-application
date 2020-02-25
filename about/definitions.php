@@ -199,7 +199,7 @@
             </dl>
         </div>
     </div>
-    <div id="Archive" class="row my-4">
+    <div id="archive" class="row my-4">
         <div class="col">
             <h3 class="mb-4">Archive</h3>
             <dl class="row">
@@ -229,4 +229,15 @@
             </dl>
         </div>
     </div>
-</html>
+    <div id="projects" class="row my-4">
+        <div class="col">
+            <h3 class="mb-4">Projects</h3>
+            <dl class="row">
+                <dt class="col-sm-2">project_id</dt>
+                <dd class="col-sm-10">Project ID</dd>
+
+                <dt class="col-sm-2">proj_name</dt>
+                <dd class="col-sm-10">Project name</dd>
+            </dl>
+        </div>
+    </div>
